@@ -1406,25 +1406,28 @@ function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersec
 
 
 /* ================= REAL-LIFE FOOTAGE ================= */
-/* To play your own clip inside the panel, add  video:"your-file.mp4"  to any entry below. */
+/* ===== HOW TO ADD VIDEOS (each entry below has two blanks) =====
+   youtube:"..."  paste a YouTube link (youtu.be/... or youtube.com/watch?v=...). It plays right in the pop-up.
+   video:"..."    your own file, e.g. "videos/rat.mp4" (upload it to the videos folder). Your file wins if both are set.
+   Leave both empty and the pop-up shows a "Watch" button that opens the link in a new tab. */
 (()=>{
   const yt=q=>'https://www.youtube.com/results?search_query='+encodeURIComponent(q);
   const REAL={
-    rat:{t:'Toxoplasma and the fearless rat',see:'Lab experiments where infected rats explore areas marked with cat urine instead of avoiding them, plus how the parasite cycles between rats and cats.',
+    rat:{youtube:'',video:'',t:'Toxoplasma and the fearless rat',see:'Lab experiments where infected rats explore areas marked with cat urine instead of avoiding them, plus how the parasite cycles between rats and cats.',
       main:{u:yt('toxoplasma rat cat urine fear experiment'),l:'Watch on YouTube'},more:[['Read: Stanford study (ScienceDaily)','https://www.sciencedaily.com/releases/2011/08/110819141519.htm'],['Read: Science News','https://www.sciencenews.org/?p=32381']]},
-    cricket:{t:'Hairworm leaves a cricket',see:'PBS Deep Look filmed a hairworm many times longer than its cricket host sliding out of the body once the cricket reaches water.',
+    cricket:{youtube:'',video:'',t:'Hairworm leaves a cricket',see:'PBS Deep Look filmed a hairworm many times longer than its cricket host sliding out of the body once the cricket reaches water.',
       main:{u:'https://www.pbs.org/video/these-hairworms-eat-a-cricket-alive-and-control-its-mind-uwrojq',l:'Watch on PBS Deep Look'},more:[['KQED article + video','https://www.kqed.org/science/1937775/these-hairworms-eat-a-cricket-alive-and-control-its-mind'],['More footage on YouTube',yt('hairworm emerging from cricket water')]]},
-    ant:{t:'Cordyceps takes over an ant',see:'BBC Planet Earth time-lapse with David Attenborough: an infected ant climbs, clamps onto a plant and a fungal stalk grows out of its head.',
+    ant:{youtube:'',video:'',t:'Cordyceps takes over an ant',see:'BBC Planet Earth time-lapse with David Attenborough: an infected ant climbs, clamps onto a plant and a fungal stalk grows out of its head.',
       main:{u:'https://curious.science.org.au/video/killer-fungi',l:'Watch the BBC clip'},more:[['On YouTube',yt('Cordyceps attack of the killer fungi Planet Earth BBC')],['Read: EarthSky on zombie ants','https://earthsky.org/earth/zombie-ants/']]},
-    brain:{t:'Tapeworm cysts in the human brain',see:'Brain scans showing pork tapeworm cysts, and real patient cases where seizures and headaches turned out to be cysts.',
+    brain:{youtube:'',video:'',t:'Tapeworm cysts in the human brain',see:'Brain scans showing pork tapeworm cysts, and real patient cases where seizures and headaches turned out to be cysts.',
       main:{u:'https://nutritionfacts.org/video/pork-tapeworms-on-the-brain/',l:'Watch on NutritionFacts'},more:[['UCLA Health case report','https://www.uclahealth.org/news/parasitic-tapeworms-cause-unusual-neurological-symptoms'],['More on YouTube',yt('neurocysticercosis brain cyst MRI explained')]]},
-    pork:{t:'Trichinella larvae in pork muscle',see:'Meat inspectors press thin slices of muscle between glass and find larvae coiled inside the muscle fibers under the microscope.',
+    pork:{youtube:'',video:'',t:'Trichinella larvae in pork muscle',see:'Meat inspectors press thin slices of muscle between glass and find larvae coiled inside the muscle fibers under the microscope.',
       main:{u:yt('trichinella spiralis larvae muscle microscope'),l:'Watch on YouTube'},more:[['How meat is tested (Microscope World)','https://www.microscopeworld.com/p-4451-using-microscopes-to-test-meat-for-the-presence-of-trichinella-threadworms.aspx'],['CDC image library','https://wwwn.cdc.gov/phil/Details.aspx?pid=5234']]},
-    beef:{t:'Tapeworm cysts in beef ("beef measles")',see:'Small pale cysts spotted through the meat, the way inspectors find them at the slaughterhouse.',
+    beef:{youtube:'',video:'',t:'Tapeworm cysts in beef ("beef measles")',see:'Small pale cysts spotted through the meat, the way inspectors find them at the slaughterhouse.',
       main:{u:yt('beef measles cysticercus bovis meat inspection'),l:'Watch on YouTube'},more:[['Oregon State Extension: meat measles','https://extension.oregonstate.edu/catalog/how-prevent-meat-measles-livestock']]},
-    fish:{t:'Live worm in a salmon fillet',see:'A shopper films a live Anisakis worm wriggling out of a store-bought salmon fillet.',
+    fish:{youtube:'',video:'',t:'Live worm in a salmon fillet',see:'A shopper films a live Anisakis worm wriggling out of a store-bought salmon fillet.',
       main:{u:'https://www.livescience.com/63096-salmon-fillet-live-worm.html',l:'Watch on Live Science'},more:[['NutritionFacts: allergenic fish worms','https://nutritionfacts.org/video/allergenic-fish-worms/'],['More on YouTube',yt('anisakis worm found in fish')]]},
-    game:{t:'Trichinella in wild game',see:'Hunters and labs testing bear and wild boar meat, where trichinella is most common today.',
+    game:{youtube:'',video:'',t:'Trichinella in wild game',see:'Hunters and labs testing bear and wild boar meat, where trichinella is most common today.',
       main:{u:yt('trichinella bear meat wild game testing'),l:'Watch on YouTube'},more:[['CDC image library','https://wwwn.cdc.gov/phil/Details.aspx?pid=5234']]}
   };
   const d=$('#rl'),media=$('#rl-media');
@@ -1432,16 +1435,18 @@ function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersec
     if(key==='meat'){const sel=$('.tab[aria-selected="true"]');key=sel?sel.dataset.m:'pork'}
     const r=REAL[key];if(!r)return;
     $('#rl-h').textContent=r.t;$('#rl-see').textContent=r.see;
+    const yid=(r.youtube||'').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
     if(r.video){media.innerHTML='<video controls playsinline preload="metadata"></video>';media.firstChild.src=r.video}
+    else if(yid){media.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${yid[1]}?rel=0&playsinline=1&modestbranding=1" title="${r.t}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>`}
     else{media.innerHTML=`<div class="grain"></div><a class="rl-play" href="${r.main.u}" target="_blank" rel="noopener"><div class="ring"></div><b>${r.main.l}</b><span>Opens in a new tab</span></a>`}
     $('#rl-links').innerHTML=r.more.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">${l} ↗</a>`).join('');
     d.showModal();
   }
-  function close(){const v=media.querySelector('video');if(v)v.pause();d.close()}
+  function close(){const v=media.querySelector('video');if(v)v.pause();media.innerHTML='';d.close()}
   $$('.real').forEach(b=>b.addEventListener('click',()=>open(b.dataset.real)));
   $('.rl-x').addEventListener('click',close);
   d.addEventListener('click',e=>{if(e.target===d)close()});
-  d.addEventListener('close',()=>{const v=media.querySelector('video');if(v)v.pause()});
+  d.addEventListener('close',()=>{const v=media.querySelector('video');if(v)v.pause();if(media.querySelector('iframe'))media.innerHTML=''});
 })();
 
 /* ================= NAV + PROGRESS ================= */

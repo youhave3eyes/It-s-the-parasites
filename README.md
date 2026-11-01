@@ -36,4 +36,7 @@ If you don't own the domain yet, delete the `CNAME` file before uploading.
 
 - **Your herb kit:** in `guide.html`, search for `Coming soon` and replace the placeholder text with your kit name, price and a buy link.
 - **Affiliate links:** search `guide.html` for `iherb.com` and `mountainroseherbs.com` and swap in your own links.
-- **Your own videos:** upload an `.mp4` (for example `videos/cricket.mp4`), then in `index.html` find the `REAL={` list and add `video:"videos/cricket.mp4",` to that entry. It will play inside the pop-up instead of linking out.
+- **Videos in the "See it real" pop-ups:** open `index.html`, search for `HOW TO ADD VIDEOS`, and fill in the blanks for each clip:
+  - `youtube:'https://youtu.be/...'` plays that YouTube video right inside the pop-up.
+  - `video:'videos/rat.mp4'` plays your own file. Upload it to the `videos` folder first. Keep each file under 100 MB (GitHub's limit); under 25 MB loads fastest.
+  - Only use videos you made yourself or have permission to use. Embedding from YouTube is fine; re-uploading someone else's video is not.
