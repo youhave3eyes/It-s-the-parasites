@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Parasite Detox Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field manual. Cover → rules → daily rhythm → 4 numbered phases (drain, biofilm, kill, bind) → calendar → shopping list. Dark on screen, light paper in the PDF. */
+:root{
+  --bg:#05070b;--panel:#0e141e;--line:#1d2633;--line-2:#2a3646;--ink:#edf2f7;--muted:#8e9aab;--soft:#c3ccd8;
+  --cyan:#43e1ff;--magenta:#ff3e8a;--amber:#ffb03a;--leaf:#5ff0a6;
+  --f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+img{max-width:100%}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);text-wrap:balance;letter-spacing:-.02em}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(5,7,11,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;height:56px;max-width:1180px}
+.logo{font-family:var(--f-display);font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--magenta);box-shadow:0 0 12px var(--magenta)}
+.bar .sp{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:9px 14px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink);white-space:nowrap}
+.btn.go{background:var(--leaf);border-color:var(--leaf);color:var(--bg);font-weight:500}
+
+/* cover */
+.cover{padding-block:clamp(70px,11vw,140px) clamp(40px,6vw,70px);border-bottom:1px solid var(--line);background:radial-gradient(70% 70% at 85% 10%,rgba(95,240,166,.10),transparent 70%),radial-gradient(60% 60% at 10% 100%,rgba(255,62,138,.08),transparent 70%)}
+.cover .mono{color:var(--leaf)}
+.cover h1{margin-top:18px;font-size:clamp(3.2rem,10vw,7.6rem);line-height:.84;font-weight:700;letter-spacing:-.045em;font-variation-settings:"wdth" 78}
+.cover h1 em.s{color:var(--leaf)}
+.cover .dek{margin-top:22px;font-size:1.2rem;color:var(--soft);max-width:48ch}
+.order{margin-top:36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.order a{padding:16px;display:grid;gap:4px;text-decoration:none;color:var(--ink);border-right:1px solid var(--line);background:rgba(160,200,255,.03)}
+.order a:last-child{border-right:0}
+.order b{font-family:var(--f-display);font-size:1.3rem;font-weight:600}
+.order span{font-size:.82rem;color:var(--muted)}
+.order i{font-style:normal;font-family:var(--f-mono);font-size:.68rem;color:var(--k)}
+.cover .dl{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cover .dl small{color:var(--muted);font-size:.8rem}
+
+/* sections */
+section.part{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px,3vw,36px);align-items:start;margin-bottom:28px}
+.num{font-family:var(--f-display);font-weight:300;font-size:clamp(3.6rem,9vw,6.4rem);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--k)}
+.head .mono{color:var(--k)}
+.head h2{margin-top:8px;font-size:clamp(2rem,5vw,3.4rem);line-height:.95;font-weight:650;font-variation-settings:"wdth" 85}
+.head h2 em.s{color:var(--k)}
+.head p{margin-top:14px;color:var(--soft);font-size:1.06rem;max-width:58ch}
+.k-drain{--k:var(--cyan)}.k-bio{--k:var(--amber)}.k-kill{--k:var(--magenta)}.k-bind{--k:var(--leaf)}.k-base{--k:var(--ink)}
+
+.box{border:1px solid var(--line);border-radius:16px;padding:20px 22px;background:linear-gradient(180deg,rgba(160,200,255,.045),rgba(160,200,255,.01))}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.box h3{font-size:1.2rem;font-weight:600;margin-bottom:8px}
+.box p,.box li{font-size:.94rem;color:var(--soft)}
+.box ul,.box ol{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.stack{display:grid;gap:14px}
+.plain{font-family:var(--f-serif);font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2;max-width:34ch}
+.plain::before{content:"In plain words";display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k);margin-bottom:8px}
+.ev{display:inline-flex;gap:6px;align-items:center;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);border-radius:6px;padding:4px 8px}
+.ev.y{color:var(--leaf);border-color:rgba(95,240,166,.4)}
+
+.warn{border:1px dashed rgba(255,176,58,.55);border-radius:14px;padding:16px 18px;display:grid;gap:6px;font-size:.92rem;color:var(--soft)}
+.warn b{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:500}
+.stop{border-color:rgba(255,62,138,.6)}
+.stop b{color:var(--magenta)}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.9rem}
+th{text-align:left;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:12px 14px;border-bottom:1px solid var(--line);background:rgba(160,200,255,.03)}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+td small{display:block;color:var(--muted);font-weight:400;font-size:.78rem}
+td a{white-space:nowrap}
+
+/* day rhythm */
+.day{display:grid;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.slot{display:grid;grid-template-columns:150px 14px minmax(0,1fr);gap:16px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:center}
+.slot:last-child{border-bottom:0}
+.slot .tm{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);letter-spacing:.06em}
+.slot i{width:12px;height:12px;border-radius:50%;background:var(--k);box-shadow:0 0 12px var(--k)}
+.slot b{font-weight:600}
+.slot span{color:var(--soft);font-size:.92rem}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px}
+.wk{border-radius:10px;padding:12px 8px;display:grid;gap:6px;text-align:center;border:1px solid var(--line);background:color-mix(in oklab,var(--k) 12%,transparent)}
+.wk .mono{font-size:.6rem;color:var(--muted)}
+.wk b{font-family:var(--f-display);font-size:.95rem;font-weight:600;color:var(--k)}
+.calkey{margin-top:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.calkey div{font-size:.88rem;color:var(--soft)}
+.calkey b{display:block;color:var(--k);font-family:var(--f-display);font-size:1.05rem}
+
+/* kit */
+.kit{border:1px solid rgba(95,240,166,.45);border-radius:20px;padding:26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;background:linear-gradient(120deg,rgba(95,240,166,.10),rgba(95,240,166,.02) 60%)}
+.kit h3{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:650;line-height:1}
+.kit h3 em.s{color:var(--leaf)}
+.kit ul{margin:12px 0 0;padding-left:1.1em;color:var(--soft);font-size:.94rem;display:grid;gap:4px}
+.kit .slotbox{border:1px dashed rgba(95,240,166,.5);border-radius:14px;padding:22px;display:grid;gap:10px;text-align:center}
+.kit .slotbox .mono{color:var(--leaf)}
+
+footer{padding-block:44px 60px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:grid;gap:14px}
+
+@media screen and (max-width:760px){
+  .order{grid-template-columns:1fr 1fr}
+  .order a:nth-child(2){border-right:0}
+  .order a:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .head{grid-template-columns:1fr}
+  .grid2,.grid3,.kit{grid-template-columns:1fr}
+  .slot{grid-template-columns:14px minmax(0,1fr);row-gap:2px}
+  .slot .tm{grid-column:2;grid-row:1}
+  .slot>div{grid-column:2;grid-row:2}
+  .slot i{grid-row:1/span 2;grid-column:1;align-self:start;margin-top:4px}
+  .cal{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .calkey{grid-template-columns:1fr 1fr}
+  .bar .btn:not(.go){display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- PRINT / E-BOOK: light paper ---------- */
+@page{size:Letter;margin:.6in .65in}
+@media print{
+  :root{--bg:#ffffff;--panel:#f6f4f1;--line:#e3dfd9;--line-2:#d2ccc4;--ink:#12141a;--muted:#6b6f78;--soft:#30343c;
+    --cyan:#0a7f99;--magenta:#c8195f;--amber:#b86a00;--leaf:#1d8a55;color-scheme:light}
+  html{padding:0}
+  body{font-size:10pt;line-height:1.48}
+  body::before,.bar,.no-print{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .cover{min-height:9.6in;display:flex;flex-direction:column;justify-content:center;background:none;border:0;padding:0;break-after:page}
+  .cover h1{font-size:68pt}
+  .cover .print-only{display:block}
+  section.part{padding:0;border:0}
+  #day,#drain,#biofilm,#kill,#bind,#calendar{break-before:page}
+  #shop{padding-top:30pt}
+  .head{break-after:avoid}
+  .grid2,.grid3{gap:10px}
+  .box{padding:12px 14px}
+  .box,.warn,.tbl,.day,.kit,.slot,.wk,tr{break-inside:avoid}
+  .tbl{overflow:visible}
+  table{min-width:0;font-size:8.6pt}
+  td a{white-space:normal;word-break:break-all}
+  .slot{grid-template-columns:120px 12px minmax(0,1fr)}
+  .slot i,.wk{box-shadow:none}
+  .num{-webkit-text-stroke:1.2px var(--k)}
+  a{color:var(--cyan)}
+}
+.print-only{display:none}
+</style>
+</head>
+<body>
+
+<header class="bar no-print">
+  <div class="wrap">
+    <a class="logo" href="./"><i></i>itstheparasites</a>
+    <span class="sp"></span>
+    <a class="btn" href="./">← Walkthrough</a>
+    <a class="btn go" href="parasite-detox-guide.pdf" target="_blank" rel="noopener">Download e-book</a>
+  </div>
+</header>
+
+<header class="cover">
+  <div class="wrap">
+    <span class="mono">itstheparasites.com · Field guide</span>
+    <h1>The Parasite <em class="s">Detox.</em></h1>
+    <p class="dek">Straight to it. Open the exits, break the shield, kill what's hiding, and bind what's released. In that order.</p>
+    <nav class="order" aria-label="Phases">
+      <a href="#drain" style="--k:var(--cyan)"><i>01</i><b>Drain</b><span>Open the exits first</span></a>
+      <a href="#biofilm" style="--k:var(--amber)"><i>02</i><b>Biofilm</b><span>Break their shield</span></a>
+      <a href="#kill" style="--k:var(--magenta)"><i>03</i><b>Kill</b><span>Herbs that clear them</span></a>
+      <a href="#bind" style="--k:var(--leaf)"><i>04</i><b>Bind</b><span>Carry the waste out</span></a>
+    </nav>
+    <div class="dl no-print">
+      <a class="btn go" href="parasite-detox-guide.pdf" target="_blank" rel="noopener">Download the e-book (PDF)</a>
+      <small>Same guide, formatted to read offline or print.</small>
+    </div>
+    <p class="print-only" style="margin-top:40px;font-size:10pt;color:var(--muted)">itstheparasites.com · For education only. Not medical advice.</p>
+  </div>
+</header>
+
+<main>
+<!-- RULES -->
+<section class="part k-base" id="rules">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num" style="--k:var(--muted)">00</div>
+      <div>
+        <span class="mono">Read this first</span>
+        <h2>Six rules that make or break a cleanse</h2>
+        <p>Most bad cleanse experiences come from doing the steps out of order. Follow these and the rest gets easy.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="box"><h3>1. Poop before you kill</h3><p>Aim for 1 to 3 bowel movements a day before you start any killing herbs. If waste can't leave, what you kill stays inside and makes you feel sick.</p></div>
+      <div class="box"><h3>2. Shield, then sword</h3><p>Break the biofilm first in the morning, then take the kill herbs. Herbs work better on targets that can't hide.</p></div>
+      <div class="box"><h3>3. Bind two hours apart</h3><p>Binders soak up everything nearby, including your herbs, vitamins and medications. Take them 2 hours away from all of it.</p></div>
+      <div class="box"><h3>4. Go in rounds</h3><p>Herbs hit adults better than eggs. Running the kill phase in rounds, with a rest week in between, catches the ones that hatch later.</p></div>
+      <div class="box"><h3>5. Starve them while you fight</h3><p>Cut sugar, white flour, alcohol and processed food for the whole protocol. Eat fruit, greens, seeds, cooked grains and lots of water.</p></div>
+      <div class="box"><h3>6. Go slow if it hits hard</h3><p>Headache, tiredness, bloating or a rash can mean you're clearing faster than you can drain. Lower the herbs, raise the binder and water, and rest.</p></div>
+    </div>
+    <div class="warn stop">
+      <b>Don't do this protocol without a doctor if</b>
+      <p>You're pregnant or breastfeeding, it's for a child, you have liver, kidney or seizure conditions, you take blood thinners or prescription medications, or you have surgery coming up. If tests confirm a parasite, prescription antiparasitics are fast and effective and can be used alongside this approach.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY RHYTHM -->
+<section class="part k-base" id="day">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num" style="--k:var(--muted)">24h</div>
+      <div>
+        <span class="mono">The daily rhythm</span>
+        <h2>One day on the protocol</h2>
+        <p>This is the order to take things on a full protocol day. Use the dose on your product's label. If your herbs say twice a day, skip the dinner dose.</p>
+      </div>
+    </div>
+    <div class="day">
+      <div class="slot" style="--k:var(--cyan)"><span class="tm">ON WAKING</span><i></i><div><b>Warm water with lemon</b><br><span>A full glass to wake up digestion and start the day hydrated.</span></div></div>
+      <div class="slot" style="--k:var(--amber)"><span class="tm">EMPTY STOMACH</span><i></i><div><b>Biofilm breaker</b><br><span>Enzymes or NAC. Wait 30 to 60 minutes before eating.</span></div></div>
+      <div class="slot" style="--k:var(--magenta)"><span class="tm">BREAKFAST</span><i></i><div><b>Kill herbs · dose 1</b><br><span>Take with food to go easy on your stomach.</span></div></div>
+      <div class="slot" style="--k:var(--leaf)"><span class="tm">MID-MORNING</span><i></i><div><b>Binder + 2 glasses of water</b><br><span>At least 2 hours after breakfast and herbs, 1 hour before lunch.</span></div></div>
+      <div class="slot" style="--k:var(--magenta)"><span class="tm">LUNCH</span><i></i><div><b>Kill herbs · dose 2</b><br><span>With the meal.</span></div></div>
+      <div class="slot" style="--k:var(--leaf)"><span class="tm">MID-AFTERNOON</span><i></i><div><b>Binder + 2 glasses of water</b><br><span>2 hours after lunch.</span></div></div>
+      <div class="slot" style="--k:var(--magenta)"><span class="tm">DINNER</span><i></i><div><b>Kill herbs · dose 3</b><br><span>Only if your label says three times a day.</span></div></div>
+      <div class="slot" style="--k:var(--cyan)"><span class="tm">BEDTIME</span><i></i><div><b>Drainage support</b><br><span>Magnesium citrate if you need help going. A castor oil pack over the liver is optional.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 DRAIN -->
+<section class="part k-drain" id="drain">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num">01</div>
+      <div>
+        <span class="mono">Phase 01 · Week 1, then all the way through</span>
+        <h2>Drain: <em class="s">open the exits</em></h2>
+        <p>Your colon, liver, kidneys, lymph and skin are the doors that waste leaves through. Open them before you start killing anything, and keep them open the whole time.</p>
+      </div>
+    </div>
+    <p class="plain">If the trash can't go out, don't start cleaning the house.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Support</th><th>What it does</th><th>How</th><th>Watch out</th><th>Where to buy</th></tr></thead>
+        <tbody>
+          <tr><td>Water<small>Colon, kidneys</small></td><td>Moves waste through the bowels and kidneys</td><td>Half your body weight in ounces a day, more on binder days</td><td>Add a pinch of sea salt or electrolytes if you drink a lot</td><td>Filtered tap or spring</td></tr>
+          <tr><td>Fiber<small>Colon</small></td><td>Bulks and sweeps the bowel</td><td>Fruit, greens and ground flax daily</td><td>Raise slowly to avoid gas</td><td>Grocery store</td></tr>
+          <tr><td>Magnesium citrate<small>Colon</small></td><td>Draws water into the bowel to keep you regular</td><td>At bedtime, follow label</td><td>Loose stools mean the dose is too high. Kidney disease: ask a doctor</td><td><a href="https://www.iherb.com/search?kw=magnesium%20citrate" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Dandelion root<small>Liver, kidneys</small></td><td>Traditional liver and bile support</td><td>Tea once or twice a day</td><td>Ragweed allergy, gallbladder problems</td><td><a href="https://www.iherb.com/search?kw=dandelion%20root" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Milk thistle<small>Liver</small></td><td>Traditional liver protection while you clear</td><td>Follow label</td><td>Can interact with some medications</td><td><a href="https://www.iherb.com/search?kw=milk%20thistle" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Movement &amp; sweat<small>Lymph, skin</small></td><td>Lymph only moves when you move</td><td>Walk daily. Sauna or hot bath a few times a week</td><td>Hydrate before and after</td><td>Free</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box"><h3>You're ready for Phase 02 when</h3><ul><li>You go to the bathroom at least once a day, easily.</li><li>You've been off sugar and processed food for about a week.</li><li>You're drinking enough water that your urine is pale.</li></ul></div>
+  </div>
+</section>
+
+<!-- 02 BIOFILM -->
+<section class="part k-bio" id="biofilm">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num">02</div>
+      <div>
+        <span class="mono">Phase 02 · Every morning of a round</span>
+        <h2>Biofilm: <em class="s">break the shield</em></h2>
+        <p>A biofilm is a slimy shield that microbes build on the gut wall out of sugars, proteins and minerals. Bacteria and yeast hide under it, protected from your immune system and from anything you take.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <p class="plain">Think of plaque on your teeth. That's a biofilm. Your gut can have its own.</p>
+      <div class="box"><span class="ev">Evidence</span><p style="margin-top:10px">Biofilms are well proven for bacteria and yeast like candida. The idea that parasites hide in or behind gut biofilms comes from holistic practice and hasn't been well studied. It's still the logic behind doing this step first.</p></div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Biofilm breaker</th><th>What it does</th><th>How to take</th><th>Watch out</th><th>Where to buy</th></tr></thead>
+        <tbody>
+          <tr><td>NAC<small>N-acetyl cysteine</small></td><td>Thins mucus and slime. Lab studies show it breaks down bacterial biofilms.</td><td>Empty stomach in the morning, follow label</td><td>Can upset the stomach. Asthma: start low</td><td><a href="https://www.iherb.com/search?kw=n-acetyl%20cysteine" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Biofilm enzyme blend<small>e.g. Interfase Plus</small></td><td>Enzymes made to digest the biofilm matrix</td><td>Empty stomach, 30–60 min before food</td><td>Some blends include EDTA. Ask a doctor if you're on medications</td><td><a href="https://www.iherb.com/search?kw=biofilm%20enzymes" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Serrapeptase</td><td>Enzyme that breaks down proteins in biofilm and mucus</td><td>Empty stomach, follow label</td><td><b>Thins blood.</b> Not with blood thinners or before surgery</td><td><a href="https://www.iherb.com/search?kw=serrapeptase" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Nattokinase or lumbrokinase</td><td>Enzymes that break down fibrin, a building block of biofilm</td><td>Empty stomach, follow label. Pick one enzyme, not all three</td><td><b>Thins blood.</b> Same warning as serrapeptase</td><td><a href="https://www.iherb.com/search?kw=nattokinase" target="_blank" rel="noopener">Nattokinase</a> · <a href="https://www.iherb.com/search?kw=lumbrokinase" target="_blank" rel="noopener">Lumbrokinase</a></td></tr>
+          <tr><td>Mimosa pudica seed</td><td>Seed that turns into a gel in the gut. Holistic use: scrubs the lining and pulls out debris</td><td>Morning, empty stomach, lots of water, follow label</td><td>Constipation if you don't drink enough water</td><td><a href="https://www.codeage.com/products/mimosa-pudica-seed" target="_blank" rel="noopener">Codeage</a> · <a href="https://www.iherb.com/search?kw=mimosa%20pudica" target="_blank" rel="noopener">iHerb</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn"><b>Keep it simple</b><p>Pick one or two biofilm breakers, not all of them. NAC plus mimosa pudica is a simple combination with no blood-thinning effect.</p></div>
+  </div>
+</section>
+
+<!-- 03 KILL -->
+<section class="part k-kill" id="kill">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num">03</div>
+      <div>
+        <span class="mono">Phase 03 · With meals during a round</span>
+        <h2>Kill: <em class="s">clear what's hiding</em></h2>
+        <p>The classic holistic combination is black walnut hull, wormwood and clove. Each one is said to target a different stage of the parasite's life. The others on this list are add-ons or swaps.</p>
+      </div>
+    </div>
+    <div class="grid3">
+      <div class="box" style="border-color:rgba(255,62,138,.4)"><span class="mono" style="color:var(--magenta)">Adults</span><h3 style="margin-top:6px">Black walnut hull</h3><p>The green hull, high in juglone and tannins. Traditionally used against adult worms.</p></div>
+      <div class="box" style="border-color:rgba(255,62,138,.4)"><span class="mono" style="color:var(--magenta)">Larvae</span><h3 style="margin-top:6px">Wormwood</h3><p>One of the oldest worm herbs, named for it. Its compounds are the base of real antimalarial drugs.</p></div>
+      <div class="box" style="border-color:rgba(255,62,138,.4)"><span class="mono" style="color:var(--magenta)">Eggs</span><h3 style="margin-top:6px">Clove</h3><p>Rich in eugenol. Holistic protocols use it to target eggs so the cycle doesn't restart.</p></div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Herb</th><th>Evidence</th><th>How to take</th><th>Watch out</th><th>Where to buy</th></tr></thead>
+        <tbody>
+          <tr><td>Black walnut hull</td><td>Traditional use, lab studies</td><td>Capsule or tincture of the green hull with meals, follow label</td><td>Tree nut allergy. Not for pregnancy</td><td><a href="https://mountainroseherbs.com/black-walnut-hull-powder" target="_blank" rel="noopener">Mountain Rose</a> · <a href="https://www.iherb.com/search?kw=black%20walnut%20hull" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Wormwood<small>Artemisia absinthium</small></td><td>Traditional use, lab studies</td><td>With meals, follow label. Keep courses short</td><td>Contains thujone, which is toxic to nerves and kidneys in high doses or long use. Not with seizure conditions or pregnancy</td><td><a href="https://mountainroseherbs.com/wormwood" target="_blank" rel="noopener">Mountain Rose</a> · <a href="https://www.vitacost.com/products/starwest-botanicals-organic-wormwood-herb-cut-shifted-1-lb-453-6-g-131547" target="_blank" rel="noopener">Starwest</a></td></tr>
+          <tr><td>Clove</td><td>Traditional use, lab studies</td><td>Ground clove in capsules with meals, follow label</td><td>Thins blood a little. Not with blood thinners</td><td><a href="https://mountainroseherbs.com/clove-powder" target="_blank" rel="noopener">Mountain Rose</a> · <a href="https://www.iherb.com/pr/frontier-co-op-organic-ground-cloves-16-oz-453-g/30965" target="_blank" rel="noopener">Frontier</a></td></tr>
+          <tr><td>Berberine<small>Goldenseal, Oregon grape</small></td><td>Human studies against Giardia</td><td>With meals, follow label</td><td>Lowers blood sugar. Interacts with many medications. Not for pregnancy</td><td><a href="https://www.iherb.com/search?kw=berberine" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Papaya seed</td><td>One small human trial</td><td>Ground, mixed with honey or a smoothie</td><td>Not for pregnancy</td><td><a href="https://www.iherb.com/search?kw=papaya%20seed" target="_blank" rel="noopener">iHerb</a> or fresh papaya</td></tr>
+          <tr><td>Pumpkin seed</td><td>Animal studies</td><td>A handful of raw seeds daily, or ground</td><td>Very safe as food</td><td>Grocery store</td></tr>
+          <tr><td>Oregano oil</td><td>Lab studies, one small human study</td><td>Enteric-coated softgels with meals</td><td>Strong. Can burn if taken as raw oil</td><td><a href="https://www.iherb.com/search?kw=oregano%20oil" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Garlic</td><td>Lab studies</td><td>Raw crushed cloves with food, or allicin capsules</td><td>Thins blood a little</td><td>Grocery store</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="warn"><b>Die-off ("herx")</b><p>Headache, tiredness, bloating, achy joints, a rash or bad mood in the first days. Lower the kill herbs, raise water and binders, and make sure you're going to the bathroom.</p></div>
+      <div class="warn stop"><b>Stop and get medical help for</b><p>Fever, severe belly pain, blood in your stool, yellow skin or eyes, confusion, a seizure, or vomiting you can't keep water down through.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 BIND -->
+<section class="part k-bind" id="bind">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num">04</div>
+      <div>
+        <span class="mono">Phase 04 · Twice a day, 2 hours apart from everything</span>
+        <h2>Bind: <em class="s">carry it out</em></h2>
+        <p>When parasites and microbes die, they release waste and toxins. Binders grab that waste in your gut so it leaves in your stool instead of getting reabsorbed.</p>
+      </div>
+    </div>
+    <p class="plain">Binders are the garbage bags. Without them, the trash spills back in.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Binder</th><th>Best for</th><th>How to take</th><th>Watch out</th><th>Where to buy</th></tr></thead>
+        <tbody>
+          <tr><td>Activated charcoal</td><td>Wide range of toxins and gas. Hospitals use it for poisoning</td><td>With a big glass of water, follow label</td><td>Constipating. Blocks medications and birth control if taken too close. Turns stool black</td><td><a href="https://www.iherb.com/search?kw=activated%20charcoal" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Bentonite clay<small>Food grade</small></td><td>Binds toxins and heavy metals in the gut</td><td>Stirred into water, follow label</td><td>Must say food or internal grade. Constipating</td><td><a href="https://www.iherb.com/search?kw=bentonite%20clay%20food%20grade" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Zeolite<small>Clinoptilolite</small></td><td>Binds metals and ammonia</td><td>Powder in water, follow label</td><td>Buy purified, tested products</td><td><a href="https://www.iherb.com/search?kw=zeolite" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Chlorella</td><td>Gentle everyday binder, also a food</td><td>Tablets with water</td><td>Start low. Can cause gas. Iodine sensitivity</td><td><a href="https://www.iherb.com/search?kw=chlorella" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Psyllium husk</td><td>Fiber that sweeps and binds. Helps the other binders move</td><td>In a full glass of water, drink right away</td><td>Too little water causes blockage</td><td><a href="https://www.iherb.com/search?kw=psyllium%20husk" target="_blank" rel="noopener">iHerb</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="box"><h3>Simple binder stack</h3><p>Charcoal or clay in the mid-morning slot, chlorella or psyllium in the afternoon. Rotating binders spreads out what they grab and keeps you from getting backed up.</p></div>
+      <div class="warn"><b>The 2-hour rule</b><p>Binders don't pick and choose. Taken too close, they soak up your herbs, vitamins and medications, including birth control. Keep 2 hours on both sides.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="part k-base" id="calendar">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num" style="--k:var(--muted)">9wk</div>
+      <div>
+        <span class="mono">The full plan</span>
+        <h2>Nine weeks, start to finish</h2>
+        <p>Two rounds with a rest week between them. Eggs that survive round one hatch during the rest week, and round two catches them.</p>
+      </div>
+    </div>
+    <div class="cal">
+      <div class="wk" style="--k:var(--cyan)"><span class="mono">Wk 1</span><b>Prep</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 2</span><b>Round 1</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 3</span><b>Round 1</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 4</span><b>Round 1</b></div>
+      <div class="wk" style="--k:var(--leaf)"><span class="mono">Wk 5</span><b>Rest</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 6</span><b>Round 2</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 7</span><b>Round 2</b></div>
+      <div class="wk" style="--k:var(--magenta)"><span class="mono">Wk 8</span><b>Round 2</b></div>
+      <div class="wk" style="--k:var(--amber)"><span class="mono">Wk 9+</span><b>Rebuild</b></div>
+    </div>
+    <div class="calkey">
+      <div style="--k:var(--cyan)"><b>Prep</b>Clean diet, drainage, one binder a day. No kill herbs yet.</div>
+      <div style="--k:var(--magenta)"><b>Round</b>Full daily rhythm: biofilm, kill, bind, drain.</div>
+      <div style="--k:var(--leaf)"><b>Rest</b>Stop the biofilm breakers and kill herbs. Keep the binders, drainage and clean food.</div>
+      <div style="--k:var(--amber)"><b>Rebuild</b>Fermented vegetables, prebiotic fiber and a probiotic to reseed healthy gut flora.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="part k-bind" id="shop">
+  <div class="wrap stack">
+    <div class="head">
+      <div class="num">✓</div>
+      <div>
+        <span class="mono">Shopping list</span>
+        <h2>Everything in one place</h2>
+        <p>The minimum you need to run the full protocol.</p>
+      </div>
+    </div>
+    <div class="kit">
+      <div>
+        <span class="mono" style="color:var(--leaf)">The easy way</span>
+        <h3 style="margin-top:8px">The itstheparasites <em class="s">Detox Kit</em></h3>
+        <ul>
+          <li>Black walnut hull, wormwood &amp; clove blend</li>
+          <li>Biofilm breaker</li>
+          <li>Binder</li>
+          <li>This guide, printed</li>
+        </ul>
+      </div>
+      <div class="slotbox"><span class="mono">Coming soon</span><p style="color:var(--soft);font-size:.92rem">Pre-measured herbs for both rounds, packed to match this guide.</p></div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Phase</th><th>Item</th><th>Pick</th><th>Where to buy</th></tr></thead>
+        <tbody>
+          <tr><td>Drain</td><td>Magnesium citrate</td><td>One</td><td><a href="https://www.iherb.com/search?kw=magnesium%20citrate" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Drain</td><td>Dandelion root tea or milk thistle</td><td>One</td><td><a href="https://www.iherb.com/search?kw=dandelion%20root" target="_blank" rel="noopener">Dandelion</a> · <a href="https://www.iherb.com/search?kw=milk%20thistle" target="_blank" rel="noopener">Milk thistle</a></td></tr>
+          <tr><td>Biofilm</td><td>NAC and/or mimosa pudica seed</td><td>One or two</td><td><a href="https://www.iherb.com/search?kw=n-acetyl%20cysteine" target="_blank" rel="noopener">NAC</a> · <a href="https://www.codeage.com/products/mimosa-pudica-seed" target="_blank" rel="noopener">Mimosa pudica</a></td></tr>
+          <tr><td>Kill</td><td>Black walnut hull</td><td>Core</td><td><a href="https://mountainroseherbs.com/black-walnut-hull-powder" target="_blank" rel="noopener">Mountain Rose</a></td></tr>
+          <tr><td>Kill</td><td>Wormwood</td><td>Core</td><td><a href="https://mountainroseherbs.com/wormwood" target="_blank" rel="noopener">Mountain Rose</a></td></tr>
+          <tr><td>Kill</td><td>Clove</td><td>Core</td><td><a href="https://mountainroseherbs.com/clove-powder" target="_blank" rel="noopener">Mountain Rose</a></td></tr>
+          <tr><td>Kill</td><td>Empty capsules, size 00</td><td>If using powders</td><td><a href="https://www.iherb.com/search?kw=empty%20capsules%2000" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Bind</td><td>Activated charcoal or bentonite clay</td><td>One</td><td><a href="https://www.iherb.com/search?kw=activated%20charcoal" target="_blank" rel="noopener">Charcoal</a> · <a href="https://www.iherb.com/search?kw=bentonite%20clay%20food%20grade" target="_blank" rel="noopener">Clay</a></td></tr>
+          <tr><td>Bind</td><td>Chlorella or psyllium husk</td><td>One</td><td><a href="https://www.iherb.com/search?kw=chlorella" target="_blank" rel="noopener">Chlorella</a> · <a href="https://www.iherb.com/search?kw=psyllium%20husk" target="_blank" rel="noopener">Psyllium</a></td></tr>
+          <tr><td>Rebuild</td><td>Probiotic</td><td>One</td><td><a href="https://www.iherb.com/search?kw=probiotic" target="_blank" rel="noopener">iHerb</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--ink)">itstheparasites.com</b> · Holistic approach inspired by the teachings of Yah'ki Awakened.</p>
+    <p>This guide is for education only and is not medical advice. It doesn't diagnose, treat or cure any condition. Herbs and supplements can interact with medications and aren't right for everyone. Talk to a qualified health professional before starting. Store links are for convenience and may change.</p>
+    <p class="no-print"><a href="./">← Back to the walkthrough</a></p>
+  </div>
+</footer>
+</body>
+</html>

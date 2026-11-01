@@ -1,0 +1,1453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Parasites are everywhere. Learn how they make you sick, how they reach your nerves, which foods carry them, and how to detox.">
+<meta property="og:title" content="It's The Parasites">
+<meta property="og:description" content="Parasites are everywhere. Are they affecting you?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070b'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3e8a'/%3E%3C/svg%3E">
+<title>It's The Parasites</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: fluorescence-microscopy world. Hero = live neural network you hijack. Three chapters in order: 01 nerves hijacked → 02 clean food → 03 carrier food (meat lens). Single deliberate dark look. */
+:root{
+  --void:#05070b;
+  --deep:#0a0e15;
+  --panel:#0e141e;
+  --glass:rgba(160,200,255,.035);
+  --line:#1b2431;
+  --line-2:#2a3646;
+  --ink:#edf2f7;
+  --muted:#8a97a8;
+  --cyan:#43e1ff;    /* healthy nerve signal */
+  --magenta:#ff3e8a; /* hijack */
+  --amber:#ffb03a;   /* carrier food / caution */
+  --leaf:#5ff0a6;    /* clean food */
+  --f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--void)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--magenta);color:var(--void)}
+a{color:var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);text-wrap:balance;letter-spacing:-.02em}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.prose{max-width:62ch}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(5,7,11,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;height:56px}
+.logo{font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--magenta);box-shadow:0 0 12px var(--magenta),0 0 2px #fff inset;display:block;animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(.7);opacity:.7}}
+.chap{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.chap a{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:99px;white-space:nowrap;border:1px solid transparent;transition:.2s}
+.chap a:hover{color:var(--ink);border-color:var(--line-2)}
+.chap a.on{color:var(--void);background:var(--ink)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--amber))}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line)}
+#net{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1;touch-action:pan-y}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 90% at 0% 100%,var(--void) 18%,rgba(5,7,11,.55) 48%,rgba(5,7,11,0) 75%),linear-gradient(0deg,var(--void),rgba(5,7,11,0) 30%)}
+.hero-in{padding-block:clamp(90px,14vw,170px) 40px;pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:6px 12px 6px 8px;border:1px solid var(--line-2);border-radius:99px;background:rgba(5,7,11,.6);backdrop-filter:blur(8px)}
+.eyebrow b{font-weight:500;background:var(--magenta);color:var(--void);padding:2px 7px;border-radius:99px;font-size:.62rem}
+/* top: everywhere */
+.top{position:relative;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line)}
+#swarm{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1}
+.top::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(90% 80% at 15% 60%,rgba(5,7,11,.82),rgba(5,7,11,.2) 70%)}
+.top-in{padding-block:clamp(70px,11vw,140px) clamp(48px,6vw,84px);display:grid;justify-items:start}
+.top h1{margin-top:22px;font-size:clamp(3.4rem,11.5vw,9.4rem);font-weight:700;font-variation-settings:"wdth" 78;line-height:.84;letter-spacing:-.045em;max-width:9ch}
+.top h1 em.s{color:var(--amber);text-shadow:0 0 50px rgba(255,176,58,.4)}
+.ticker{margin-top:22px;font-size:clamp(1.2rem,2.2vw,1.6rem);color:#c3ccd8;min-height:1.6em}
+#tick{color:var(--ink);font-weight:600;display:inline-block;transition:opacity .35s,transform .35s}
+#tick.out{opacity:0;transform:translateY(8px)}
+.ask{margin-top:clamp(28px,4vw,44px);font-family:var(--f-serif);font-size:clamp(2.4rem,6vw,4.6rem);line-height:1;letter-spacing:-.01em}
+.ask em.s{color:var(--magenta);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.14em;text-shadow:0 0 40px rgba(255,62,138,.45)}
+.check{margin-top:28px;padding:20px;display:grid;gap:14px;max-width:640px;width:100%;background:rgba(10,14,21,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.check .mono{color:var(--muted)}
+.qc{display:flex;flex-wrap:wrap;gap:8px}
+.qc button{all:unset;cursor:pointer;font-size:.92rem;padding:9px 14px;border-radius:99px;border:1px solid var(--line-2);color:#c3ccd8;transition:.2s}
+.qc button:hover{border-color:var(--magenta);color:var(--ink)}
+.qc button[aria-pressed="true"]{background:var(--magenta);border-color:var(--magenta);color:var(--void);box-shadow:0 0 22px rgba(255,62,138,.4)}
+.qc button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.qc-out{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+#qc-msg{display:flex;align-items:center;gap:12px;font-size:.95rem}
+#qc-n{font-family:var(--f-display);font-size:2.2rem;line-height:1;color:var(--magenta);font-variant-numeric:tabular-nums;min-width:1.2ch}
+.qc-cta{display:flex;gap:14px;flex-wrap:wrap}
+.qc-cta a{font-size:.9rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px}
+.qc-cta a.hot{color:var(--leaf);border-color:var(--leaf)}
+.chap a.guide{color:var(--leaf);border-color:rgba(95,240,166,.4)}
+.hero .h1,.hero h1{margin-top:22px;font-size:clamp(3.3rem,10.5vw,8.6rem);font-weight:700;font-variation-settings:"wdth" 80;line-height:.86;letter-spacing:-.045em;max-width:11ch}
+.hero .h1 em.s{color:var(--magenta);display:inline-block;padding-right:.08em;text-shadow:0 0 40px rgba(255,62,138,.45)}
+.hero .sub{margin-top:26px;font-size:clamp(1.05rem,1.6vw,1.22rem);color:#c3ccd8;max-width:46ch}
+.hint{margin-top:18px;color:var(--cyan);display:flex;align-items:center;gap:8px}
+.hint::before{content:"";width:22px;height:1px;background:var(--cyan)}
+.chips{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;pointer-events:auto}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:14px;background:rgba(14,20,30,.72);backdrop-filter:blur(10px);border:1px solid var(--line-2);text-decoration:none;color:var(--ink);transition:transform .25s,border-color .25s}
+.chip:hover{transform:translateY(-2px);border-color:var(--c)}
+.chip span{font-family:var(--f-mono);font-size:.7rem;color:var(--void);background:var(--c);border-radius:8px;padding:5px 7px}
+.chip b{font-weight:500;font-size:.95rem}
+.stats{margin-top:clamp(48px,7vw,90px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);pointer-events:auto}
+.stat{padding:20px 18px 6px 0;display:grid;gap:6px;align-content:start}
+.stat+.stat{padding-left:18px;border-left:1px solid var(--line)}
+.stat strong{font-family:var(--f-display);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat p{font-size:.86rem;color:var(--muted);max-width:26ch}
+
+/* ---------- chapter heads ---------- */
+.chapter{padding-block:clamp(80px,11vw,150px) 0;position:relative}
+.ch-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,4vw,56px);align-items:start;margin-bottom:clamp(40px,6vw,72px)}
+.ch-num{font-family:var(--f-display);font-weight:300;font-size:clamp(4.5rem,12vw,10rem);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--c);text-stroke:1px var(--c)}
+.ch-head .mono{color:var(--c)}
+.ch-head h2{margin-top:10px;font-size:clamp(2.4rem,6.2vw,5rem);font-weight:650;line-height:.92;font-variation-settings:"wdth" 85}
+.ch-head h2 em.s{color:var(--c)}
+.ch-head p.lead{margin-top:20px;font-size:1.12rem;color:#c3ccd8;max-width:56ch}
+.sub-h{display:flex;align-items:baseline;gap:14px;margin:clamp(56px,8vw,96px) 0 26px;flex-wrap:wrap}
+.sub-h h3{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:600;line-height:1}
+.sub-h .mono{color:var(--muted)}
+.c1{--c:var(--magenta)}.c2{--c:var(--leaf)}.c3{--c:var(--amber)}
+
+/* science / plain pairing */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.duo>div{padding:16px 0 0;display:grid;gap:6px;align-content:start}
+.duo>div+div{padding-left:18px;border-left:1px solid var(--line);margin-left:18px}
+.duo .mono{font-size:.64rem}
+.duo .sci .mono{color:var(--cyan)}
+.duo .plain .mono{color:var(--c,var(--ink))}
+.duo p{font-size:.93rem;color:#c3ccd8}
+.duo .plain p{color:var(--ink)}
+
+.panel{background:linear-gradient(180deg,rgba(160,200,255,.05),rgba(160,200,255,.012));border:1px solid var(--line);border-radius:20px}
+
+/* ---------- nature cards ---------- */
+.nature{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ncard{padding:14px 14px 22px;display:grid;gap:18px;align-content:start}
+.ncard .scene{border-radius:12px;background:radial-gradient(120% 100% at 50% 0%,#0f1826,#070a10);border:1px solid var(--line);aspect-ratio:16/10;overflow:hidden;max-width:100%}
+.ncard .scene svg{width:100%;height:100%;display:block}
+.ncard .meta{padding:0 6px;display:grid;gap:10px}
+.ncard h4{font-size:1.35rem;font-weight:600;line-height:1.1}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:6px;border:1px solid var(--line-2);color:var(--muted)}
+.tag.m{color:var(--magenta);border-color:rgba(255,62,138,.4)}
+.tag.c{color:var(--cyan);border-color:rgba(67,225,255,.4)}
+.tag.l{color:var(--leaf);border-color:rgba(95,240,166,.4)}
+.tag.a{color:var(--amber);border-color:rgba(255,176,58,.4)}
+.ncard .duo{padding:0 6px;grid-template-columns:1fr}
+.ncard .duo>div+div,.crave .duo>div+div{padding-left:0;margin-left:0;border-left:0;border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+.crave .duo{grid-template-columns:1fr}
+.ncard .duo{padding-inline:6px}
+
+/* ---------- axis ---------- */
+.axis{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.axis-fig{padding:10px;aspect-ratio:1/1.02;max-width:100%}
+.axis-fig svg{width:100%;height:100%;display:block}
+.axis-copy{display:grid;gap:28px}
+.legend{display:grid;gap:10px}
+.leg{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;align-items:center;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--glass)}
+.leg svg{width:34px;height:12px}
+.leg b{font-weight:600;font-size:.98rem;display:block}
+.leg span{font-size:.86rem;color:var(--muted)}
+.big-plain{font-family:var(--f-serif);font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.2;color:var(--ink)}
+.big-plain::before{content:"In plain words";display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);margin-bottom:10px}
+
+/* ---------- mechanisms ---------- */
+.mech{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.mcard{padding:22px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:start}
+.mcard .ico{border-radius:14px;background:radial-gradient(100% 100% at 50% 30%,#121c2b,#06090e);border:1px solid var(--line);aspect-ratio:1/1;max-width:100%}
+.mcard .ico svg{width:100%;height:100%;display:block}
+.mcard .body{display:grid;gap:12px;min-width:0}
+.mcard h4{font-size:1.4rem;font-weight:600;line-height:1.05}
+.mcard .duo{grid-template-columns:1fr}
+.mcard .duo>div+div{padding-left:0;margin-left:0;border-left:0;border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+.crave{margin-top:18px;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;align-items:center;border-color:rgba(95,240,166,.25);background:linear-gradient(120deg,rgba(95,240,166,.06),rgba(160,200,255,.02) 60%)}
+.crave h4{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;line-height:1}
+.crave h4 em.s{color:var(--leaf)}
+
+/* ---------- risk ladder ---------- */
+.ladder{padding:clamp(18px,3vw,32px)}
+.lad-head{display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);gap:18px;margin-bottom:10px}
+.zones{display:grid;grid-template-columns:1fr 1fr 1fr;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase}
+.zones span:nth-child(1){color:var(--leaf)}.zones span:nth-child(2){color:var(--amber);text-align:center}.zones span:nth-child(3){color:var(--magenta);text-align:right}
+.lrow{display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);gap:18px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.lrow .nm{font-size:.92rem}
+.lrow .nm small{display:block;color:var(--muted);font-size:.76rem}
+.track{position:relative;height:10px;border-radius:99px;background:linear-gradient(90deg,rgba(95,240,166,.18),rgba(255,176,58,.18) 50%,rgba(255,62,138,.22))}
+.track::before,.track::after{content:"";position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--line-2)}
+.track::before{left:33.3%}.track::after{left:66.6%}
+.dot{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);background:var(--k);box-shadow:0 0 0 3px var(--void),0 0 16px var(--k);transition:left 1.1s cubic-bezier(.2,.8,.2,1)}
+.lad-note{margin-top:14px;font-size:.8rem;color:var(--muted)}
+
+/* ---------- clean foods ---------- */
+.clean{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.food{padding:20px;display:grid;gap:12px;align-content:start;position:relative;overflow:hidden}
+.food svg{width:64px;height:64px;display:block}
+.food h4{font-size:1.2rem;font-weight:600}
+.food .eg{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
+.food p{font-size:.9rem;color:#c3ccd8}
+.food .why{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;color:var(--leaf);text-transform:uppercase}
+.allies{margin-top:18px;padding:26px;display:grid;gap:18px}
+.allies-top{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end}
+.allies h4{font-size:1.5rem;font-weight:600}
+.ally-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.ally{padding:14px;border-radius:12px;border:1px solid var(--line);display:grid;gap:8px}
+.ally b{font-weight:600}
+.ev{display:flex;gap:3px}
+.ev i{flex:1;height:4px;border-radius:2px;background:var(--line-2)}
+.ev i.on{background:var(--leaf)}
+.ally span{font-size:.76rem;color:var(--muted)}
+.fine{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;overflow:hidden}
+.fine>div{padding:26px;display:grid;gap:14px;align-content:start}
+.fine>div+div{border-left:1px solid var(--line);background:rgba(95,240,166,.04)}
+.fine h4{font-size:1.35rem;font-weight:600}
+.fine ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.fine li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;font-size:.92rem;color:#c3ccd8}
+.fine li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--b)}
+
+/* ---------- lens ---------- */
+.lens-wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:stretch}
+.lens-stage{padding:12px;display:grid;gap:12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border-radius:99px;border:1px solid var(--line-2);color:var(--muted);transition:.2s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--amber);color:var(--void);border-color:var(--amber)}
+.tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.canvas-box{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;max-width:100%;background:#1a0b0d}
+#lens{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:none}
+.hud{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none}
+.hud span{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:8px;background:rgba(5,7,11,.7);backdrop-filter:blur(6px);color:var(--ink)}
+.hud #found{color:var(--magenta);font-variant-numeric:tabular-nums}
+.lens-tip{font-size:.84rem;color:var(--muted);padding:0 4px 4px}
+.dossier{padding:26px;display:grid;gap:18px;align-content:start}
+.dossier h4{font-size:2rem;font-weight:650;line-height:1;font-variation-settings:"wdth" 85}
+.dossier dl{margin:0;display:grid;gap:14px}
+.dossier dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.dossier dt.n{color:var(--magenta)}
+.dossier dt.k{color:var(--leaf)}
+.dossier dd{margin:0;font-size:.93rem;color:#c3ccd8}
+.dossier dd b{color:var(--ink);font-weight:600}
+.dossier .note{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+/* route */
+.route{margin-top:18px;padding:26px;display:grid;gap:20px}
+.stations{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+.stations::before{content:"";position:absolute;left:10%;right:10%;top:27px;height:2px;background:linear-gradient(90deg,var(--amber),var(--magenta));opacity:.35}
+.stations::after{content:"";position:absolute;top:22px;left:10%;width:12px;height:12px;border-radius:50%;background:var(--magenta);box-shadow:0 0 18px var(--magenta);animation:travel 5s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes travel{0%{left:10%}100%{left:calc(90% - 12px)}}
+.st{display:grid;justify-items:center;text-align:center;gap:10px;padding:0 8px;position:relative;z-index:1}
+.st i{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--void);border:1px solid var(--line-2);font-style:normal;font-family:var(--f-mono);font-size:.74rem;color:var(--amber)}
+.st:last-child i{color:var(--magenta);border-color:var(--magenta);box-shadow:0 0 22px rgba(255,62,138,.35)}
+.st b{font-size:.95rem;font-weight:600}
+.st span{font-size:.8rem;color:var(--muted)}
+
+/* kill zone */
+.kill{margin-top:18px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
+.thermo{padding:26px;display:grid;gap:14px}
+.thermo-fig{overflow-x:auto}
+.thermo-fig svg{width:100%;min-width:600px;display:block}
+.freeze{padding:26px;display:grid;gap:14px;align-content:start;background:linear-gradient(180deg,rgba(67,225,255,.07),rgba(67,225,255,.01));border-color:rgba(67,225,255,.25)}
+.freeze strong{font-family:var(--f-display);font-size:3.2rem;line-height:.9;font-weight:600;color:var(--cyan);letter-spacing:-.04em}
+.freeze p{font-size:.92rem;color:#c3ccd8}
+.freeze .warn{color:var(--amber);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px}
+
+/* ---------- reset ---------- */
+.reset{margin-top:clamp(80px,11vw,150px);padding-block:clamp(60px,8vw,110px);border-top:1px solid var(--line);background:radial-gradient(80% 60% at 80% 0%,rgba(95,240,166,.08),transparent 70%)}
+.reset h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:650;line-height:.92;font-variation-settings:"wdth" 85;max-width:16ch}
+.reset h2 em.s{color:var(--leaf)}
+.steps3{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.steps3>div{padding:22px 22px 0 0;display:grid;gap:10px;align-content:start}
+.steps3>div+div{padding-left:22px;border-left:1px solid var(--line)}
+.steps3 .mono{color:var(--leaf)}
+.steps3 h4{font-size:1.35rem;font-weight:600}
+.steps3 p{font-size:.92rem;color:#c3ccd8}
+.caution{margin-top:40px;padding:22px 24px;border:1px dashed rgba(255,176,58,.5);border-radius:16px;display:grid;gap:8px;font-size:.9rem;color:#c3ccd8}
+.caution .mono{color:var(--amber)}
+
+footer{border-top:1px solid var(--line);padding-block:48px 64px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:grid;gap:26px}
+.foot-big{font-family:var(--f-display);font-weight:700;font-size:clamp(2.6rem,11vw,8rem);line-height:.82;letter-spacing:-.05em;color:var(--ink);font-variation-settings:"wdth" 80}
+.foot-big em.s{color:var(--magenta)}
+.foot-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;max-width:900px}
+
+
+
+/* sick */
+.sick{padding-block:clamp(70px,10vw,130px);border-bottom:1px solid var(--line);background:radial-gradient(60% 60% at 20% 40%,rgba(255,62,138,.07),transparent 70%)}
+.sick-head{display:grid;gap:16px;justify-items:start;margin-bottom:clamp(30px,5vw,56px)}
+.sick-head h2{font-size:clamp(3rem,9vw,7rem);font-weight:700;font-variation-settings:"wdth" 78;line-height:.86;letter-spacing:-.045em}
+.sick-head h2 em.s{color:var(--magenta);text-shadow:0 0 40px rgba(255,62,138,.4)}
+.sick-head p{font-size:1.12rem;color:#c3ccd8}
+.sick-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(18px,3vw,40px);align-items:start}
+.body-fig{padding:16px;position:sticky;top:76px;max-width:100%}
+.body-fig svg{width:100%;max-height:560px;display:block;margin:0 auto}
+.spot .halo{fill:rgba(255,62,138,.12);stroke:rgba(255,62,138,.5);transition:.3s}
+.spot .core{fill:#ff3e8a}
+.spot text{font-family:var(--f-mono);font-size:9px;letter-spacing:1.4px;fill:var(--muted);transition:.3s}
+.spot.on .halo{fill:rgba(255,62,138,.3);stroke:#ff3e8a;animation:spot 1.4s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.spot.on text{fill:var(--ink)}
+@keyframes spot{0%{transform:scale(.8)}70%{transform:scale(1.6);opacity:.2}100%{transform:scale(1.6);opacity:0}}
+.moves{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.move{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:var(--glass);transition:.25s}
+.move:hover{border-color:var(--line-2)}
+.move:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.move.on{border-color:rgba(255,62,138,.55);background:linear-gradient(120deg,rgba(255,62,138,.10),rgba(160,200,255,.02) 70%)}
+.mn{font-family:var(--f-display);font-weight:300;font-size:2.4rem;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px var(--muted)}
+.move.on .mn{-webkit-text-stroke:1px var(--magenta)}
+.mb{display:grid;gap:6px;min-width:0}
+.mb b{font-family:var(--f-display);font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
+.mb>span{font-size:.94rem;color:#c3ccd8}
+.sym{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.sym i{font-style:normal;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;border:1px solid var(--line-2);color:var(--muted)}
+.move.on .sym i{color:var(--magenta);border-color:rgba(255,62,138,.4)}
+.next-link{margin-top:clamp(36px,5vw,56px);display:inline-flex;align-items:baseline;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:600;letter-spacing:-.02em}
+.next-link span{font-family:var(--f-serif);font-weight:400;font-style:italic;color:var(--muted)}
+.next-link i{font-style:normal;color:var(--magenta);display:inline-block;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+@media (max-width:820px){.sick-grid{grid-template-columns:1fr}.body-fig{position:relative;top:0}.body-fig svg{max-height:380px}}
+
+/* real-life footage */
+.scene{position:relative}
+.real{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px 8px 9px;border-radius:99px;background:rgba(5,7,11,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:var(--ink);transition:.2s}
+.real i{width:16px;height:16px;border-radius:50%;background:var(--magenta);position:relative;box-shadow:0 0 12px rgba(255,62,138,.6)}
+.real i::after{content:"";position:absolute;left:6px;top:4.5px;border-left:6px solid #fff;border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+.real:hover{border-color:var(--magenta);transform:translateY(-1px)}
+.real:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.scene .real{position:absolute;right:10px;bottom:10px}
+.real.sm{padding:6px 10px 6px 7px;font-size:.6rem}
+dialog#rl{width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--line-2);border-radius:20px;background:var(--deep);color:var(--ink);overflow:auto}
+dialog#rl::backdrop{background:rgba(3,5,8,.78);backdrop-filter:blur(6px)}
+.rl-in{padding:22px;display:grid;gap:16px}
+.rl-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.rl-top h4{font-size:1.6rem;font-weight:650;line-height:1.05;margin-top:8px}
+.rl-x{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1.1rem;flex:none}
+.rl-x:focus-visible{outline:2px solid var(--cyan)}
+.rl-media{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;max-width:100%;border:1px solid var(--line);background:radial-gradient(120% 120% at 30% 20%,#1a2232,#05070b)}
+.rl-media video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.rl-play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;text-decoration:none;color:var(--ink);text-align:center;padding:16px}
+.rl-play .ring{width:78px;height:78px;border-radius:50%;background:var(--magenta);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,62,138,.15),0 0 50px rgba(255,62,138,.55);transition:transform .25s}
+.rl-play .ring::after{content:"";margin-left:6px;border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent}
+.rl-play:hover .ring{transform:scale(1.07)}
+.rl-play b{font-family:var(--f-display);font-size:1.25rem;font-weight:600}
+.rl-play span{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.rl-media .grain{position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 4px)}
+.rl-see{font-size:.95rem;color:#c3ccd8}
+.rl-links{display:flex;flex-wrap:wrap;gap:8px}
+.rl-links a{font-size:.85rem;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid var(--line-2)}
+.rl-links a:hover{border-color:var(--cyan)}
+.rl-warn{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+
+/* responsive */
+@media (max-width:980px){
+  .nature{grid-template-columns:1fr}
+  .ncard{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center}
+  .axis,.lens-wrap,.kill,.crave{grid-template-columns:1fr}
+  .mech{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .ch-head{grid-template-columns:1fr}
+  .ncard{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .duo>div+div{padding-left:0;margin-left:0;border-left:0;border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}
+  .mcard{grid-template-columns:1fr}
+  .mcard .ico{max-width:180px}
+  .lad-head,.lrow{grid-template-columns:110px minmax(0,1fr);gap:12px}
+  .fine{grid-template-columns:1fr}
+  .fine>div+div{border-left:0;border-top:1px solid var(--line)}
+  .stations{grid-template-columns:1fr;gap:16px}
+  .stations::before{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto;background:linear-gradient(180deg,var(--amber),var(--magenta))}
+  .stations::after{left:22px;top:22px;animation-name:travelv}
+  .st{grid-template-columns:56px minmax(0,1fr);justify-items:start;text-align:left;column-gap:14px;padding:0}
+  .st i{grid-row:span 2}
+  .steps3{grid-template-columns:1fr}
+  .steps3>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:22px}
+  .foot-cols{grid-template-columns:1fr}
+  .chap a:not(.on){padding:7px 8px}
+}
+@keyframes travelv{0%{top:22px}100%{top:calc(100% - 34px)}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>itstheparasites</a>
+    <nav class="chap" aria-label="Chapters">
+      <a href="#hijack">01 Hijack</a>
+      <a href="#clean">02 Clean food</a>
+      <a href="#carrier">03 Carrier food</a>
+      <a href="guide.html" class="guide">Detox guide</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<section class="top" id="top">
+  <canvas id="swarm" aria-hidden="true"></canvas>
+  <div class="wrap top-in">
+    <span class="eyebrow mono"><b>LOOK CLOSER</b> They're too small to see</span>
+    <h1>Parasites are <em class="s">everywhere.</em></h1>
+    <p class="ticker">They're in <span id="tick">the food you eat.</span></p>
+    <p class="ask">Are they affecting <em class="s">you?</em></p>
+    <div class="check panel" aria-labelledby="qc-h">
+      <p class="mono" id="qc-h">Quick check · tap what sounds like you</p>
+      <div class="qc" id="qc">
+        <button type="button" aria-pressed="false">Bloated after meals</button>
+        <button type="button" aria-pressed="false">Sugar cravings</button>
+        <button type="button" aria-pressed="false">Tired or foggy</button>
+        <button type="button" aria-pressed="false">Bad sleep</button>
+        <button type="button" aria-pressed="false">Itchy skin</button>
+        <button type="button" aria-pressed="false">Mood swings</button>
+        <button type="button" aria-pressed="false">Grind teeth at night</button>
+      </div>
+      <div class="qc-out">
+        <p id="qc-msg"><b id="qc-n">0</b> <span>Tap any that fit.</span></p>
+        <div class="qc-cta"><a href="#sick">See how they make you sick ↓</a><a href="guide.html" class="hot">Get the detox guide →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sick" id="sick">
+  <div class="wrap">
+    <div class="sick-head">
+      <span class="eyebrow mono"><b>STEP 2</b> What happens next</span>
+      <h2>Parasites make you <em class="s">sick.</em></h2>
+      <p>Here's how they do it, in five moves. Tap one to see where it happens.</p>
+    </div>
+    <div class="sick-grid">
+      <div class="body-fig panel">
+        <svg viewBox="0 0 260 480" role="img" aria-label="Glowing outline of a human body with parasites traveling from the gut into the blood, liver, lungs and brain">
+          <defs>
+            <filter id="bg2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <radialGradient id="gutg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff3e8a" stop-opacity=".35"/><stop offset="1" stop-color="#ff3e8a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <g fill="rgba(67,225,255,.04)" stroke="#43e1ff" stroke-width="1.6" stroke-linejoin="round" filter="url(#bg2)">
+            <circle cx="130" cy="48" r="30"/>
+            <path d="M118 78 h24 v14 q34 4 46 22 q8 12 10 40 l8 92 q2 12 -8 12 q-8 0 -10 -10 l-14 -84 l-2 76 q0 30 -4 60 l-6 120 q-1 12 -12 12 q-10 0 -11 -12 l-5 -118 h-2 l-5 118 q-1 12 -11 12 q-11 0 -12 -12 l-6 -120 q-4 -30 -4 -60 l-2 -76 l-14 84 q-2 10 -10 10 q-10 0 -8 -12 l8 -92 q2 -28 10 -40 q12 -18 46 -22z"/>
+          </g>
+          <circle cx="130" cy="222" r="58" fill="url(#gutg)"><animate attributeName="r" values="52;62;52" dur="3s" repeatCount="indefinite"/></circle>
+          <path d="M104 206 q26 -16 52 0 q8 16 -10 22 q-24 6 -32 -4 q-8 18 18 24 q24 4 24 18" fill="none" stroke="#ff3e8a" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+          <path d="M112 140 q-14 10 -14 30 M148 140 q14 10 14 30" fill="none" stroke="#43e1ff" stroke-opacity=".5" stroke-width="1.4"/>
+          <path d="M150 170 q22 4 26 18 q-14 10 -30 4z" fill="rgba(255,176,58,.12)" stroke="#ffb03a" stroke-width="1.3"/>
+          <path id="spreadpath" d="M130 230 C 160 210, 168 196, 160 182 C 150 160, 118 160, 112 150 C 104 130, 130 100, 130 60" fill="none" stroke="#ff3e8a" stroke-opacity=".25" stroke-dasharray="2 5"/>
+          <g fill="#ff3e8a" filter="url(#bg2)">
+            <circle r="3.5"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+            <circle r="2.5"><animateMotion dur="5s" begin="-1.6s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+            <circle r="3"><animateMotion dur="5s" begin="-3.3s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+          </g>
+          <g class="spots">
+            <g class="spot" data-i="0"><circle cx="72" cy="196" r="13" class="halo"/><circle cx="72" cy="196" r="5" class="core"/><text x="34" y="200" text-anchor="middle">BLOOD</text></g>
+            <g class="spot" data-i="1"><circle cx="122" cy="232" r="13" class="halo"/><circle cx="122" cy="232" r="5" class="core"/><text x="122" y="290" text-anchor="middle">GUT</text></g>
+            <g class="spot" data-i="2"><circle cx="164" cy="182" r="13" class="halo"/><circle cx="164" cy="182" r="5" class="core"/><text x="206" y="186" text-anchor="middle">LIVER</text></g>
+            <g class="spot" data-i="3"><circle cx="92" cy="118" r="13" class="halo"/><circle cx="92" cy="118" r="5" class="core"/><text x="58" y="112" text-anchor="middle">SKIN</text></g>
+            <g class="spot" data-i="4"><circle cx="130" cy="44" r="13" class="halo"/><circle cx="130" cy="44" r="5" class="core"/><text x="190" y="40" text-anchor="middle">BRAIN</text></g>
+          </g>
+        </svg>
+      </div>
+      <ol class="moves">
+        <li><button type="button" class="move on" data-i="0"><span class="mn">01</span><span class="mb"><b>They eat first</b><span>They take your nutrients before your body can absorb them. Hookworms drink blood and fish tapeworms take your B12.</span><span class="sym"><i>Tired</i><i>Weak</i><i>Pale</i><i>Always hungry</i></span></span></button></li>
+        <li><button type="button" class="move" data-i="1"><span class="mn">02</span><span class="mb"><b>They wreck the gut wall</b><span>Hooks and suckers latch on, and Giardia flattens the tiny fingers in your gut that absorb food.</span><span class="sym"><i>Bloating</i><i>Diarrhea</i><i>Constipation</i><i>Gas</i></span></span></button></li>
+        <li><button type="button" class="move" data-i="2"><span class="mn">03</span><span class="mb"><b>They leave waste behind</b><span>Living parasites release waste and dead ones break apart. Your liver has to clean it all up.</span><span class="sym"><i>Headaches</i><i>Nausea</i><i>Run-down</i></span></span></button></li>
+        <li><button type="button" class="move" data-i="3"><span class="mn">04</span><span class="mb"><b>They set off alarms</b><span>Your body sends special white blood cells to fight them. That fight causes the itch and swelling.</span><span class="sym"><i>Itchy skin</i><i>Rashes</i><i>Hives</i><i>Achy joints</i></span></span></button></li>
+        <li><button type="button" class="move" data-i="4"><span class="mn">05</span><span class="mb"><b>They move to your organs</b><span>Some leave the gut and ride the blood to the liver, lungs, eyes and brain.</span><span class="sym"><i>Cough</i><i>Belly pain</i><i>Vision problems</i><i>Seizures</i></span></span></button></li>
+      </ol>
+    </div>
+    <a class="next-link" href="#nerves"><span>And the worst part:</span> they go for your nerves <i>↓</i></a>
+  </div>
+</section>
+
+<section class="hero" id="nerves">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap hero-in">
+    <span class="eyebrow mono"><b>STEP 3</b> Once they're inside</span>
+    <h2 class="h1">They go for your <em class="s">nerves.</em></h2>
+    <p class="sub">Some parasites don't just live in your body. They reach into your nervous system and change how it works. See how they do it, which foods keep you clear, and which foods carry them in.</p>
+    <p class="hint mono">Move across the network. You are the parasite.</p>
+    <div class="chips">
+      <a class="chip" href="#hijack" style="--c:var(--magenta)"><span>01</span><b>How nerves get hijacked</b></a>
+      <a class="chip" href="#clean" style="--c:var(--leaf)"><span>02</span><b>Food that keeps you clear</b></a>
+      <a class="chip" href="#carrier" style="--c:var(--amber)"><span>03</span><b>Food that carries them in</b></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>1 in 3</strong><p>people worldwide are estimated to carry Toxoplasma, a brain-dwelling parasite</p></div>
+      <div class="stat"><strong>500M</strong><p>neurons line your gut, wired to your brain through the vagus nerve</p></div>
+      <div class="stat"><strong>~90%</strong><p>of your body's serotonin is made in the gut, not the brain</p></div>
+      <div class="stat"><strong>30%</strong><p>of epilepsy cases in some regions are caused by pork tapeworm cysts in the brain (WHO)</p></div>
+    </div>
+  </div>
+</section>
+
+<main>
+<!-- ============ 01 HIJACK ============ -->
+<section class="chapter c1" id="hijack">
+  <div class="wrap">
+    <div class="ch-head">
+      <div class="ch-num">01</div>
+      <div>
+        <span class="mono">Chapter 01 · The hijack</span>
+        <h2>How a parasite <em class="s">steers</em> a nervous system</h2>
+        <p class="lead">Scientists have watched parasites take control of animal brains for decades. We'll start there, because it shows what's possible. Then we'll look at how it works in people.</p>
+      </div>
+    </div>
+
+    <div class="sub-h"><h3>Proof from nature</h3><span class="mono">3 documented cases</span></div>
+    <div class="nature">
+      <!-- RAT -->
+      <article class="ncard panel">
+        <div class="scene">
+          <svg viewBox="0 0 320 200" aria-label="A rat walking toward a plume of cat scent instead of away from it">
+            <defs>
+              <filter id="g1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="plume" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb03a" stop-opacity=".9"/><stop offset="1" stop-color="#ffb03a" stop-opacity="0"/></linearGradient>
+            </defs>
+            <g stroke="#1b2431"><line x1="0" y1="150" x2="320" y2="150"/></g>
+            <g fill="none" stroke="url(#plume)" stroke-width="2" stroke-linecap="round">
+              <path d="M262 150 q-10 -20 0 -40 t0 -40 t0 -40"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M262 150 q-10 -20 0 -40 t0 -40 t0 -40;M262 150 q10 -20 0 -40 t0 -40 t0 -40;M262 150 q-10 -20 0 -40 t0 -40 t0 -40"/></path>
+              <path d="M280 150 q10 -20 0 -40 t0 -36 t0 -30"><animate attributeName="d" dur="3.6s" repeatCount="indefinite" values="M280 150 q10 -20 0 -40 t0 -36 t0 -30;M280 150 q-10 -20 0 -40 t0 -36 t0 -30;M280 150 q10 -20 0 -40 t0 -36 t0 -30"/></path>
+              <path d="M246 150 q6 -16 0 -30 t0 -30"><animate attributeName="d" dur="2.6s" repeatCount="indefinite" values="M246 150 q6 -16 0 -30 t0 -30;M246 150 q-6 -16 0 -30 t0 -30;M246 150 q6 -16 0 -30 t0 -30"/></path>
+            </g>
+            <text x="262" y="172" fill="#ffb03a" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5" text-anchor="middle">CAT SCENT</text>
+            <g filter="url(#g1)">
+              <animateTransform attributeName="transform" type="translate" values="0 0;120 0;120 0;0 0" keyTimes="0;.55;.8;1" dur="6s" repeatCount="indefinite"/>
+              <path d="M30 140 q-22 -2 -26 -14" stroke="#8a97a8" stroke-width="1.6" fill="none"/>
+              <path d="M30 146 c0 -26 22 -34 44 -32 c14 1 22 8 28 14 l12 4 c3 1 3 5 0 6 l-10 4 c-4 4 -14 6 -26 6 h-40 c-6 0 -8 -1 -8 -2z" fill="#0e141e" stroke="#43e1ff" stroke-width="1.6"/>
+              <circle cx="78" cy="118" r="7" fill="none" stroke="#43e1ff" stroke-width="1.4"/>
+              <circle cx="102" cy="126" r="2" fill="#43e1ff"/>
+              <!-- brain cysts -->
+              <circle cx="92" cy="124" r="5" fill="#ff3e8a" fill-opacity=".25" stroke="#ff3e8a" stroke-width="1.2"><animate attributeName="r" values="4;6;4" dur="1.4s" repeatCount="indefinite"/></circle>
+              <circle cx="92" cy="124" r="1.8" fill="#ff3e8a"/>
+              <path d="M50 146 v6 M86 146 v6" stroke="#43e1ff" stroke-width="1.6" stroke-linecap="round"/>
+            </g>
+            <text x="16" y="28" fill="#ff3e8a" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">CYST IN AMYGDALA</text>
+            <line x1="16" y1="34" x2="70" y2="34" stroke="#ff3e8a" stroke-opacity=".4"/>
+          </svg>
+          <button class="real" type="button" data-real="rat"><i></i>See it real</button>
+        </div>
+        <div class="meta">
+          <div class="tagrow"><span class="tag m">Toxoplasma gondii</span><span class="tag">Host: rat</span></div>
+          <h4>The rat that stops fearing cats</h4>
+        </div>
+        <div class="duo">
+          <div class="sci"><span class="mono">The science</span><p>Infected rats lose their inborn fear of cat urine, and some become drawn to it. The parasite forms cysts in brain regions that include the amygdala, the fear center.</p></div>
+          <div class="plain"><span class="mono">In plain words</span><p>The parasite can only breed inside a cat. So it rewires the rat to walk toward the thing that eats it.</p></div>
+        </div>
+      </article>
+
+      <!-- CRICKET -->
+      <article class="ncard panel">
+        <div class="scene">
+          <svg viewBox="0 0 320 200" aria-label="A cricket leaping off land into water">
+            <defs>
+              <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#43e1ff" stop-opacity=".28"/><stop offset="1" stop-color="#43e1ff" stop-opacity="0"/></linearGradient>
+            </defs>
+            <path d="M0 150 H120 q14 0 20 8 l8 12 H320 V200 H0z" fill="#0b1018"/>
+            <rect x="148" y="160" width="172" height="40" fill="url(#water)"/>
+            <line x1="148" y1="160" x2="320" y2="160" stroke="#43e1ff" stroke-opacity=".6"/>
+            <path id="jump" d="M70 140 Q160 20 240 158" fill="none" stroke="#ff3e8a" stroke-opacity=".35" stroke-dasharray="3 5"/>
+            <g filter="url(#g1)">
+              <g>
+                <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;.7;1" calcMode="linear"><mpath href="#jump"/></animateMotion>
+                <ellipse cx="0" cy="0" rx="14" ry="6" fill="#0e141e" stroke="#43e1ff" stroke-width="1.4"/>
+                <circle cx="14" cy="-1" r="4" fill="#0e141e" stroke="#43e1ff" stroke-width="1.4"/>
+                <path d="M17 -4 q16 -14 26 -12 M17 -3 q12 -18 18 -22" stroke="#43e1ff" stroke-width="1" fill="none"/>
+                <path d="M-6 3 l-10 -12 l-6 16 M4 5 l2 8 M10 4 l6 8" stroke="#43e1ff" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+                <path d="M-12 0 q-4 -2 -2 -4 q8 -6 18 0 q6 4 -2 6" stroke="#ff3e8a" stroke-width="1.6" fill="none"/>
+              </g>
+            </g>
+            <g fill="none" stroke="#43e1ff">
+              <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;40" dur="3.2s" repeatCount="indefinite" keyTimes="0;1" begin="2.2s"/><animate attributeName="ry" values="1;7" dur="3.2s" repeatCount="indefinite" begin="2.2s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.2s" repeatCount="indefinite" begin="2.2s"/></ellipse>
+              <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;26" dur="3.2s" repeatCount="indefinite" begin="2.5s"/><animate attributeName="ry" values="1;4" dur="3.2s" repeatCount="indefinite" begin="2.5s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.2s" repeatCount="indefinite" begin="2.5s"/></ellipse>
+            </g>
+            <text x="16" y="28" fill="#ff3e8a" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">WORM INSIDE HOST</text>
+            <line x1="16" y1="34" x2="70" y2="34" stroke="#ff3e8a" stroke-opacity=".4"/>
+          </svg>
+          <button class="real" type="button" data-real="cricket"><i></i>See it real</button>
+        </div>
+        <div class="meta">
+          <div class="tagrow"><span class="tag m">Horsehair worm</span><span class="tag">Host: cricket</span></div>
+          <h4>The cricket that jumps into water</h4>
+        </div>
+        <div class="duo">
+          <div class="sci"><span class="mono">The science</span><p>The worm changes which proteins are made in the cricket's brain. Infected crickets seek out water, and the adult worm swims out of the body.</p></div>
+          <div class="plain"><span class="mono">In plain words</span><p>The worm can only breed in water. So it makes a land insect drown itself.</p></div>
+        </div>
+      </article>
+
+      <!-- ANT -->
+      <article class="ncard panel">
+        <div class="scene">
+          <svg viewBox="0 0 320 200" aria-label="An ant climbing a plant stem as a fungal stalk grows from its head">
+            <path d="M160 200 V40" stroke="#1f3a2b" stroke-width="4"/>
+            <path d="M160 70 q40 -10 70 -40 q-40 4 -70 30 M160 110 q-40 -12 -66 -44 q38 8 66 34" fill="#0f2a1d" stroke="#5ff0a6" stroke-opacity=".4"/>
+            <g filter="url(#g1)">
+              <g>
+                <animateTransform attributeName="transform" type="translate" values="0 120;0 0;0 0;0 120" keyTimes="0;.5;.95;1" dur="7s" repeatCount="indefinite"/>
+                <g transform="translate(160 70)">
+                  <ellipse cx="0" cy="18" rx="5" ry="8" fill="#0e141e" stroke="#43e1ff" stroke-width="1.3"/>
+                  <ellipse cx="0" cy="5" rx="3.5" ry="4" fill="#0e141e" stroke="#43e1ff" stroke-width="1.3"/>
+                  <circle cx="0" cy="-4" r="4.5" fill="#0e141e" stroke="#43e1ff" stroke-width="1.3"/>
+                  <path d="M-3 4 l-9 -4 M3 4 l9 -4 M-3 7 l-10 4 M3 7 l10 4 M-2 10 l-8 10 M2 10 l8 10" stroke="#43e1ff" stroke-width="1"/>
+                  <path d="M0 -8 V-8" stroke="#ff3e8a" stroke-width="2" stroke-linecap="round">
+                    <animate attributeName="d" values="M0 -8 V-8;M0 -8 V-8;M0 -8 q4 -16 -2 -34;M0 -8 q4 -16 -2 -34;M0 -8 V-8" keyTimes="0;.5;.75;.95;1" dur="7s" repeatCount="indefinite"/>
+                  </path>
+                  <circle cx="-2" cy="-42" r="0" fill="#ff3e8a">
+                    <animate attributeName="r" values="0;0;4;4;0" keyTimes="0;.6;.75;.95;1" dur="7s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+              </g>
+            </g>
+            <g fill="#ff3e8a">
+              <circle cx="158" cy="28" r="1.4"><animate attributeName="cy" values="28;190" dur="4s" repeatCount="indefinite"/><animate attributeName="cx" values="158;130" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/></circle>
+              <circle cx="158" cy="28" r="1.2"><animate attributeName="cy" values="28;190" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="cx" values="158;196" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.6s" begin="1s" repeatCount="indefinite"/></circle>
+            </g>
+            <text x="16" y="28" fill="#ff3e8a" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">FUNGAL STALK</text>
+            <line x1="16" y1="34" x2="70" y2="34" stroke="#ff3e8a" stroke-opacity=".4"/>
+          </svg>
+          <button class="real" type="button" data-real="ant"><i></i>See it real</button>
+        </div>
+        <div class="meta">
+          <div class="tagrow"><span class="tag m">Ophiocordyceps fungus</span><span class="tag">Host: ant</span></div>
+          <h4>The ant that climbs to die</h4>
+        </div>
+        <div class="duo">
+          <div class="sci"><span class="mono">The science</span><p>This parasitic fungus spreads through the ant's muscles and drives it to climb a plant and bite down on a leaf. Then it kills the ant and grows out of its head.</p></div>
+          <div class="plain"><span class="mono">In plain words</span><p>It drives the body like a car. Up high, it can rain spores onto the ants below.</p></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- AXIS -->
+    <div class="sub-h"><h3>The wiring they tap</h3><span class="mono">The gut–brain axis</span></div>
+    <div class="axis">
+      <div class="axis-fig panel">
+        <svg viewBox="0 0 520 530" role="img" aria-label="Diagram: the brain at the top and the gut at the bottom, linked by three channels, the vagus nerve, the bloodstream and the immune system, with signals moving up from gut to brain">
+          <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <radialGradient id="bg-b" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#43e1ff" stop-opacity=".22"/><stop offset="1" stop-color="#43e1ff" stop-opacity="0"/></radialGradient>
+            <radialGradient id="bg-g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff3e8a" stop-opacity=".22"/><stop offset="1" stop-color="#ff3e8a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- brain -->
+          <circle cx="260" cy="92" r="110" fill="url(#bg-b)"/>
+          <g fill="none" stroke="#43e1ff" stroke-width="1.6" filter="url(#glow)">
+            <path d="M190 110 c-22 -6 -26 -40 -6 -52 c-2 -24 26 -36 42 -24 c10 -18 40 -20 52 -4 c16 -12 44 -4 46 18 c22 2 30 30 14 44 c10 18 -6 40 -26 36 c-8 14 -30 16 -40 4 c-14 10 -36 8 -42 -6 c-18 4 -36 -4 -40 -16z"/>
+            <path d="M210 70 q14 10 30 0 q10 16 30 8 M216 100 q20 -10 34 6 q14 -12 30 0 M262 50 q-4 18 10 26 M296 70 q-8 12 4 24" stroke-opacity=".6"/>
+            <path d="M262 130 q0 20 -2 40" stroke-width="3"/>
+          </g>
+          <text x="260" y="24" text-anchor="middle" fill="#edf2f7" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="20">Brain</text>
+          <!-- gut -->
+          <circle cx="260" cy="440" r="110" fill="url(#bg-g)"/>
+          <g fill="none" stroke="#ff3e8a" stroke-width="7" stroke-linecap="round" filter="url(#glow)" stroke-opacity=".9">
+            <path d="M198 392 q62 -34 124 0 q20 28 -8 40 q-56 18 -92 2 q-22 20 4 38 q44 20 88 4 q26 10 10 32 q-30 16 -60 10"/>
+          </g>
+          <text x="260" y="522" text-anchor="middle" fill="#edf2f7" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="20">Gut</text>
+          <!-- channels -->
+          <path id="vg" d="M262 380 C 240 320, 290 240, 262 172" fill="none" stroke="#43e1ff" stroke-width="2.4"/>
+          <path id="bl" d="M210 392 C 120 330, 120 230, 206 150" fill="none" stroke="#ff3e8a" stroke-width="2" stroke-dasharray="5 6"/>
+          <path id="im" d="M318 392 C 410 330, 410 230, 318 150" fill="none" stroke="#ffb03a" stroke-width="2" stroke-dasharray="1.5 6" stroke-linecap="round"/>
+          <g font-family="Geist Mono,monospace" font-size="10" letter-spacing="1.2">
+            <text x="282" y="282" fill="#43e1ff">VAGUS</text>
+            <text x="98" y="276" fill="#ff3e8a" text-anchor="end">BLOOD</text>
+            <text x="424" y="276" fill="#ffb03a">IMMUNE</text>
+          </g>
+          <g id="sigs"></g>
+        </svg>
+      </div>
+      <div class="axis-copy">
+        <div class="duo" style="--c:var(--magenta)">
+          <div class="sci"><span class="mono">The science</span><p>The gut has its own nervous system, with around 500 million neurons. The vagus nerve links it to the brainstem, and about 80% of its fibers carry signals up from the gut. The gut also makes most of the body's serotonin.</p></div>
+          <div class="plain"><span class="mono">What that means</span><p>Your gut is a second brain that is always talking to the first one. Most of that talk goes up, from belly to head.</p></div>
+        </div>
+        <p class="big-plain">Anything living in your gut gets a seat at that table.</p>
+        <div class="legend">
+          <div class="leg"><svg viewBox="0 0 34 12" aria-hidden="true"><line x1="0" y1="6" x2="34" y2="6" stroke="#43e1ff" stroke-width="2.4"/></svg><div><b>Vagus nerve</b><span>Direct electrical line, gut to brainstem</span></div></div>
+          <div class="leg"><svg viewBox="0 0 34 12" aria-hidden="true"><line x1="0" y1="6" x2="34" y2="6" stroke="#ff3e8a" stroke-width="2" stroke-dasharray="5 6"/></svg><div><b>Bloodstream</b><span>Chemicals and parasite waste travel to the brain</span></div></div>
+          <div class="leg"><svg viewBox="0 0 34 12" aria-hidden="true"><line x1="0" y1="6" x2="34" y2="6" stroke="#ffb03a" stroke-width="2" stroke-dasharray="1.5 6" stroke-linecap="round"/></svg><div><b>Immune system</b><span>Inflammation signals that change mood and energy</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MECHANISMS -->
+    <div class="sub-h"><h3>Four ways they get into your head</h3><span class="mono">Mechanisms in humans</span></div>
+    <div class="mech">
+      <article class="mcard panel">
+        <div class="ico">
+          <svg viewBox="0 0 150 150" aria-hidden="true">
+            <g fill="none" stroke="#43e1ff" stroke-width="1.4" filter="url(#glow)">
+              <circle cx="75" cy="75" r="24"/>
+              <path d="M75 51 q-6 -20 -20 -32 M99 75 q20 -4 34 -20 M75 99 q4 22 20 34 M51 75 q-22 2 -36 18 M58 58 q-14 -10 -30 -10"/>
+            </g>
+            <path d="M66 70 q10 -14 22 -2 q-10 -4 -18 8z" fill="#ff3e8a" filter="url(#glow)"/>
+            <g fill="#ffb03a">
+              <circle cx="75" cy="75" r="2.4"><animate attributeName="cx" values="75;120" dur="2s" repeatCount="indefinite"/><animate attributeName="cy" values="75;40" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="75" cy="75" r="2.4"><animate attributeName="cx" values="75;30" dur="2.3s" begin=".5s" repeatCount="indefinite"/><animate attributeName="cy" values="75;110" dur="2.3s" begin=".5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.3s" begin=".5s" repeatCount="indefinite"/></circle>
+              <circle cx="75" cy="75" r="2.4"><animate attributeName="cx" values="75;125" dur="1.8s" begin="1s" repeatCount="indefinite"/><animate attributeName="cy" values="75;115" dur="1.8s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/></circle>
+              <circle cx="75" cy="75" r="2.4"><animate attributeName="cx" values="75;28" dur="2.1s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="cy" values="75;36" dur="2.1s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.1s" begin="1.4s" repeatCount="indefinite"/></circle>
+            </g>
+            <text x="75" y="142" text-anchor="middle" fill="#ffb03a" font-family="Geist Mono,monospace" font-size="8" letter-spacing="1.2">DOPAMINE ↑</text>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="tagrow"><span class="tag m">01 · Chemical</span><span class="tag c">Lab evidence</span></div>
+          <h4>They make your brain chemicals</h4>
+          <div class="duo">
+            <div class="sci"><span class="mono">The science</span><p>Toxoplasma carries two genes for tyrosine hydroxylase, the enzyme that starts dopamine production. Infected brain cells have been shown to release more dopamine.</p></div>
+            <div class="plain"><span class="mono">In plain words</span><p>Dopamine is your reward and risk chemical. A parasite that can turn it up can change how bold or impulsive you feel.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mcard panel">
+        <div class="ico">
+          <svg viewBox="0 0 150 150" aria-hidden="true">
+            <path d="M14 60 h122" stroke="#43e1ff" stroke-width="1.4" stroke-dasharray="6 4"/>
+            <text x="14" y="54" fill="#43e1ff" font-family="Geist Mono,monospace" font-size="7" letter-spacing="1">BLOOD–BRAIN BARRIER</text>
+            <path d="M14 30 q10 -12 20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8a97a8" stroke-width="1.4">
+              <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M14 30 q10 -12 20 0 t20 0 t20 0 t20 0 t20 0 t20 0;M14 30 q10 -3 20 0 t20 0 t20 0 t20 0 t20 0 t20 0;M14 30 q10 -12 20 0 t20 0 t20 0 t20 0 t20 0 t20 0"/>
+            </path>
+            <g fill="#ffb03a" filter="url(#glow)">
+              <circle cx="40" cy="140" r="3"><animate attributeName="cy" values="140;40" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite"/></circle>
+              <circle cx="75" cy="140" r="3"><animate attributeName="cy" values="140;40" dur="2.8s" begin=".6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.8s" begin=".6s" repeatCount="indefinite"/></circle>
+              <circle cx="110" cy="140" r="3"><animate attributeName="cy" values="140;40" dur="2.2s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.2s" begin="1.2s" repeatCount="indefinite"/></circle>
+              <circle cx="58" cy="140" r="2"><animate attributeName="cy" values="140;40" dur="3s" begin="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1.6s" repeatCount="indefinite"/></circle>
+              <circle cx="94" cy="140" r="2"><animate attributeName="cy" values="140;40" dur="2.6s" begin=".3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin=".3s" repeatCount="indefinite"/></circle>
+            </g>
+            <text x="75" y="146" text-anchor="middle" fill="#ffb03a" font-family="Geist Mono,monospace" font-size="7" letter-spacing="1">CYTOKINES</text>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="tagrow"><span class="tag m">02 · Inflammation</span><span class="tag c">Well established</span></div>
+          <h4>They set off alarms</h4>
+          <div class="duo">
+            <div class="sci"><span class="mono">The science</span><p>Infection releases cytokines, immune signals that reach the brain through the blood and the vagus nerve. They trigger "sickness behavior": fatigue, low mood, poor focus and appetite changes.</p></div>
+            <div class="plain"><span class="mono">In plain words</span><p>Your immune system fights back, and the fight itself leaves you tired, foggy and down.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mcard panel">
+        <div class="ico">
+          <svg viewBox="0 0 150 150" aria-hidden="true">
+            <g fill="none" stroke="#1b2431" stroke-width="1.2" id="cells">
+              <circle cx="30" cy="30" r="14"/><circle cx="62" cy="24" r="14"/><circle cx="96" cy="30" r="14"/><circle cx="126" cy="24" r="14"/>
+              <circle cx="22" cy="62" r="14"/><circle cx="124" cy="66" r="14"/>
+              <circle cx="28" cy="96" r="14"/><circle cx="120" cy="100" r="14"/>
+              <circle cx="40" cy="126" r="14"/><circle cx="74" cy="128" r="14"/><circle cx="108" cy="128" r="14"/>
+            </g>
+            <circle cx="74" cy="74" r="24" fill="none" stroke="#ff3e8a" stroke-opacity=".5"><animate attributeName="r" values="24;44" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".6;0" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="74" cy="74" r="22" fill="#ff3e8a" fill-opacity=".14" stroke="#ff3e8a" stroke-width="1.6" filter="url(#glow)"><animate attributeName="r" values="21;24;21" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="80" cy="70" r="6" fill="#edf2f7"/>
+            <g fill="#edf2f7"><circle cx="74" cy="66" r="1.2"/><circle cx="86" cy="66" r="1.2"/><circle cx="74" cy="74" r="1.2"/><circle cx="86" cy="74" r="1.2"/></g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="tagrow"><span class="tag m">03 · Physical</span><span class="tag c">Well established</span><button class="real sm" type="button" data-real="brain"><i></i>See it real</button></div>
+          <h4>They move in</h4>
+          <div class="duo">
+            <div class="sci"><span class="mono">The science</span><p>Pork tapeworm larvae can settle in the brain as cysts. The WHO links this condition, neurocysticercosis, to about 30% of epilepsy cases where the parasite is common.</p></div>
+            <div class="plain"><span class="mono">In plain words</span><p>A cyst in brain tissue presses on nerves. That can mean headaches, seizures and confusion.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mcard panel">
+        <div class="ico">
+          <svg viewBox="0 0 150 150" aria-hidden="true">
+            <line x1="10" y1="46" x2="140" y2="46" stroke="#43e1ff" stroke-width="1"/>
+            <g fill="#43e1ff" fill-opacity=".18" stroke="#43e1ff" stroke-width="1.3">
+              <rect x="14" y="38" width="24" height="16" rx="8"/>
+              <rect x="44" y="38" width="24" height="16" rx="8"><animate attributeName="opacity" values="1;1;.15;.15;1" keyTimes="0;.3;.4;.9;1" dur="5s" repeatCount="indefinite"/></rect>
+              <rect x="74" y="38" width="24" height="16" rx="8"><animate attributeName="opacity" values="1;1;.15;.15;1" keyTimes="0;.5;.6;.9;1" dur="5s" repeatCount="indefinite"/></rect>
+              <rect x="104" y="38" width="24" height="16" rx="8"><animate attributeName="opacity" values="1;1;.15;.15;1" keyTimes="0;.7;.8;.9;1" dur="5s" repeatCount="indefinite"/></rect>
+            </g>
+            <text x="75" y="28" text-anchor="middle" fill="#43e1ff" font-family="Geist Mono,monospace" font-size="7" letter-spacing="1">MYELIN · NERVE INSULATION</text>
+            <g fill="#5ff0a6">
+              <circle cx="56" cy="62" r="2.4"><animate attributeName="cy" values="62;110" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+              <circle cx="86" cy="62" r="2.4"><animate attributeName="cy" values="62;110" dur="1.6s" begin=".5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.6s" begin=".5s" repeatCount="indefinite"/></circle>
+              <circle cx="116" cy="62" r="2.4"><animate attributeName="cy" values="62;110" dur="1.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.6s" begin="1s" repeatCount="indefinite"/></circle>
+            </g>
+            <text x="134" y="88" text-anchor="end" fill="#5ff0a6" font-family="Geist Mono,monospace" font-size="7" letter-spacing="1">B12</text>
+            <g fill="#0e141e" stroke="#ff3e8a" stroke-width="1.3" filter="url(#glow)">
+              <path d="M8 120 q20 -6 34 0 t34 0 t34 0 t32 0" fill="none" stroke-width="7" stroke-opacity=".25"/>
+              <rect x="10" y="114" width="20" height="12" rx="3"/><rect x="32" y="114" width="20" height="12" rx="3"/><rect x="54" y="114" width="20" height="12" rx="3"/><rect x="76" y="114" width="20" height="12" rx="3"/><rect x="98" y="114" width="20" height="12" rx="3"/><rect x="120" y="115" width="18" height="10" rx="3"/>
+            </g>
+            <text x="75" y="144" text-anchor="middle" fill="#ff3e8a" font-family="Geist Mono,monospace" font-size="7" letter-spacing="1">FISH TAPEWORM</text>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="tagrow"><span class="tag m">04 · Theft</span><span class="tag c">Well established</span></div>
+          <h4>They steal nerve fuel</h4>
+          <div class="duo">
+            <div class="sci"><span class="mono">The science</span><p>The fish tapeworm absorbs vitamin B12 in the intestine. Nerves need B12 to keep up myelin, their insulation. A shortage can cause numbness, tingling and memory problems.</p></div>
+            <div class="plain"><span class="mono">In plain words</span><p>Your nerves are wires with insulation. Take away the B12 and the insulation wears thin.</p></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="crave panel">
+      <div>
+        <div class="tagrow"><span class="tag l">Holistic view · Yah'ki Awakened</span><span class="tag a">Research: early hypothesis</span></div>
+        <h4 style="margin-top:14px">Are your cravings <em class="s">even yours?</em></h4>
+      </div>
+      <div class="duo" style="--c:var(--leaf)">
+        <div class="sci"><span class="mono">What's being studied</span><p>In 2014, researchers proposed that gut organisms could steer eating behavior through the vagus nerve and the brain's reward system. It hasn't been proven in people yet, but it is being studied.</p></div>
+        <div class="plain"><span class="mono">The holistic teaching</span><p>Yah'ki Awakened teaches that parasites feed on sugar, starch and processed food and drive your cravings for them. Starve them with living plant foods and the cravings fade.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 CLEAN ============ -->
+<section class="chapter c2" id="clean">
+  <div class="wrap">
+    <div class="ch-head">
+      <div class="ch-num">02</div>
+      <div>
+        <span class="mono">Chapter 02 · Clean food</span>
+        <h2>Food that keeps you <em class="s">clear</em></h2>
+        <p class="lead">Parasites need a way in. The lowest-risk foods don't give them one. They have a protective skin, they never touch soil or animals, or they're cooked hot enough to kill anything along for the ride.</p>
+      </div>
+    </div>
+
+    <div class="ladder panel" id="ladder">
+      <div class="lad-head"><span class="mono muted">Food</span><div class="zones"><span>Low</span><span>Moderate</span><span>High</span></div></div>
+      <div id="rows"></div>
+      <p class="lad-note">Ranked by how easily each food can carry parasites into your body. This is a visual guide, not measured odds.</p>
+    </div>
+
+    <div class="sub-h"><h3>The low-risk list</h3><span class="mono">And why each one works</span></div>
+    <div class="clean">
+      <article class="food panel">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 44 q8 -30 38 -32 q4 4 0 8 q-20 4 -30 28 q-4 4 -8 -4z" fill="#ffd34a" fill-opacity=".14" stroke="#ffd34a" stroke-width="1.6"/><path d="M50 12 l4 -4" stroke="#5ff0a6" stroke-width="2" stroke-linecap="round"/><path d="M12 30 q-6 12 4 22" stroke="#5ff0a6" stroke-width="1.4" fill="none" stroke-dasharray="2 3"/></svg>
+        <span class="why">Natural wrapper</span>
+        <h4>Fruit you peel</h4>
+        <span class="eg">Banana · orange · mango · avocado</span>
+        <p>The peel is a sealed package. Wash it, peel it, and the fruit inside has never touched the outside world.</p>
+      </article>
+      <article class="food panel">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 v12" stroke="#5ff0a6" stroke-width="1.6"/><path d="M14 20 q18 -8 36 0" stroke="#5ff0a6" stroke-width="1.6" fill="none"/><circle cx="22" cy="34" r="9" fill="#ff6b6b" fill-opacity=".16" stroke="#ff6b6b" stroke-width="1.6"/><circle cx="42" cy="32" r="9" fill="#ff6b6b" fill-opacity=".16" stroke="#ff6b6b" stroke-width="1.6"/><path d="M4 58 h56" stroke="#8a97a8" stroke-dasharray="2 4"/></svg>
+        <span class="why">Off the ground</span>
+        <h4>Tree &amp; vine fruit</h4>
+        <span class="eg">Apples · pears · grapes · stone fruit</span>
+        <p>They grow up off the ground, away from soil and animal waste, where most parasite eggs live. Wash before eating.</p>
+      </article>
+      <article class="food panel">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 c14 0 20 12 18 24 c-2 14 -10 22 -18 22 c-8 0 -16 -8 -18 -22 c-2 -12 4 -24 18 -24z" fill="#ffb03a" fill-opacity=".12" stroke="#ffb03a" stroke-width="1.6"/><path d="M32 14 v38 M22 22 q10 6 20 0 M20 34 q12 6 24 0 M22 46 q10 4 20 0" stroke="#ffb03a" stroke-width="1" fill="none" stroke-opacity=".6"/></svg>
+        <span class="why">Too dry</span>
+        <h4>Nuts &amp; seeds</h4>
+        <span class="eg">Almonds · walnuts · sunflower · hemp</span>
+        <p>They hold very little water. Parasite eggs and cysts need moisture to survive.</p>
+      </article>
+      <article class="food panel">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32 h48 q0 22 -24 22 q-24 0 -24 -22z" fill="#43e1ff" fill-opacity=".1" stroke="#43e1ff" stroke-width="1.6"/><g stroke="#ffb03a" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M22 26 q-4 -6 0 -12 q4 -6 0 -10"><animate attributeName="d" dur="2s" repeatCount="indefinite" values="M22 26 q-4 -6 0 -12 q4 -6 0 -10;M22 26 q4 -6 0 -12 q-4 -6 0 -10;M22 26 q-4 -6 0 -12 q4 -6 0 -10"/></path><path d="M32 26 q4 -6 0 -12 q-4 -6 0 -10"><animate attributeName="d" dur="2.4s" repeatCount="indefinite" values="M32 26 q4 -6 0 -12 q-4 -6 0 -10;M32 26 q-4 -6 0 -12 q4 -6 0 -10;M32 26 q4 -6 0 -12 q-4 -6 0 -10"/></path><path d="M42 26 q-4 -6 0 -12 q4 -6 0 -10"><animate attributeName="d" dur="1.8s" repeatCount="indefinite" values="M42 26 q-4 -6 0 -12 q4 -6 0 -10;M42 26 q4 -6 0 -12 q-4 -6 0 -10;M42 26 q-4 -6 0 -12 q4 -6 0 -10"/></path></g></svg>
+        <span class="why">Heat kills</span>
+        <h4>Cooked grains &amp; beans</h4>
+        <span class="eg">Rice · quinoa · lentils · black beans</span>
+        <p>Boiling kills parasites and their eggs. Anything cooked all the way through is clean.</p>
+      </article>
+      <article class="food panel">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56 c-18 -8 -22 -30 -6 -46 c4 18 14 22 20 34 c4 8 -4 14 -14 12z" fill="#5ff0a6" fill-opacity=".12" stroke="#5ff0a6" stroke-width="1.6"/><path d="M32 56 q-4 -20 -6 -46" stroke="#5ff0a6" stroke-width="1" fill="none"/><g fill="#43e1ff"><circle cx="46" cy="10" r="2"><animate attributeName="cy" values="6;40" dur="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.4s" repeatCount="indefinite"/></circle><circle cx="52" cy="14" r="1.6"><animate attributeName="cy" values="8;44" dur="1.7s" begin=".4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.7s" begin=".4s" repeatCount="indefinite"/></circle></g></svg>
+        <span class="why">Rinse it off</span>
+        <h4>Washed greens &amp; herbs</h4>
+        <span class="eg">Kale · spinach · lettuce · cilantro</span>
+        <p>Low risk once washed well under running water. Soil and slugs are the danger, so rinse leaf by leaf.</p>
+      </article>
+    </div>
+
+    <div class="allies panel">
+      <div class="allies-top">
+        <div style="display:grid;gap:10px">
+          <div class="tagrow"><span class="tag l">Holistic view · Yah'ki Awakened</span></div>
+          <h4>Foods used against parasites</h4>
+          <p class="muted prose" style="font-size:.92rem">The holistic approach Yah'ki Awakened teaches is built on a plant-based diet of living foods. These foods have a long history of use against parasites. The bars show how strong the scientific evidence is today.</p>
+        </div>
+        <div class="mono muted" style="display:flex;gap:8px;align-items:center">Evidence <span class="ev" style="width:60px"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+      </div>
+      <div class="ally-grid">
+        <div class="ally"><b>Papaya seeds</b><div class="ev"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>Small human trial</span></div>
+        <div class="ally"><b>Pumpkin seeds</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Animal studies</span></div>
+        <div class="ally"><b>Garlic</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Lab studies</span></div>
+        <div class="ally"><b>Clove</b><div class="ev"><i class="on"></i><i></i><i></i><i></i></div><span>Traditional use</span></div>
+        <div class="ally"><b>Neem</b><div class="ev"><i class="on"></i><i></i><i></i><i></i></div><span>Traditional use</span></div>
+        <div class="ally"><b>Wormwood</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Lab studies · strong herb</span></div>
+      </div>
+    </div>
+
+    <div class="fine panel">
+      <div style="--b:var(--amber)">
+        <span class="mono" style="color:var(--amber)">The fine print</span>
+        <h4>Clean doesn't mean zero</h4>
+        <ul>
+          <li>Cyclospora outbreaks have been traced to imported berries, lettuce, basil and cilantro.</li>
+          <li>Toxoplasma eggs from cat waste can live in garden soil and stick to vegetables.</li>
+          <li>Rat lungworm larvae left by slugs on produce can travel to the brain.</li>
+          <li>Wild watercress can carry liver flukes.</li>
+        </ul>
+      </div>
+      <div style="--b:var(--leaf)">
+        <span class="mono" style="color:var(--leaf)">The fix</span>
+        <h4>Four habits</h4>
+        <ul>
+          <li>Rinse produce under running water. Rub or scrub firm fruits and roots.</li>
+          <li>Peel when you can.</li>
+          <li>Wash your hands after gardening, handling pets or cleaning the litter box.</li>
+          <li>Skip wild watercress and anything a slug has crawled over.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 CARRIER ============ -->
+<section class="chapter c3" id="carrier">
+  <div class="wrap">
+    <div class="ch-head">
+      <div class="ch-num">03</div>
+      <div>
+        <span class="mono">Chapter 03 · Carrier food</span>
+        <h2>Food that carries them <em class="s">in</em></h2>
+        <p class="lead">Meat and fish are muscle, and muscle is where many parasites hide. Their larvae curl up inside the tissue and wait to be eaten. Most are invisible to the naked eye.</p>
+      </div>
+    </div>
+
+    <div class="lens-wrap">
+      <div class="lens-stage panel">
+        <div class="tabs" role="tablist" aria-label="Choose a meat">
+          <button class="tab" role="tab" data-m="pork" aria-selected="true">Pork</button>
+          <button class="tab" role="tab" data-m="beef" aria-selected="false">Beef</button>
+          <button class="tab" role="tab" data-m="fish" aria-selected="false">Raw fish</button>
+          <button class="tab" role="tab" data-m="game" aria-selected="false">Wild game</button>
+          <button class="real sm" type="button" data-real="meat" style="margin-left:auto"><i></i>See it real</button>
+        </div>
+        <div class="canvas-box">
+          <canvas id="lens" aria-label="Meat under a microscope lens. Move the lens to find hidden parasite larvae."></canvas>
+          <div class="hud"><span>Stain view · ×2</span><span id="found">Found 0 / 0</span></div>
+        </div>
+        <p class="lens-tip">Drag the lens across the meat. The stain view lights up larvae you can't see with your eyes.</p>
+      </div>
+      <aside class="dossier panel" id="dossier" aria-live="polite"></aside>
+    </div>
+
+    <div class="route panel">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+        <h4 style="font-size:1.5rem;font-weight:600">From plate to nerves</h4>
+        <span class="mono muted">How a larva travels</span>
+      </div>
+      <div class="stations">
+        <div class="st"><i>01</i><b>Plate</b><span>Larvae sit coiled in a cyst inside the meat</span></div>
+        <div class="st"><i>02</i><b>Stomach</b><span>Your stomach acid dissolves the cyst and frees them</span></div>
+        <div class="st"><i>03</i><b>Intestine</b><span>They grow, mate or burrow through the wall</span></div>
+        <div class="st"><i>04</i><b>Bloodstream</b><span>Their young ride the blood all over the body</span></div>
+        <div class="st"><i>05</i><b>Muscle &amp; brain</b><span>They settle in muscle, the eyes or the brain</span></div>
+      </div>
+    </div>
+
+    <div class="kill">
+      <div class="thermo panel">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+          <h4 style="font-size:1.5rem;font-weight:600">The kill zone</h4>
+          <span class="mono muted">USDA safe internal temperatures</span>
+        </div>
+        <div class="thermo-fig">
+          <svg viewBox="0 0 760 190" role="img" aria-label="Thermometer scale from 100 to 170 degrees Fahrenheit. Whole cuts and fish are safe at 145, ground meat and wild game at 160, poultry at 165.">
+            <defs>
+              <linearGradient id="merc" x1="0" x2="1"><stop offset="0" stop-color="#43e1ff"/><stop offset=".55" stop-color="#ffb03a"/><stop offset="1" stop-color="#ff3e8a"/></linearGradient>
+              <filter id="glow2" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- scale 100F→x40, 170F→x720 ; 9.714px per degree -->
+            <rect x="40" y="96" width="680" height="14" rx="7" fill="#0e141e" stroke="#2a3646"/>
+            <rect x="40" y="96" width="0" height="14" rx="7" fill="url(#merc)" filter="url(#glow2)">
+              <animate attributeName="width" from="0" to="631" dur="2.4s" fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1" keyTimes="0;1"/>
+            </rect>
+            <g fill="#8a97a8" font-family="Geist Mono,monospace" font-size="11" text-anchor="middle">
+              <g stroke="#2a3646"><line x1="40" y1="116" x2="40" y2="124"/><line x1="137" y1="116" x2="137" y2="124"/><line x1="234" y1="116" x2="234" y2="124"/><line x1="331" y1="116" x2="331" y2="124"/><line x1="429" y1="116" x2="429" y2="124"/><line x1="526" y1="116" x2="526" y2="124"/><line x1="623" y1="116" x2="623" y2="124"/><line x1="720" y1="116" x2="720" y2="124"/></g>
+              <text x="40" y="140">100°</text><text x="137" y="140">110°</text><text x="234" y="140">120°</text><text x="331" y="140">130°</text><text x="429" y="140">140°</text><text x="526" y="140">150°</text><text x="623" y="140">160°</text><text x="720" y="140">170°</text>
+            </g>
+            <!-- 145 => x 477 -->
+            <g>
+              <line x1="477" y1="40" x2="477" y2="110" stroke="#ffb03a" stroke-width="1.5"/>
+              <circle cx="477" cy="103" r="5" fill="#ffb03a"/>
+              <text x="470" y="26" fill="#ffb03a" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="22" text-anchor="end">145°F</text>
+              <text x="470" y="44" fill="#c3ccd8" font-family="Geist,sans-serif" font-size="12" text-anchor="end">Whole beef, pork, lamb + 3 min rest · fish</text>
+            </g>
+            <!-- 160 => x 623 -->
+            <g>
+              <line x1="623" y1="40" x2="623" y2="110" stroke="#ff7a62" stroke-width="1.5"/>
+              <circle cx="623" cy="103" r="5" fill="#ff7a62"/>
+              <text x="630" y="26" fill="#ff7a62" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="22">160°F</text>
+              <text x="630" y="44" fill="#c3ccd8" font-family="Geist,sans-serif" font-size="12">Ground meat · wild game</text>
+            </g>
+            <!-- 165 => x 671 -->
+            <g>
+              <line x1="671" y1="96" x2="671" y2="160" stroke="#ff3e8a" stroke-width="1.5"/>
+              <circle cx="671" cy="103" r="5" fill="#ff3e8a"/>
+              <text x="664" y="166" fill="#ff3e8a" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="18" text-anchor="end">165°F</text>
+              <text x="664" y="182" fill="#c3ccd8" font-family="Geist,sans-serif" font-size="12" text-anchor="end">Poultry</text>
+            </g>
+          </svg>
+        </div>
+        <p class="muted" style="font-size:.86rem">Use a meat thermometer in the thickest part. Color isn't a reliable test. 145°F = 63°C · 160°F = 71°C · 165°F = 74°C.</p>
+      </div>
+      <div class="freeze panel">
+        <span class="mono" style="color:var(--cyan)">For raw fish</span>
+        <strong>−4°F<br><span style="font-size:.5em;color:var(--ink)">for 7 days</span></strong>
+        <p>The FDA says freezing fish at −4°F (−20°C) for 7 days kills parasites before it's eaten raw. Most home freezers don't reliably get that cold, so buy fish labeled sushi-grade or previously frozen.</p>
+        <p class="warn">Lime juice in ceviche doesn't kill parasites. Freezing doesn't reliably kill the trichinella in bear and other northern wild game. Cook those all the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESET ============ -->
+<section class="reset" id="reset">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag l">Holistic approach · Yah'ki Awakened</span></div>
+    <h2 style="margin-top:16px">Starve them. Clear them. <em class="s">Protect the nerves.</em></h2>
+    <div class="steps3">
+      <div><span class="mono">Step 1</span><h4>Change the food</h4><p>Cut sugar, white flour and processed food. Build meals on fruit, greens, seeds and cooked grains. Cook any meat or fish all the way through.</p></div>
+      <div><span class="mono">Step 2</span><h4>Clear the body</h4><p>Keep digestion moving with water and fiber. Holistic healers add herbal cleanses and antiparasitic foods like papaya and pumpkin seeds.</p></div>
+      <div><span class="mono">Step 3</span><h4>Calm the nerves</h4><p>Slow breathing, sleep and time outside help settle the vagus nerve and lower inflammation, so your system can recover.</p></div>
+    </div>
+    <div class="caution">
+      <span class="mono">Before you start</span>
+      <p style="margin-bottom:8px"><a href="guide.html" style="color:var(--leaf);font-weight:600">Read the step-by-step Parasite Detox Guide →</a></p>
+      <p>This site is for education. If you suspect an infection, ask a doctor for a stool ova and parasite test, often done on three samples. Prescription antiparasitic medicines work fast and can be used alongside a whole-body approach. Strong herbs like wormwood and black walnut aren't safe during pregnancy, for children, or with liver or seizure conditions, and they can interact with medications.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<dialog id="rl" aria-labelledby="rl-h">
+  <div class="rl-in">
+    <div class="rl-top"><div><span class="rl-warn">Real footage · may be disturbing</span><h4 id="rl-h"></h4></div><button class="rl-x" type="button" aria-label="Close">✕</button></div>
+    <div class="rl-media" id="rl-media"></div>
+    <p class="rl-see" id="rl-see"></p>
+    <div class="rl-links" id="rl-links"></div>
+  </div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-big">It's <em class="s">the</em> parasites.</div>
+    <div class="foot-cols">
+      <p>itstheparasites.com teaches how parasites affect the nervous system and how food choices let them in or keep them out. Holistic perspectives are inspired by the teachings of Yah'ki Awakened and are labeled.</p>
+      <p>Not medical advice. Nothing here diagnoses, treats or cures any condition. Talk to a qualified health professional before starting a cleanse or changing medications.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sprite(rgb,size){const c=document.createElement('canvas');c.width=c.height=size;const g=c.getContext('2d');const r=g.createRadialGradient(size/2,size/2,0,size/2,size/2,size/2);r.addColorStop(0,`rgba(${rgb},1)`);r.addColorStop(.15,`rgba(${rgb},.6)`);r.addColorStop(.45,`rgba(${rgb},.14)`);r.addColorStop(1,`rgba(${rgb},0)`);g.fillStyle=r;g.fillRect(0,0,size,size);return c}
+const CY='67,225,255',MG='255,62,138',AM='255,176,58',WH='255,255,255';
+function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersecting));io.observe(el)}
+
+/* ================= HERO NEURAL NETWORK ================= */
+(()=>{
+  const c=$('#net'),x=c.getContext('2d');
+  const sC=sprite(CY,64),sM=sprite(MG,64),sW=sprite(WH,32);
+  let W,H,dpr,nodes=[],edges=[],sig=[],trail=[],t=0,vis=true,raf;
+  const P={x:0,y:0,vx:0,vy:0},ptr={x:0,y:0,at:-1e9};
+  function build(){
+    dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.max(40,Math.min(150,Math.round(W*H/8000)));
+    nodes=Array.from({length:n},()=>({bx:Math.random()*W,by:Math.random()*H,x:0,y:0,inf:0,s:.6+Math.random()*.9,ph:Math.random()*6.28}));
+    nodes.forEach(o=>{o.x=o.bx;o.y=o.by});
+    const seen=new Set();edges=[];
+    nodes.forEach((a,i)=>{nodes.map((b,j)=>({j,d:Math.hypot(a.bx-b.bx,a.by-b.by)})).filter(o=>o.j!==i&&o.d<180).sort((p,q)=>p.d-q.d).slice(0,3).forEach(o=>{const k=Math.min(i,o.j)+'-'+Math.max(i,o.j);if(!seen.has(k)){seen.add(k);edges.push({a:i,b:o.j,bend:(Math.random()-.5)*.5})}})});
+    P.x=W*.72;P.y=H*.4;sig=[];trail=[];
+  }
+  function cp(e){const a=nodes[e.a],b=nodes[e.b];const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y;return{a,b,cx:mx-dy*e.bend,cy:my+dx*e.bend}}
+  function q(p,k){const u=1-k;return{x:u*u*p.a.x+2*u*k*p.cx+k*k*p.b.x,y:u*u*p.a.y+2*u*k*p.cy+k*k*p.b.y}}
+  function frame(){
+    t++;
+    for(const o of nodes){o.x=o.bx+Math.sin(t*.008+o.ph)*5;o.y=o.by+Math.cos(t*.007+o.ph)*5}
+    // parasite target
+    let tx,ty;
+    if(performance.now()-ptr.at<2600){tx=ptr.x;ty=ptr.y}else{tx=W*(.62+.28*Math.sin(t*.0042));ty=H*(.42+.3*Math.sin(t*.0061+1.3))}
+    P.vx+=(tx-P.x)*.0035;P.vy+=(ty-P.y)*.0035;P.vx*=.9;P.vy*=.9;P.x+=P.vx;P.y+=P.vy;
+    trail.push({x:P.x,y:P.y});if(trail.length>40)trail.shift();
+    for(const o of nodes){const d=Math.hypot(o.x-P.x,o.y-P.y);if(d<120)o.inf=Math.min(1,o.inf+.07*(1-d/120));o.inf*=.9975}
+    // spawn signals
+    for(let i=0;i<3;i++){if(Math.random()<.35&&edges.length){const e=edges[Math.random()*edges.length|0];const inf=(nodes[e.a].inf+nodes[e.b].inf)/2;sig.push({e,k:0,dir:Math.random()<.5?1:-1,sp:(inf>.35?.03:.012)+Math.random()*.01,m:inf>.35})}}
+    nodes.forEach((n,ni)=>{if(n.inf>.5&&Math.random()<.04){const es=edges.filter(e=>e.a===ni||e.b===ni);if(es.length){const e=es[Math.random()*es.length|0];sig.push({e,k:0,dir:e.a===ni?1:-1,sp:.035,m:true})}}});
+    // draw
+    x.globalCompositeOperation='source-over';x.fillStyle='#05070b';x.fillRect(0,0,W,H);
+    x.lineWidth=1;
+    const pc=new Path2D(),pm=new Path2D();
+    for(const e of edges){const p=cp(e),inf=(p.a.inf+p.b.inf)/2,path=inf>.3?pm:pc;path.moveTo(p.a.x,p.a.y);path.quadraticCurveTo(p.cx,p.cy,p.b.x,p.b.y)}
+    x.strokeStyle='rgba(67,225,255,.13)';x.stroke(pc);
+    x.strokeStyle='rgba(255,62,138,.38)';x.stroke(pm);
+    x.globalCompositeOperation='lighter';
+    for(const o of nodes){const r=10+o.s*10;x.globalAlpha=(1-o.inf)*.75;x.drawImage(sC,o.x-r,o.y-r,r*2,r*2);if(o.inf>.02){const rm=r*(1+o.inf*.6);x.globalAlpha=o.inf;x.drawImage(sM,o.x-rm,o.y-rm,rm*2,rm*2)}}
+    x.globalAlpha=1;
+    for(let i=sig.length-1;i>=0;i--){const s=sig[i];s.k+=s.sp;if(s.k>=1){sig.splice(i,1);continue}const p=q(cp(s.e),s.dir>0?s.k:1-s.k);const r=s.m?9:6;x.drawImage(s.m?sM:sC,p.x-r,p.y-r,r*2,r*2);x.drawImage(sW,p.x-2,p.y-2,4,4)}
+    if(sig.length>420)sig.splice(0,sig.length-420);
+    // trail
+    trail.forEach((p,i)=>{const r=3+i*.35;x.globalAlpha=i/trail.length*.35;x.drawImage(sM,p.x-r*2,p.y-r*2,r*4,r*4)});
+    x.globalAlpha=1;
+    // parasite body (crescent tachyzoite)
+    const ang=Math.atan2(P.vy,P.vx)||0;
+    x.drawImage(sM,P.x-46,P.y-46,92,92);
+    x.globalCompositeOperation='source-over';
+    x.save();x.translate(P.x,P.y);x.rotate(ang);
+    const L=17;x.beginPath();x.moveTo(-L,0);x.quadraticCurveTo(0,-15,L,0);x.quadraticCurveTo(0,-5,-L,0);x.closePath();
+    const g=x.createLinearGradient(-L,0,L,0);g.addColorStop(0,'#ff3e8a');g.addColorStop(1,'#ffd1e3');x.fillStyle=g;x.fill();
+    x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=.8;x.stroke();
+    x.beginPath();x.arc(2,-6,2.2,0,6.28);x.fillStyle='#fff';x.fill();
+    x.restore();
+    if(!REDUCE&&vis)raf=requestAnimationFrame(frame);
+  }
+  build();
+  if(REDUCE){for(let i=0;i<180;i++){t++;}frame()}else{raf=requestAnimationFrame(frame)}
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(build,150)});
+  const hero=$('.hero');
+  hero.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.at=performance.now()});
+  onScreen(hero,v=>{const was=vis;vis=v;if(v&&!was&&!REDUCE)raf=requestAnimationFrame(frame)});
+})();
+
+/* ================= TOP: PARASITES EVERYWHERE ================= */
+(()=>{
+  const c=$('#swarm'),x=c.getContext('2d');
+  const SP={m:sprite(MG,64),a:sprite(AM,64),c:sprite(CY,64)};
+  const COL={m:'255,62,138',a:'255,176,58',c:'67,225,255'};
+  let W,H,dpr,ps=[],t=0,vis=true,raf;const ptr={x:0,y:0,at:-1e9},L={x:0,y:0};
+  function build(){
+    dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.max(70,Math.min(280,Math.round(W*H/4200)));
+    ps=Array.from({length:n},()=>{const k=Math.random();return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,a:Math.random()*6.28,va:(Math.random()-.5)*.01,s:5+Math.random()*9,type:k<.35?'cres':k<.6?'worm':k<.85?'egg':'cyst',col:['m','a','c','m'][Math.random()*4|0],ph:Math.random()*6.28}});
+    L.x=W*.7;L.y=H*.45;
+  }
+  function shape(p,al){
+    const s=p.s,rgb=COL[p.col];x.save();x.translate(p.x,p.y);x.rotate(p.a);
+    x.strokeStyle=`rgba(${rgb},${al})`;x.fillStyle=`rgba(${rgb},${al*.25})`;x.lineWidth=1.2;x.lineCap='round';
+    x.beginPath();
+    if(p.type==='cres'){x.moveTo(-s,0);x.quadraticCurveTo(0,-s*.9,s,0);x.quadraticCurveTo(0,-s*.3,-s,0);x.fill();x.stroke()}
+    else if(p.type==='worm'){for(let i=0;i<=16;i++){const u=i/16,px=(u-.5)*s*2.6,py=Math.sin(u*9+t*.08+p.ph)*s*.25;i?x.lineTo(px,py):x.moveTo(px,py)}x.lineWidth=1.8;x.stroke()}
+    else if(p.type==='egg'){x.ellipse(0,0,s*.7,s*.45,0,0,6.28);x.fill();x.stroke();x.beginPath();x.arc(s*.1,0,s*.16,0,6.28);x.fillStyle=`rgba(${rgb},${al})`;x.fill()}
+    else{x.arc(0,0,s*.6,0,6.28);x.fill();x.stroke();x.beginPath();x.arc(s*.18,-s*.1,s*.2,0,6.28);x.fillStyle=`rgba(255,255,255,${al*.8})`;x.fill()}
+    x.restore();
+  }
+  function frame(){
+    t++;
+    let tx,ty;if(performance.now()-ptr.at<2600){tx=ptr.x;ty=ptr.y}else{tx=W*(.66+.24*Math.sin(t*.005));ty=H*(.45+.3*Math.sin(t*.0073+.8))}
+    L.x+=(tx-L.x)*.06;L.y+=(ty-L.y)*.06;
+    x.globalCompositeOperation='source-over';x.fillStyle='#05070b';x.fillRect(0,0,W,H);
+    const R=Math.max(150,Math.min(W,H)*.32);
+    const lg=x.createRadialGradient(L.x,L.y,0,L.x,L.y,R);lg.addColorStop(0,'rgba(67,225,255,.07)');lg.addColorStop(1,'rgba(67,225,255,0)');x.fillStyle=lg;x.fillRect(0,0,W,H);
+    for(const p of ps){
+      p.x+=p.vx+Math.sin(t*.01+p.ph)*.12;p.y+=p.vy+Math.cos(t*.012+p.ph)*.12;p.a+=p.va;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+      const d=Math.hypot(p.x-L.x,p.y-L.y),k=Math.max(0,1-d/R),al=.1+.9*Math.pow(k,1.4);
+      if(k>.15){x.globalCompositeOperation='lighter';x.globalAlpha=k*.8;const r=p.s*3.2;x.drawImage(SP[p.col],p.x-r,p.y-r,r*2,r*2);x.globalAlpha=1;x.globalCompositeOperation='source-over'}
+      shape(p,al);
+    }
+    x.strokeStyle='rgba(67,225,255,.35)';x.lineWidth=1;x.setLineDash([3,6]);x.beginPath();x.arc(L.x,L.y,R*.98,0,6.28);x.stroke();x.setLineDash([]);
+    if(!REDUCE&&vis)raf=requestAnimationFrame(frame);
+  }
+  build();frame();
+  if(!REDUCE)raf=requestAnimationFrame(frame);
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{build();if(REDUCE)frame()},150)});
+  const top=$('.top');
+  top.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.at=performance.now()});
+  onScreen(top,v=>{const was=vis;vis=v;if(v&&!was&&!REDUCE)raf=requestAnimationFrame(frame)});
+  // ticker
+  const words=['the food you eat.','the water you drink.','the soil in your garden.','the pets you love.','the sushi you order.','the salad you didn\'t wash.','your gut. Right now?'];
+  let wi=0;const tk=$('#tick');
+  if(!REDUCE)setInterval(()=>{tk.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;tk.textContent=words[wi];tk.classList.remove('out')},350)},2200);
+  // quick check
+  const btns=$$('#qc button'),n=$('#qc-n'),msg=$('#qc-msg span');
+  btns.forEach(b=>b.addEventListener('click',()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');
+    const k=btns.filter(z=>z.getAttribute('aria-pressed')==='true').length;n.textContent=k;
+    msg.textContent=k===0?'Tap any that fit.':k<3?'Worth a closer look. Keep scrolling.':'Your body may be trying to tell you something.';}));
+})();
+
+
+/* ================= HOW THEY MAKE YOU SICK ================= */
+(()=>{
+  const moves=$$('.move'),spots=$$('.spot');
+  function pick(i){moves.forEach(m=>m.classList.toggle('on',+m.dataset.i===i));spots.forEach(s=>s.classList.toggle('on',+s.dataset.i===i))}
+  moves.forEach(m=>{m.addEventListener('click',()=>pick(+m.dataset.i));m.addEventListener('mouseenter',()=>pick(+m.dataset.i))});
+  spots.forEach(s=>{s.style.cursor='pointer';s.addEventListener('click',()=>pick(+s.dataset.i))});
+  pick(0);
+})();
+
+/* ================= AXIS SIGNALS ================= */
+(()=>{
+  const g=$('#sigs'),ns='http://www.w3.org/2000/svg';
+  [['vg','#43e1ff',2.2],['bl','#ff3e8a',3],['im','#ffb03a',3.6]].forEach(([id,col,dur])=>{
+    const d=$('#'+id).getAttribute('d');
+    for(let i=0;i<3;i++){
+      const c=document.createElementNS(ns,'circle');c.setAttribute('r',5);c.setAttribute('fill',col);c.setAttribute('filter','url(#glow)');
+      const m=document.createElementNS(ns,'animateMotion');m.setAttribute('dur',dur+'s');m.setAttribute('repeatCount','indefinite');m.setAttribute('begin',(-i*dur/3).toFixed(2)+'s');m.setAttribute('path',d);
+      c.appendChild(m);g.appendChild(c);
+    }
+  });
+})();
+
+/* ================= RISK LADDER ================= */
+(()=>{
+  const data=[
+    ['Cooked grains & beans','Boiled through',4],
+    ['Peeled fruit','Banana, orange, mango',5],
+    ['Nuts & seeds','Dry, low moisture',8],
+    ['Washed tree fruit','Apples, pears, grapes',13],
+    ['Well-cooked meat','To safe temperature',18],
+    ['Washed greens','Rinsed leaf by leaf',24],
+    ['Unwashed greens & herbs','Soil, slugs, cat waste',50],
+    ['Rare beef','Tapeworm cysts, toxoplasma',60],
+    ['Raw sushi & ceviche','Anisakis, fish tapeworm',72],
+    ['Undercooked pork','Trichinella, tapeworm',82],
+    ['Undercooked wild game','Bear, boar, venison',91],
+    ['Raw snails & slugs','Rat lungworm, goes to the brain',97]
+  ];
+  const box=$('#rows');
+  box.innerHTML=data.map(([n,s,v])=>{const k=v<34?'var(--leaf)':v<67?'var(--amber)':'var(--magenta)';return `<div class="lrow"><div class="nm">${n}<small>${s}</small></div><div class="track"><span class="dot" style="--k:${k};left:${v}%" data-v="${v}"></span></div></div>`}).join('');
+  if(!REDUCE){
+    const dots=$$('#rows .dot');let done=false;
+    // start from the left only once the ladder is near view, so the resting frame already shows true positions
+    onScreen($('#ladder'),v=>{if(v&&!done){done=true;dots.forEach(d=>{d.style.transition='none';d.style.left='0%'});requestAnimationFrame(()=>requestAnimationFrame(()=>dots.forEach((d,i)=>{d.style.transition='';d.style.transitionDelay=(i*50)+'ms';d.style.left=d.dataset.v+'%'})))}});
+  }
+})();
+
+/* ================= MEAT LENS ================= */
+(()=>{
+  const c=$('#lens'),x=c.getContext('2d');
+  const sM=sprite(MG,96),sA=sprite(AM,96);
+  const MEATS={
+    pork:{bg:'#c97179',fib:['#e7a0a4','#b75d66','#f0bdb9'],fat:'rgba(252,238,230,.8)',kind:'trich',n:7,ang:-.18,
+      title:'Pork',parasites:'<b>Trichinella spiralis</b>, a roundworm whose larvae coil inside muscle cells. <b>Taenia solium</b>, the pork tapeworm. <b>Toxoplasma gondii.</b>',
+      hide:'Invisible to the eye. Trichinella larvae are under 1 mm long and sit in a capsule inside a muscle cell.',
+      nerve:'Heavy trichinella infections can reach the heart and brain. Pork tapeworm eggs can grow into brain cysts, the leading preventable cause of epilepsy worldwide.',
+      safe:'Cook whole cuts to <b>145°F (63°C)</b> and rest 3 minutes. Ground pork to <b>160°F (71°C)</b>.',
+      note:'Trichinella in U.S. commercial pork is now rare. Risk is higher with home-raised pigs, wild boar, and pork from places without meat inspection.'},
+    beef:{bg:'#8a2330',fib:['#b23b48','#6d1824','#c9525c'],fat:'rgba(240,226,210,.75)',kind:'cyst',n:6,ang:.12,
+      title:'Beef',parasites:'<b>Taenia saginata</b>, the beef tapeworm, which can grow 4 to 10 meters long in the gut. <b>Toxoplasma gondii</b> in undercooked beef.',
+      hide:'Tapeworm cysts look like small pale spots about the size of a grain of rice. Inspectors call infected beef "measly."',
+      nerve:'Toxoplasma from undercooked meat forms cysts in the brain that can stay for life.',
+      safe:'Cook steaks and roasts to <b>145°F (63°C)</b> and rest 3 minutes. Ground beef to <b>160°F (71°C)</b>.',
+      note:'Rare and blue steaks, beef tartare and carpaccio skip the kill zone completely.'},
+    fish:{bg:'#ee8e74',fib:['#ffc2ae','#e2735a','#ffd9cb'],fat:'rgba(255,246,238,.85)',kind:'anis',n:6,ang:0,flake:true,
+      title:'Raw fish',parasites:'<b>Anisakis</b>, a roundworm whose larvae burrow into the stomach wall. <b>Diphyllobothrium</b>, the fish tapeworm, which can grow over 10 meters.',
+      hide:'Anisakis larvae coil up like a watch spring, about 2 cm long, often in the belly flesh near the organs.',
+      nerve:'The fish tapeworm steals vitamin B12, which nerves need to keep their insulation. A shortage causes numbness and tingling.',
+      safe:'Cook to <b>145°F (63°C)</b>, or freeze at <b>−4°F (−20°C) for 7 days</b> before eating raw.',
+      note:'Wild salmon and freshwater fish are the main sources of fish tapeworm. Lime juice in ceviche doesn\'t kill parasites.'},
+    game:{bg:'#561419',fib:['#7d252d','#3d0c10','#94343b'],fat:'rgba(220,204,190,.6)',kind:'trich',n:9,ang:-.4,
+      title:'Wild game',parasites:'<b>Trichinella</b>. Bear, wild boar and walrus are now the top U.S. sources. <b>Toxoplasma</b> in venison.',
+      hide:'Invisible to the eye, and spread throughout the most-used muscles: tongue, jaw, diaphragm and legs.',
+      nerve:'Heavy trichinella infections can cause inflammation of the brain and heart muscle.',
+      safe:'Cook all wild game to <b>160°F (71°C)</b>.',
+      note:'Freezing doesn\'t reliably kill the cold-resistant trichinella found in bears and other northern wildlife. Only cooking does.'}
+  };
+  let W,H,dpr,cur='pork',geo,base,rev,lx=0,ly=0,last=-1e9,found=0,vis=true,t=0,raf;
+  function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function makeGeo(m,seed){
+    const R=rng(seed),M=MEATS[m];
+    const fibers=Array.from({length:340},()=>({x:R()*1.2-.1,y:R()*1.2-.1,l:.1+R()*.3,w:.6+R()*2.4,c:R()*3|0,a:M.ang+(R()-.5)*.12,amp:(R()-.5)*.02}));
+    const fats=Array.from({length:7},()=>({x:R(),y:R(),l:.2+R()*.5,w:4+R()*16,a:M.ang+(R()-.5)*.9,b:(R()-.5)*.25}));
+    const paras=[];let tries=0;
+    while(paras.length<M.n&&tries<500){tries++;const p={x:.08+R()*.84,y:.12+R()*.78,a:R()*6.28,s:.85+R()*.4,f:false};if(paras.every(q=>Math.hypot(q.x-p.x,(q.y-p.y)*.75)>.13))paras.push(p)}
+    return{fibers,fats,paras};
+  }
+  function drawCoil(g,s,turns,col,lw){
+    g.beginPath();
+    for(let i=0;i<=120;i++){const u=i/120*Math.PI*2*turns,r=s*(1-i/120*.62);const px=Math.cos(u)*r,py=Math.sin(u)*r*.62;i?g.lineTo(px,py):g.moveTo(px,py)}
+    g.strokeStyle=col;g.lineWidth=lw;g.lineCap='round';g.stroke();
+  }
+  function paint(g,mode){
+    const M=MEATS[cur];const w=W,h=H;
+    g.setTransform(dpr,0,0,dpr,0,0);
+    if(mode==='base'){
+      g.fillStyle=M.bg;g.fillRect(0,0,w,h);
+      if(M.flake){for(let i=-2;i<16;i++){const x0=i*w/12;g.beginPath();g.moveTo(x0,0);g.quadraticCurveTo(x0+w*.06,h*.25,x0,h*.5);g.quadraticCurveTo(x0+w*.06,h*.75,x0,h);g.strokeStyle='rgba(255,246,238,.55)';g.lineWidth=3;g.stroke()}}
+    }else{g.fillStyle='#03070c';g.fillRect(0,0,w,h)}
+    for(const f of geo.fibers){
+      const x0=f.x*w,y0=f.y*h,x1=x0+Math.cos(f.a)*f.l*w,y1=y0+Math.sin(f.a)*f.l*w;
+      g.beginPath();g.moveTo(x0,y0);g.quadraticCurveTo((x0+x1)/2,(y0+y1)/2+f.amp*h,x1,y1);
+      if(mode==='base'){g.strokeStyle=M.fib[f.c];g.globalAlpha=M.flake?.25:.42}else{g.strokeStyle=f.c===1?'#1b6f86':'#43e1ff';g.globalAlpha=f.c===1?.35:.16}
+      g.lineWidth=f.w;g.stroke();
+    }
+    g.globalAlpha=1;
+    if(!M.flake)for(const f of geo.fats){
+      const x0=f.x*w,y0=f.y*h,x1=x0+Math.cos(f.a)*f.l*w,y1=y0+Math.sin(f.a)*f.l*w;
+      g.beginPath();g.moveTo(x0,y0);g.quadraticCurveTo((x0+x1)/2+f.b*w,(y0+y1)/2-f.b*h,x1,y1);
+      g.strokeStyle=mode==='base'?M.fat:'rgba(95,240,166,.12)';g.lineWidth=f.w;g.lineCap='round';g.stroke();
+      g.strokeStyle=mode==='base'?M.fat:'rgba(95,240,166,.08)';g.lineWidth=f.w*.35;g.globalAlpha=.6;g.stroke();g.globalAlpha=1;
+    }
+    const S=Math.min(w,h)*.032;
+    for(const p of geo.paras){
+      g.save();g.translate(p.x*w,p.y*h);g.rotate(p.a);const s=S*p.s;
+      if(mode==='base'){
+        if(M.kind==='cyst'){g.globalAlpha=.32;g.fillStyle='#f6e8e0';g.beginPath();g.ellipse(0,0,s*.7,s*.45,0,0,6.28);g.fill()}
+        if(M.kind==='anis'){g.globalAlpha=.35;drawCoil(g,s*.75,2.6,'#fff6ea',1.4)}
+      }else{
+        g.globalCompositeOperation='lighter';
+        const sp=M.kind==='anis'?sA:sM;g.drawImage(sp,-s*3,-s*3,s*6,s*6);
+        g.globalCompositeOperation='source-over';
+        if(M.kind==='trich'){
+          g.beginPath();g.ellipse(0,0,s*1.15,s*.62,0,0,6.28);g.strokeStyle='rgba(255,62,138,.85)';g.lineWidth=1.2;g.stroke();
+          g.fillStyle='rgba(255,62,138,.12)';g.fill();
+          drawCoil(g,s*.85,2.3,'#ffd1e3',1.6);
+        }else if(M.kind==='cyst'){
+          g.beginPath();g.ellipse(0,0,s*1.05,s*.72,0,0,6.28);g.fillStyle='rgba(255,62,138,.2)';g.fill();g.strokeStyle='#ff3e8a';g.lineWidth=1.3;g.stroke();
+          g.beginPath();g.arc(s*.25,0,s*.28,0,6.28);g.fillStyle='#ffe3ee';g.fill();
+          g.fillStyle='#ff3e8a';for(let k=0;k<6;k++){const a=k/6*6.28;g.beginPath();g.arc(s*.25+Math.cos(a)*s*.18,Math.sin(a)*s*.18,.9,0,6.28);g.fill()}
+        }else{
+          drawCoil(g,s*1.05,3,'#ffe2b0',2);
+        }
+      }
+      g.restore();
+    }
+    g.globalAlpha=1;
+    if(mode==='base'){
+      const v=g.createRadialGradient(w*.5,h*.45,Math.min(w,h)*.2,w*.5,h*.5,Math.max(w,h)*.75);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.55)');g.fillStyle=v;g.fillRect(0,0,w,h);
+      const s=g.createLinearGradient(0,0,w,h);s.addColorStop(0,'rgba(255,255,255,.10)');s.addColorStop(.4,'rgba(255,255,255,0)');g.fillStyle=s;g.fillRect(0,0,w,h);
+    }
+  }
+  function setup(){
+    dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;if(!W||!H)return;
+    c.width=W*dpr;c.height=H*dpr;
+    base=document.createElement('canvas');rev=document.createElement('canvas');
+    base.width=rev.width=W*dpr;base.height=rev.height=H*dpr;
+    paint(base.getContext('2d'),'base');paint(rev.getContext('2d'),'rev');
+    if(!lx){lx=W*.4;ly=H*.5}
+  }
+  function choose(m){
+    cur=m;geo=makeGeo(m,{pork:7,beef:19,fish:33,game:51}[m]);found=0;
+    $$('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.m===m));
+    const M=MEATS[m];
+    $('#dossier').innerHTML=`<div class="tagrow"><span class="tag a">Carrier food</span></div><h4>${M.title}</h4><dl>
+      <div><dt>What hides in it</dt><dd>${M.parasites}</dd></div>
+      <div><dt>Can you see it?</dt><dd>${M.hide}</dd></div>
+      <div><dt class="n">What it does to nerves</dt><dd>${M.nerve}</dd></div>
+      <div><dt class="k">How to make it safe</dt><dd>${M.safe}</dd></div></dl>
+      <p class="note">${M.note}</p>`;
+    setup();updateFound();
+  }
+  function updateFound(){$('#found').textContent=found>=geo.paras.length?`All ${found} found`:`Found ${found} / ${geo.paras.length}`}
+  const R=()=>Math.min(W,H)*.22,MAG=2;
+  function draw(){
+    if(!base)return;
+    t++;
+    if(performance.now()-last>2200){lx=W*(.5+.36*Math.sin(t*.011));ly=H*(.5+.3*Math.sin(t*.017+1))}
+    const r=R();
+    x.setTransform(1,0,0,1,0,0);x.drawImage(base,0,0);
+    x.setTransform(dpr,0,0,dpr,0,0);
+    // found markers
+    for(const p of geo.paras){if(!p.f)continue;const px=p.x*W,py=p.y*H;x.beginPath();x.arc(px,py,10,0,6.28);x.strokeStyle='rgba(255,62,138,.95)';x.lineWidth=1.5;x.stroke();x.beginPath();x.arc(px,py,2.2,0,6.28);x.fillStyle='#ff3e8a';x.fill()}
+    // check finds
+    let changed=false;
+    for(const p of geo.paras){if(!p.f&&Math.hypot(p.x*W-lx,p.y*H-ly)<r/MAG*.9){p.f=true;found++;changed=true}}
+    if(changed)updateFound();
+    // lens
+    x.save();x.beginPath();x.arc(lx,ly,r,0,6.28);x.clip();
+    const sw=2*r/MAG;x.drawImage(rev,(lx-sw/2)*dpr,(ly-sw/2)*dpr,sw*dpr,sw*dpr,lx-r,ly-r,2*r,2*r);
+    // scan line
+    const sy=ly-r+((t*2)%(2*r));const sg=x.createLinearGradient(0,sy-24,0,sy);sg.addColorStop(0,'rgba(67,225,255,0)');sg.addColorStop(1,'rgba(67,225,255,.22)');x.fillStyle=sg;x.fillRect(lx-r,sy-24,2*r,24);
+    x.strokeStyle='rgba(67,225,255,.35)';x.lineWidth=1;x.beginPath();x.moveTo(lx-r,ly);x.lineTo(lx-8,ly);x.moveTo(lx+8,ly);x.lineTo(lx+r,ly);x.moveTo(lx,ly-r);x.lineTo(lx,ly-8);x.moveTo(lx,ly+8);x.lineTo(lx,ly+r);x.stroke();
+    x.restore();
+    // ring
+    x.beginPath();x.arc(lx,ly,r,0,6.28);x.strokeStyle='rgba(0,0,0,.5)';x.lineWidth=8;x.stroke();
+    x.strokeStyle='#43e1ff';x.lineWidth=1.6;x.stroke();
+    x.save();x.translate(lx,ly);for(let i=0;i<48;i++){x.rotate(6.28/48);x.beginPath();x.moveTo(r+4,0);x.lineTo(r+(i%4===0?12:7),0);x.strokeStyle='rgba(67,225,255,.6)';x.lineWidth=1;x.stroke()}x.restore();
+    if(!REDUCE&&vis)raf=requestAnimationFrame(draw);
+  }
+  function pt(e){const b=c.getBoundingClientRect();lx=Math.max(0,Math.min(W,e.clientX-b.left));ly=Math.max(0,Math.min(H,e.clientY-b.top));last=performance.now();if(REDUCE)draw()}
+  c.addEventListener('pointermove',pt);c.addEventListener('pointerdown',e=>{pt(e);c.setPointerCapture&&c.setPointerCapture(e.pointerId)});
+  $$('.tab').forEach(b=>b.addEventListener('click',()=>{choose(b.dataset.m);if(REDUCE)draw()}));
+  $('.tabs').addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const tabs=$$('.tab'),i=tabs.findIndex(b=>b.dataset.m===cur),n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();n.click()});
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{setup();if(REDUCE)draw()},150)});
+  choose('pork');
+  onScreen(c,v=>{const was=vis;vis=v;if(v&&!was&&!REDUCE)raf=requestAnimationFrame(draw)});
+  requestAnimationFrame(draw);
+})();
+
+
+/* ================= REAL-LIFE FOOTAGE ================= */
+/* To play your own clip inside the panel, add  video:"your-file.mp4"  to any entry below. */
+(()=>{
+  const yt=q=>'https://www.youtube.com/results?search_query='+encodeURIComponent(q);
+  const REAL={
+    rat:{t:'Toxoplasma and the fearless rat',see:'Lab experiments where infected rats explore areas marked with cat urine instead of avoiding them, plus how the parasite cycles between rats and cats.',
+      main:{u:yt('toxoplasma rat cat urine fear experiment'),l:'Watch on YouTube'},more:[['Read: Stanford study (ScienceDaily)','https://www.sciencedaily.com/releases/2011/08/110819141519.htm'],['Read: Science News','https://www.sciencenews.org/?p=32381']]},
+    cricket:{t:'Hairworm leaves a cricket',see:'PBS Deep Look filmed a hairworm many times longer than its cricket host sliding out of the body once the cricket reaches water.',
+      main:{u:'https://www.pbs.org/video/these-hairworms-eat-a-cricket-alive-and-control-its-mind-uwrojq',l:'Watch on PBS Deep Look'},more:[['KQED article + video','https://www.kqed.org/science/1937775/these-hairworms-eat-a-cricket-alive-and-control-its-mind'],['More footage on YouTube',yt('hairworm emerging from cricket water')]]},
+    ant:{t:'Cordyceps takes over an ant',see:'BBC Planet Earth time-lapse with David Attenborough: an infected ant climbs, clamps onto a plant and a fungal stalk grows out of its head.',
+      main:{u:'https://curious.science.org.au/video/killer-fungi',l:'Watch the BBC clip'},more:[['On YouTube',yt('Cordyceps attack of the killer fungi Planet Earth BBC')],['Read: EarthSky on zombie ants','https://earthsky.org/earth/zombie-ants/']]},
+    brain:{t:'Tapeworm cysts in the human brain',see:'Brain scans showing pork tapeworm cysts, and real patient cases where seizures and headaches turned out to be cysts.',
+      main:{u:'https://nutritionfacts.org/video/pork-tapeworms-on-the-brain/',l:'Watch on NutritionFacts'},more:[['UCLA Health case report','https://www.uclahealth.org/news/parasitic-tapeworms-cause-unusual-neurological-symptoms'],['More on YouTube',yt('neurocysticercosis brain cyst MRI explained')]]},
+    pork:{t:'Trichinella larvae in pork muscle',see:'Meat inspectors press thin slices of muscle between glass and find larvae coiled inside the muscle fibers under the microscope.',
+      main:{u:yt('trichinella spiralis larvae muscle microscope'),l:'Watch on YouTube'},more:[['How meat is tested (Microscope World)','https://www.microscopeworld.com/p-4451-using-microscopes-to-test-meat-for-the-presence-of-trichinella-threadworms.aspx'],['CDC image library','https://wwwn.cdc.gov/phil/Details.aspx?pid=5234']]},
+    beef:{t:'Tapeworm cysts in beef ("beef measles")',see:'Small pale cysts spotted through the meat, the way inspectors find them at the slaughterhouse.',
+      main:{u:yt('beef measles cysticercus bovis meat inspection'),l:'Watch on YouTube'},more:[['Oregon State Extension: meat measles','https://extension.oregonstate.edu/catalog/how-prevent-meat-measles-livestock']]},
+    fish:{t:'Live worm in a salmon fillet',see:'A shopper films a live Anisakis worm wriggling out of a store-bought salmon fillet.',
+      main:{u:'https://www.livescience.com/63096-salmon-fillet-live-worm.html',l:'Watch on Live Science'},more:[['NutritionFacts: allergenic fish worms','https://nutritionfacts.org/video/allergenic-fish-worms/'],['More on YouTube',yt('anisakis worm found in fish')]]},
+    game:{t:'Trichinella in wild game',see:'Hunters and labs testing bear and wild boar meat, where trichinella is most common today.',
+      main:{u:yt('trichinella bear meat wild game testing'),l:'Watch on YouTube'},more:[['CDC image library','https://wwwn.cdc.gov/phil/Details.aspx?pid=5234']]}
+  };
+  const d=$('#rl'),media=$('#rl-media');
+  function open(key){
+    if(key==='meat'){const sel=$('.tab[aria-selected="true"]');key=sel?sel.dataset.m:'pork'}
+    const r=REAL[key];if(!r)return;
+    $('#rl-h').textContent=r.t;$('#rl-see').textContent=r.see;
+    if(r.video){media.innerHTML='<video controls playsinline preload="metadata"></video>';media.firstChild.src=r.video}
+    else{media.innerHTML=`<div class="grain"></div><a class="rl-play" href="${r.main.u}" target="_blank" rel="noopener"><div class="ring"></div><b>${r.main.l}</b><span>Opens in a new tab</span></a>`}
+    $('#rl-links').innerHTML=r.more.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">${l} ↗</a>`).join('');
+    d.showModal();
+  }
+  function close(){const v=media.querySelector('video');if(v)v.pause();d.close()}
+  $$('.real').forEach(b=>b.addEventListener('click',()=>open(b.dataset.real)));
+  $('.rl-x').addEventListener('click',close);
+  d.addEventListener('click',e=>{if(e.target===d)close()});
+  d.addEventListener('close',()=>{const v=media.querySelector('video');if(v)v.pause()});
+})();
+
+/* ================= NAV + PROGRESS ================= */
+(()=>{
+  const bar=$('#progress'),links=$$('.chap a[href^="#"]');
+  const secs=links.map(a=>$(a.getAttribute('href')));
+  function upd(){
+    const h=document.documentElement,max=h.scrollHeight-innerHeight;bar.style.width=(max>0?scrollY/max*100:0)+'%';
+    let on=-1;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)on=i});
+    links.forEach((a,i)=>a.classList.toggle('on',i===on));
+  }
+  addEventListener('scroll',upd,{passive:true});upd();
+})();
+</script>
+
+</body>
+</html>
