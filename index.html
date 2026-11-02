@@ -298,9 +298,9 @@ footer .wrap{display:grid;gap:26px}
 .sick-head h2{font-size:clamp(3rem,9vw,7rem);font-weight:700;font-variation-settings:"wdth" 78;line-height:.86;letter-spacing:-.045em}
 .sick-head h2 em.s{color:var(--magenta);text-shadow:0 0 40px rgba(227,38,111,.4)}
 .sick-head p{font-size:1.12rem;color:#3b4552}
-.sick-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(18px,3vw,40px);align-items:start}
+.sick-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:start}
 .body-fig{padding:16px;position:sticky;top:76px;max-width:100%}
-.body-fig svg{width:100%;max-height:560px;display:block;margin:0 auto}
+.body-fig svg{width:100%;max-height:520px;display:block;margin:0 auto}
 .spot .halo{fill:rgba(227,38,111,.12);stroke:rgba(227,38,111,.5);transition:.3s}
 .spot .core{fill:#e3266f}
 .spot text{font-family:var(--f-mono);font-size:9px;letter-spacing:1.4px;fill:var(--muted);transition:.3s}
@@ -513,33 +513,114 @@ img{max-width:100%}
     </div>
     <div class="sick-grid">
       <div class="body-fig panel">
-        <svg viewBox="0 0 260 480" role="img" aria-label="Glowing outline of a human body with parasites traveling from the gut into the blood, liver, lungs and brain">
-          <defs>
-            <filter id="bg2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <radialGradient id="gutg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e3266f" stop-opacity=".35"/><stop offset="1" stop-color="#e3266f" stop-opacity="0"/></radialGradient>
-          </defs>
-          <g fill="rgba(10,156,196,.04)" stroke="#0a9cc4" stroke-width="1.6" stroke-linejoin="round" filter="url(#bg2)">
-            <circle cx="130" cy="48" r="30"/>
-            <path d="M118 78 h24 v14 q34 4 46 22 q8 12 10 40 l8 92 q2 12 -8 12 q-8 0 -10 -10 l-14 -84 l-2 76 q0 30 -4 60 l-6 120 q-1 12 -12 12 q-10 0 -11 -12 l-5 -118 h-2 l-5 118 q-1 12 -11 12 q-11 0 -12 -12 l-6 -120 q-4 -30 -4 -60 l-2 -76 l-14 84 q-2 10 -10 10 q-10 0 -8 -12 l8 -92 q2 -28 10 -40 q12 -18 46 -22z"/>
-          </g>
-          <circle cx="130" cy="222" r="58" fill="url(#gutg)"><animate attributeName="r" values="52;62;52" dur="3s" repeatCount="indefinite"/></circle>
-          <path d="M104 206 q26 -16 52 0 q8 16 -10 22 q-24 6 -32 -4 q-8 18 18 24 q24 4 24 18" fill="none" stroke="#e3266f" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-          <path d="M112 140 q-14 10 -14 30 M148 140 q14 10 14 30" fill="none" stroke="#0a9cc4" stroke-opacity=".5" stroke-width="1.4"/>
-          <path d="M150 170 q22 4 26 18 q-14 10 -30 4z" fill="rgba(217,132,0,.12)" stroke="#d98400" stroke-width="1.3"/>
-          <path id="spreadpath" d="M130 230 C 160 210, 168 196, 160 182 C 150 160, 118 160, 112 150 C 104 130, 130 100, 130 60" fill="none" stroke="#e3266f" stroke-opacity=".25" stroke-dasharray="2 5"/>
-          <g fill="#e3266f" filter="url(#bg2)">
-            <circle r="3.5"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
-            <circle r="2.5"><animateMotion dur="5s" begin="-1.6s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
-            <circle r="3"><animateMotion dur="5s" begin="-3.3s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
-          </g>
-          <g class="spots">
-            <g class="spot" data-i="0"><circle cx="72" cy="196" r="13" class="halo"/><circle cx="72" cy="196" r="5" class="core"/><text x="34" y="200" text-anchor="middle">BLOOD</text></g>
-            <g class="spot" data-i="1"><circle cx="122" cy="232" r="13" class="halo"/><circle cx="122" cy="232" r="5" class="core"/><text x="122" y="290" text-anchor="middle">GUT</text></g>
-            <g class="spot" data-i="2"><circle cx="164" cy="182" r="13" class="halo"/><circle cx="164" cy="182" r="5" class="core"/><text x="206" y="186" text-anchor="middle">LIVER</text></g>
-            <g class="spot" data-i="3"><circle cx="92" cy="118" r="13" class="halo"/><circle cx="92" cy="118" r="5" class="core"/><text x="58" y="112" text-anchor="middle">SKIN</text></g>
-            <g class="spot" data-i="4"><circle cx="130" cy="44" r="13" class="halo"/><circle cx="130" cy="44" r="5" class="core"/><text x="190" y="40" text-anchor="middle">BRAIN</text></g>
-          </g>
-        </svg>
+        <svg viewBox="0 0 560 480" role="img" aria-label="Human body with organs, and a magnified close-up of what parasites do at the selected spot">
+  <defs>
+    <linearGradient id="bdskin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e8f4f8"/></linearGradient>
+    <clipPath id="zoomclip"><circle cx="410" cy="215" r="128"/></clipPath>
+    <radialGradient id="zbg" cx="45%" cy="35%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef6fa"/></radialGradient>
+  </defs>
+  <g transform="translate(20 0)">
+    <g fill="url(#bdskin)" stroke="#0a9cc4" stroke-width="1.8" stroke-linejoin="round">
+      <circle cx="130" cy="48" r="30"/>
+      <path d="M118 78 h24 v14 q34 4 46 22 q8 12 10 40 l8 92 q2 12 -8 12 q-8 0 -10 -10 l-14 -84 l-2 76 q0 30 -4 60 l-6 120 q-1 12 -12 12 q-10 0 -11 -12 l-5 -118 h-2 l-5 118 q-1 12 -11 12 q-11 0 -12 -12 l-6 -120 q-4 -30 -4 -60 l-2 -76 l-14 84 q-2 10 -10 10 q-10 0 -8 -12 l8 -92 q2 -28 10 -40 q12 -18 46 -22z"/>
+    </g>
+    <!-- blood vessels -->
+    <g fill="none" stroke="#e3266f" stroke-opacity=".28" stroke-width="1.2">
+      <path d="M130 112 V300 M130 300 q-6 40 -12 150 M130 300 q6 40 12 150 M126 120 q-30 6 -42 30 q-8 30 -12 84 M134 120 q30 6 42 30 q8 30 12 84"/>
+    </g>
+    <!-- brain -->
+    <ellipse cx="130" cy="44" rx="21" ry="16" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.2"/>
+    <path d="M114 42 q4 -8 10 -2 q4 -8 10 0 q6 -6 10 2 M116 50 q6 -4 10 2 q6 -4 12 0" fill="none" stroke="#0a9cc4" stroke-width="1" stroke-opacity=".7"/>
+    <!-- lungs, heart -->
+    <path d="M124 124 q-18 4 -20 30 q0 18 14 20 q8 -4 8 -18z" fill="#e3f2f7" stroke="#0a9cc4" stroke-width="1" stroke-opacity=".7"/>
+    <path d="M136 124 q18 4 20 30 q0 18 -14 20 q-8 -4 -8 -18z" fill="#e3f2f7" stroke="#0a9cc4" stroke-width="1" stroke-opacity=".7"/>
+    <path d="M130 112 v14 M130 126 q-4 4 -8 12 M130 126 q4 4 8 12" fill="none" stroke="#0a9cc4" stroke-width="1.2" stroke-opacity=".6"/>
+    <path d="M136 156 c4 -6 12 -4 10 3 c-2 6 -8 9 -10 12 c-2 -3 -8 -6 -10 -12 c-2 -7 6 -9 10 -3z" fill="#fbd5e1" stroke="#e3266f" stroke-width="1"><animateTransform attributeName="transform" type="scale" values="1;1.04;1" dur="1s" repeatCount="indefinite" additive="sum"/></path>
+    <!-- liver, stomach, intestines -->
+    <path d="M150 172 q22 2 28 16 q-14 12 -34 6z" fill="#fde8c8" stroke="#d98400" stroke-width="1.2"/>
+    <path d="M118 180 q-16 4 -14 20 q4 12 18 8 q8 -4 6 -14" fill="#fff0dc" stroke="#d98400" stroke-width="1" stroke-opacity=".8"/>
+    <circle cx="130" cy="232" r="40" fill="#fde3ec" fill-opacity=".6"/>
+    <path d="M104 214 q26 -14 52 0 q8 14 -10 20 q-24 6 -32 -4 q-8 16 18 22 q24 4 24 16 q-4 10 -26 8" fill="none" stroke="#e3266f" stroke-width="5" stroke-linecap="round" stroke-opacity=".75"/>
+    <path id="spreadpath" d="M130 230 C 160 210, 168 196, 160 182 C 150 160, 118 160, 112 150 C 104 130, 130 100, 130 60" fill="none" stroke="#e3266f" stroke-opacity=".22" stroke-dasharray="2 5"/>
+    <g fill="#e3266f">
+      <circle r="3"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+      <circle r="2.2"><animateMotion dur="5s" begin="-1.6s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+      <circle r="2.6"><animateMotion dur="5s" begin="-3.3s" repeatCount="indefinite"><mpath href="#spreadpath"/></animateMotion></circle>
+    </g>
+    <g class="spots">
+      <g class="spot" data-i="0"><circle cx="72" cy="196" r="13" class="halo"/><circle cx="72" cy="196" r="5" class="core"/><text x="34" y="200" text-anchor="middle">BLOOD</text></g>
+      <g class="spot" data-i="1"><circle cx="122" cy="232" r="13" class="halo"/><circle cx="122" cy="232" r="5" class="core"/><text x="122" y="290" text-anchor="middle">GUT</text></g>
+      <g class="spot" data-i="2"><circle cx="164" cy="182" r="13" class="halo"/><circle cx="164" cy="182" r="5" class="core"/><text x="206" y="174" text-anchor="middle">LIVER</text></g>
+      <g class="spot" data-i="3"><circle cx="92" cy="118" r="13" class="halo"/><circle cx="92" cy="118" r="5" class="core"/><text x="58" y="112" text-anchor="middle">SKIN</text></g>
+      <g class="spot" data-i="4"><circle cx="130" cy="44" r="13" class="halo"/><circle cx="130" cy="44" r="5" class="core"/><text x="190" y="40" text-anchor="middle">BRAIN</text></g>
+    </g>
+  </g>
+  <!-- connector from spot to magnifier -->
+  <line id="zline1" x1="0" y1="0" x2="0" y2="0" stroke="#0a9cc4" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <!-- magnifier -->
+  <circle cx="410" cy="215" r="128" fill="url(#zbg)"/>
+  <g clip-path="url(#zoomclip)">
+    <g transform="translate(410 215)">
+      <!-- 0: nutrient theft -->
+      <g class="zs" data-i="0">
+        <rect x="-130" y="40" width="260" height="100" fill="#fdeef3"/>
+        <path d="M-130 40 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#f4b3c8" stroke-width="3"/>
+        <path d="M-120 90 C -80 60, -40 100, 0 60 S 20 10, 18 -6" fill="none" stroke="#e3266f" stroke-width="25" stroke-linecap="round"/><path d="M-120 90 C -80 60, -40 100, 0 60 S 20 10, 18 -6" fill="none" stroke="#fbd0df" stroke-width="22" stroke-linecap="round"/><path d="M-120 90 C -80 60, -40 100, 0 60 S 20 10, 18 -6" fill="none" stroke="#e3266f" stroke-opacity=".45" stroke-width="22" stroke-dasharray="1.4 6"/><path d="M-120 90 C -80 60, -40 100, 0 60 S 20 10, 18 -6" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="4.8" stroke-linecap="round" transform="translate(-1 -4.8)"/>
+        <g><circle cx="18" cy="-14" r="13" fill="#fbd0df" stroke="#e3266f" stroke-width="2.5"/>
+          <circle cx="18" cy="-18" r="5" fill="#fff" stroke="#e3266f" stroke-width="1.5"/>
+          <path d="M8 -26 q-4 -6 -10 -6 M28 -26 q4 -6 10 -6" stroke="#e3266f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <animateTransform attributeName="transform" type="rotate" values="-4 18 -6;5 18 -6;-4 18 -6" dur="2.4s" repeatCount="indefinite"/></g>
+        <path id="nut" d="M125 -85 Q 70 -70 22 -22" fill="none"/>
+        <g font-family="Geist Mono,monospace" font-size="8" font-weight="600" text-anchor="middle">
+          <g><polygon points="-9,0 -4.5,-8 4.5,-8 9,0 4.5,8 -4.5,8" fill="#fff3d6" stroke="#d98400" stroke-width="1.5"/><text y="3" fill="#d98400">B12</text><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#nut"/></animateMotion><animate attributeName="opacity" values="1;1;0" keyTimes="0;.85;1" dur="3s" repeatCount="indefinite"/></g>
+          <g><circle r="8" fill="#e3f7ec" stroke="#17a35f" stroke-width="1.5"/><text y="3" fill="#17a35f">Fe</text><animateMotion dur="3s" begin="-1s" repeatCount="indefinite"><mpath href="#nut"/></animateMotion><animate attributeName="opacity" values="1;1;0" keyTimes="0;.85;1" dur="3s" begin="-1s" repeatCount="indefinite"/></g>
+          <g><polygon points="-9,0 -4.5,-8 4.5,-8 9,0 4.5,8 -4.5,8" fill="#fff3d6" stroke="#d98400" stroke-width="1.5"/><text y="3" fill="#d98400">B12</text><animateMotion dur="3s" begin="-2s" repeatCount="indefinite"><mpath href="#nut"/></animateMotion><animate attributeName="opacity" values="1;1;0" keyTimes="0;.85;1" dur="3s" begin="-2s" repeatCount="indefinite"/></g>
+        </g>
+      </g>
+      <!-- 1: gut wall / villi with Giardia -->
+      <g class="zs" data-i="1">
+        <rect x="-130" y="70" width="260" height="70" fill="#f9d3df"/>
+        <path d="M-112 75 L-112 -5 a14 14 0 0 1 28 0 L-84 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M-98 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M-80 75 L-80 -5 a14 14 0 0 1 28 0 L-52 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M-66 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M-48 75 L-48 -5 a14 14 0 0 1 28 0 L-20 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M-34 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M-16 75 L-16 35 a14 14 0 0 1 28 0 L12 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M-2 72 V42" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M16 75 L16 -5 a14 14 0 0 1 28 0 L44 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M30 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M48 75 L48 -5 a14 14 0 0 1 28 0 L76 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M62 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/><path d="M80 75 L80 -5 a14 14 0 0 1 28 0 L108 75z" fill="#fde3ec" stroke="#e88aac" stroke-width="1.6"/><path d="M94 72 V8" stroke="#0a9cc4" stroke-opacity=".45" stroke-width="1.4"/>
+        <g transform="translate(-84 -24)"><g><path d="M14 0 C6 -4 -3 -10 -9 -6 C-14 -3 -14 3 -9 6 C-3 10 6 4 14 0z" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.6"/><ellipse cx="-6" cy="-2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><ellipse cx="-6" cy="2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><path d="M14 0 q6 3 12 -1 M3 -5 q6 -6 12 -6 M3 5 q6 6 12 6" stroke="#0a9cc4" stroke-width="1" fill="none"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="1.6s" repeatCount="indefinite"/></g></g><g transform="translate(-20 -24)"><g><path d="M14 0 C6 -4 -3 -10 -9 -6 C-14 -3 -14 3 -9 6 C-3 10 6 4 14 0z" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.6"/><ellipse cx="-6" cy="-2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><ellipse cx="-6" cy="2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><path d="M14 0 q6 3 12 -1 M3 -5 q6 -6 12 -6 M3 5 q6 6 12 6" stroke="#0a9cc4" stroke-width="1" fill="none"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="2s" repeatCount="indefinite"/></g></g><g transform="translate(44 -24)"><g><path d="M14 0 C6 -4 -3 -10 -9 -6 C-14 -3 -14 3 -9 6 C-3 10 6 4 14 0z" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.6"/><ellipse cx="-6" cy="-2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><ellipse cx="-6" cy="2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><path d="M14 0 q6 3 12 -1 M3 -5 q6 -6 12 -6 M3 5 q6 6 12 6" stroke="#0a9cc4" stroke-width="1" fill="none"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="1.8s" repeatCount="indefinite"/></g></g><g transform="translate(90 -50)"><g><path d="M14 0 C6 -4 -3 -10 -9 -6 C-14 -3 -14 3 -9 6 C-3 10 6 4 14 0z" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.6"/><ellipse cx="-6" cy="-2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><ellipse cx="-6" cy="2.2" rx="2.2" ry="1.6" fill="#fff" stroke="#0a9cc4"/><path d="M14 0 q6 3 12 -1 M3 -5 q6 -6 12 -6 M3 5 q6 6 12 6" stroke="#0a9cc4" stroke-width="1" fill="none"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="2.4s" repeatCount="indefinite"/></g></g>
+        <circle cx="-110" cy="-80" r="5" fill="#c9ecd9" opacity=".85"><animate attributeName="cx" values="-110;-70;-110" dur="6s" repeatCount="indefinite"/></circle><circle cx="-40" cy="-95" r="4" fill="#fde8c8" opacity=".85"><animate attributeName="cx" values="-40;0;-40" dur="7s" repeatCount="indefinite"/></circle><circle cx="30" cy="-70" r="6" fill="#c9ecd9" opacity=".85"><animate attributeName="cx" values="30;70;30" dur="5s" repeatCount="indefinite"/></circle><circle cx="80" cy="-100" r="4" fill="#fde8c8" opacity=".85"><animate attributeName="cx" values="80;120;80" dur="8s" repeatCount="indefinite"/></circle>
+        
+      </g>
+      <!-- 2: liver lobule filtering waste -->
+      <g class="zs" data-i="2">
+        <polygon points="0,-95 82,-48 82,48 0,95 -82,48 -82,-48" fill="#fff6e8" stroke="#d98400" stroke-width="2"/>
+        <path id="sin0" d="M0 -95 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/><path id="sin1" d="M82 -48 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/><path id="sin2" d="M82 48 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/><path id="sin3" d="M0 95 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/><path id="sin4" d="M-82 48 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/><path id="sin5" d="M-82 -48 L0 0" stroke="#f3c88a" stroke-width="7" stroke-linecap="round"/>
+        <rect x="17.55" y="-43.5" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 22.55 -38.5)"/><rect x="40.1" y="-5.0" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 45.1 0.0)"/><rect x="17.55" y="33.5" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 22.55 38.5)"/><rect x="-27.55" y="33.5" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 -22.55 38.5)"/><rect x="-50.1" y="-5.0" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 -45.1 0.0)"/><rect x="-27.55" y="-43.5" width="10" height="10" rx="3" fill="#fde8c8" stroke="#d98400" stroke-width="1" transform="rotate(20 -22.55 -38.5)"/>
+        <circle r="14" fill="#fff" stroke="#d98400" stroke-width="2"/><circle r="6" fill="#f3c88a"/>
+        <circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-0.00s" repeatCount="indefinite"><mpath href="#sin0"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-0.00s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-0.45s" repeatCount="indefinite"><mpath href="#sin1"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-0.45s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-0.90s" repeatCount="indefinite"><mpath href="#sin2"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-0.90s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-1.35s" repeatCount="indefinite"><mpath href="#sin3"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-1.35s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-1.80s" repeatCount="indefinite"><mpath href="#sin4"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-1.80s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#e3266f"><animateMotion dur="2.6s" begin="-2.25s" repeatCount="indefinite"><mpath href="#sin5"/></animateMotion><animate attributeName="fill" values="#e3266f;#e3266f;#d98400" keyTimes="0;.5;1" dur="2.6s" begin="-2.25s" repeatCount="indefinite"/></circle>
+        
+      </g>
+      <!-- 3: white blood cells respond -->
+      <g class="zs" data-i="3">
+        <rect x="-130" y="-140" width="260" height="34" fill="#fdeef3"/>
+        <path d="M-130 -106 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#f4b3c8" stroke-width="2"/>
+        <path d="M-40 20 C -20 -10, 20 40, 40 10" fill="none" stroke="#e3266f" stroke-width="15" stroke-linecap="round"/><path d="M-40 20 C -20 -10, 20 40, 40 10" fill="none" stroke="#fbd0df" stroke-width="12" stroke-linecap="round"/><path d="M-40 20 C -20 -10, 20 40, 40 10" fill="none" stroke="#e3266f" stroke-opacity=".45" stroke-width="12" stroke-dasharray="1.4 6"/><path d="M-40 20 C -20 -10, 20 40, 40 10" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" transform="translate(-1 -2.6)"/>
+        <g transform="translate(-90 -40)"><g><circle r="17" fill="#fff6e0" stroke="#d98400" stroke-width="1.8"/><circle cx="-5" cy="-1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx="5" cy="1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx='-9' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='8' cy='-10' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='10' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='-10' cy='-9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='12' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='-12' r='1.4' fill='#e3266f' opacity='.7'/><animateTransform attributeName="transform" type="translate" values="0 0;16 7;0 0" dur="2.2s" repeatCount="indefinite"/></g></g><g transform="translate(90 -50)"><g><circle r="17" fill="#fff6e0" stroke="#d98400" stroke-width="1.8"/><circle cx="-5" cy="-1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx="5" cy="1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx='-9' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='8' cy='-10' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='10' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='-10' cy='-9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='12' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='-12' r='1.4' fill='#e3266f' opacity='.7'/><animateTransform attributeName="transform" type="translate" values="0 0;-16 9;0 0" dur="2.6s" repeatCount="indefinite"/></g></g><g transform="translate(-95 70)"><g><circle r="17" fill="#fff6e0" stroke="#d98400" stroke-width="1.8"/><circle cx="-5" cy="-1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx="5" cy="1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx='-9' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='8' cy='-10' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='10' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='-10' cy='-9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='12' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='-12' r='1.4' fill='#e3266f' opacity='.7'/><animateTransform attributeName="transform" type="translate" values="0 0;17 -13;0 0" dur="2.4s" repeatCount="indefinite"/></g></g><g transform="translate(85 75)"><g><circle r="17" fill="#fff6e0" stroke="#d98400" stroke-width="1.8"/><circle cx="-5" cy="-1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx="5" cy="1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx='-9' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='8' cy='-10' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='10' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='-10' cy='-9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='12' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='-12' r='1.4' fill='#e3266f' opacity='.7'/><animateTransform attributeName="transform" type="translate" values="0 0;-15 -14;0 0" dur="2s" repeatCount="indefinite"/></g></g><g transform="translate(0 -80)"><g><circle r="17" fill="#fff6e0" stroke="#d98400" stroke-width="1.8"/><circle cx="-5" cy="-1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx="5" cy="1" r="6" fill="#f3c88a" stroke="#d98400"/><circle cx='-9' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='8' cy='-10' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='10' cy='9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='-10' cy='-9' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='12' r='1.4' fill='#e3266f' opacity='.7'/><circle cx='0' cy='-12' r='1.4' fill='#e3266f' opacity='.7'/><animateTransform attributeName="transform" type="translate" values="0 0;0 14;0 0" dur="2.8s" repeatCount="indefinite"/></g></g>
+        <g transform="translate(-50 -20)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0s" repeatCount="indefinite"/></g><g transform="translate(55 -15)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></g><g transform="translate(-30 55)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.8s" repeatCount="indefinite"/></g><g transform="translate(45 50)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1.2s" repeatCount="indefinite"/></g><g transform="translate(0 -45)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></g><g transform="translate(-60 20)" fill="#0a9cc4"><path d="M-3 0 h6 M0 -3 v6" stroke="#0a9cc4" stroke-width="1.6"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/></g>
+        
+      </g>
+      <!-- 4: riding the bloodstream -->
+      <g class="zs" data-i="4">
+        <path d="M-140 40 C -60 40, -20 -10, 40 -20 S 120 -60, 150 -70" fill="none" stroke="#f4b3c8" stroke-width="46" stroke-linecap="round"/>
+        <path d="M-140 40 C -60 40, -20 -10, 40 -20 S 120 -60, 150 -70" fill="none" stroke="#fdeef3" stroke-width="40" stroke-linecap="round"/>
+        <path d="M30 -18 C 60 10, 80 40, 110 60" fill="none" stroke="#f4b3c8" stroke-width="24" stroke-linecap="round"/>
+        <path d="M30 -18 C 60 10, 80 40, 110 60" fill="none" stroke="#fdeef3" stroke-width="19" stroke-linecap="round"/>
+        <path id="vmain" d="M-140 40 C -60 40, -20 -10, 40 -20 S 120 -60, 150 -70" fill="none"/>
+        <path id="vbr" d="M-140 40 C -60 40, -20 -10, 30 -18 C 60 10, 80 40, 110 60" fill="none"/>
+        <ellipse rx="7" ry="4.5" fill="#f9c6d4" stroke="#ee9ab4" stroke-width="1"><animateMotion dur="4s" begin="-0s" repeatCount="indefinite" rotate="auto"><mpath href="#vmain"/></animateMotion></ellipse><ellipse rx="7" ry="4.5" fill="#f9c6d4" stroke="#ee9ab4" stroke-width="1"><animateMotion dur="4s" begin="-1.3s" repeatCount="indefinite" rotate="auto"><mpath href="#vmain"/></animateMotion></ellipse><ellipse rx="7" ry="4.5" fill="#f9c6d4" stroke="#ee9ab4" stroke-width="1"><animateMotion dur="4s" begin="-2.6s" repeatCount="indefinite" rotate="auto"><mpath href="#vmain"/></animateMotion></ellipse><ellipse rx="7" ry="4.5" fill="#f9c6d4" stroke="#ee9ab4" stroke-width="1"><animateMotion dur="5s" begin="-0.8s" repeatCount="indefinite" rotate="auto"><mpath href="#vbr"/></animateMotion></ellipse><ellipse rx="7" ry="4.5" fill="#f9c6d4" stroke="#ee9ab4" stroke-width="1"><animateMotion dur="5s" begin="-3s" repeatCount="indefinite" rotate="auto"><mpath href="#vbr"/></animateMotion></ellipse>
+        <g><path d="M-9 0 q4 -5 9 0 t9 0" fill="none" stroke="#e3266f" stroke-width="3.2" stroke-linecap="round"/><circle cx="9" cy="0" r="2.2" fill="#e3266f"/><animateMotion dur="4s" begin="-0.6s" repeatCount="indefinite" rotate="auto"><mpath href="#vmain"/></animateMotion></g><g><path d="M-9 0 q4 -5 9 0 t9 0" fill="none" stroke="#e3266f" stroke-width="3.2" stroke-linecap="round"/><circle cx="9" cy="0" r="2.2" fill="#e3266f"/><animateMotion dur="4s" begin="-2.2s" repeatCount="indefinite" rotate="auto"><mpath href="#vmain"/></animateMotion></g><g><path d="M-9 0 q4 -5 9 0 t9 0" fill="none" stroke="#e3266f" stroke-width="3.2" stroke-linecap="round"/><circle cx="9" cy="0" r="2.2" fill="#e3266f"/><animateMotion dur="5s" begin="-2s" repeatCount="indefinite" rotate="auto"><mpath href="#vbr"/></animateMotion></g>
+        <g font-family="Geist Mono,monospace" font-size="8" fill="#5b6675" letter-spacing="1"><text x="60" y="-82">TO LUNGS &amp; BRAIN</text><text x="40" y="92">TO LIVER</text></g>
+      </g>
+    </g>
+  </g>
+  <circle cx="410" cy="215" r="128" fill="none" stroke="#0a9cc4" stroke-width="4"/>
+  <circle cx="410" cy="215" r="134" fill="none" stroke="#0a9cc4" stroke-opacity=".25" stroke-width="1"/>
+  <text x="410" y="372" text-anchor="middle" font-family="Geist Mono,monospace" font-size="10" letter-spacing="2" fill="#0a9cc4">CLOSE-UP</text><text id="zcap" x="410" y="392" text-anchor="middle" font-family="Geist,system-ui,sans-serif" font-size="13" fill="#3b4552"></text>
+</svg>
       </div>
       <ol class="moves">
         <li><button type="button" class="move on" data-i="0"><span class="mn">01</span><span class="mb"><b>They eat first</b><span>They take your nutrients before your body can absorb them. Hookworms drink blood and fish tapeworms take your B12.</span><span class="sym"><i>Tired</i><i>Weak</i><i>Pale</i><i>Always hungry</i></span></span></button></li>
@@ -592,32 +673,41 @@ img{max-width:100%}
       <!-- RAT -->
       <article class="ncard panel">
         <div class="scene">
-          <svg viewBox="0 0 320 200" aria-label="A rat walking toward a plume of cat scent instead of away from it">
-            <defs>
-              <filter id="g1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              <linearGradient id="plume" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d98400" stop-opacity=".9"/><stop offset="1" stop-color="#d98400" stop-opacity="0"/></linearGradient>
-            </defs>
-            <g stroke="#dfe5ec"><line x1="0" y1="150" x2="320" y2="150"/></g>
-            <g fill="none" stroke="url(#plume)" stroke-width="2" stroke-linecap="round">
-              <path d="M262 150 q-10 -20 0 -40 t0 -40 t0 -40"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M262 150 q-10 -20 0 -40 t0 -40 t0 -40;M262 150 q10 -20 0 -40 t0 -40 t0 -40;M262 150 q-10 -20 0 -40 t0 -40 t0 -40"/></path>
-              <path d="M280 150 q10 -20 0 -40 t0 -36 t0 -30"><animate attributeName="d" dur="3.6s" repeatCount="indefinite" values="M280 150 q10 -20 0 -40 t0 -36 t0 -30;M280 150 q-10 -20 0 -40 t0 -36 t0 -30;M280 150 q10 -20 0 -40 t0 -36 t0 -30"/></path>
-              <path d="M246 150 q6 -16 0 -30 t0 -30"><animate attributeName="d" dur="2.6s" repeatCount="indefinite" values="M246 150 q6 -16 0 -30 t0 -30;M246 150 q-6 -16 0 -30 t0 -30;M246 150 q6 -16 0 -30 t0 -30"/></path>
-            </g>
-            <text x="262" y="172" fill="#d98400" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5" text-anchor="middle">CAT SCENT</text>
-            <g filter="url(#g1)">
-              <animateTransform attributeName="transform" type="translate" values="0 0;120 0;120 0;0 0" keyTimes="0;.55;.8;1" dur="6s" repeatCount="indefinite"/>
-              <path d="M30 140 q-22 -2 -26 -14" stroke="#5b6675" stroke-width="1.6" fill="none"/>
-              <path d="M30 146 c0 -26 22 -34 44 -32 c14 1 22 8 28 14 l12 4 c3 1 3 5 0 6 l-10 4 c-4 4 -14 6 -26 6 h-40 c-6 0 -8 -1 -8 -2z" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.6"/>
-              <circle cx="78" cy="118" r="7" fill="none" stroke="#0a9cc4" stroke-width="1.4"/>
-              <circle cx="102" cy="126" r="2" fill="#0a9cc4"/>
-              <!-- brain cysts -->
-              <circle cx="92" cy="124" r="5" fill="#e3266f" fill-opacity=".25" stroke="#e3266f" stroke-width="1.2"><animate attributeName="r" values="4;6;4" dur="1.4s" repeatCount="indefinite"/></circle>
-              <circle cx="92" cy="124" r="1.8" fill="#e3266f"/>
-              <path d="M50 146 v6 M86 146 v6" stroke="#0a9cc4" stroke-width="1.6" stroke-linecap="round"/>
-            </g>
-            <text x="16" y="28" fill="#e3266f" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">CYST IN AMYGDALA</text>
-            <line x1="16" y1="34" x2="70" y2="34" stroke="#e3266f" stroke-opacity=".4"/>
-          </svg>
+          <svg data-new="1" viewBox="0 0 320 200" aria-label="A rat walking toward a plume of cat scent instead of away from it, with a close-up of parasite cysts in its brain">
+  <defs>
+    <radialGradient id="rbg" cx="55%" cy="10%" r="90%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eaf1f6"/></radialGradient>
+    <linearGradient id="rfur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3cdd7"/><stop offset="1" stop-color="#93a1af"/></linearGradient>
+    <linearGradient id="rplume" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d98400" stop-opacity=".8"/><stop offset="1" stop-color="#d98400" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#rbg)"/>
+  <path d="M0 152 H320 V200 H0z" fill="#e3eaf0"/>
+  <path d="M0 152 H320" stroke="#cfd9e2"/>
+  <g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M150 152 q2 -12 -2 -20 M154 152 q0 -10 4 -16 M158 152 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 154 152;3 154 152;-3 154 152" dur="3s" repeatCount="indefinite"/></g><g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M228 152 q2 -12 -2 -20 M232 152 q0 -10 4 -16 M236 152 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 232 152;3 232 152;-3 232 152" dur="3.6s" repeatCount="indefinite"/></g><g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M12 152 q2 -12 -2 -20 M16 152 q0 -10 4 -16 M20 152 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 16 152;3 16 152;-3 16 152" dur="2.6s" repeatCount="indefinite"/></g>
+  <g fill="#d3dce4">
+    <path d="M262 152 c-4 -22 0 -40 14 -46 c-2 -6 -2 -12 2 -18 l6 8 h10 l6 -8 c4 6 4 12 2 18 c14 6 18 24 14 46 z"/>
+    <path d="M306 150 c14 -2 16 -18 8 -26" stroke="#d3dce4" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <g fill="#9aa8b6"><ellipse cx="282" cy="100" rx="1.6" ry="2.4"/><ellipse cx="294" cy="100" rx="1.6" ry="2.4"/></g>
+  <g fill="none" stroke="url(#rplume)" stroke-width="2" stroke-linecap="round">
+    <path d="M258 140 q-10 -20 0 -40 t0 -40 t0 -40"><animate attributeName="d" dur="3s" repeatCount="indefinite" values="M258 140 q-10 -20 0 -40 t0 -40 t0 -40;M258 140 q10 -20 0 -40 t0 -40 t0 -40;M258 140 q-10 -20 0 -40 t0 -40 t0 -40"/></path>
+    <path d="M244 146 q6 -16 0 -30 t0 -30"><animate attributeName="d" dur="2.6s" repeatCount="indefinite" values="M244 146 q6 -16 0 -30 t0 -30;M244 146 q-6 -16 0 -30 t0 -30;M244 146 q6 -16 0 -30 t0 -30"/></path>
+  </g>
+  <text x="252" y="176" fill="#d98400" font-family="Geist Mono,monospace" font-size="8" letter-spacing="1.5" text-anchor="middle">CAT SCENT</text>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;104 0;104 0;0 0" keyTimes="0;.55;.8;1" dur="6s" repeatCount="indefinite"/>
+    <path d="M34 142 C 12 146, -2 162, -26 152" fill="none" stroke="#e2b4c3" stroke-width="3" stroke-linecap="round"><animate attributeName="d" dur="1.2s" repeatCount="indefinite" values="M34 142 C 12 146, -2 162, -26 152;M34 142 C 12 140, -2 150, -26 156;M34 142 C 12 146, -2 162, -26 152"/></path>
+    <g><ellipse cx="52" cy="149" rx="7" ry="3.2" fill="#8794a2"/><animateTransform attributeName="transform" type="rotate" values="-8 52 146;8 52 146;-8 52 146" dur=".6s" repeatCount="indefinite"/></g>
+    <path d="M30 146 C28 128 44 112 70 112 C88 112 100 118 108 126 C114 124 122 126 128 130 L136 134 C139 135 139 139 136 140 L126 143 C120 147 110 148 100 148 L40 148 C34 148 30 147 30 146 Z" fill="url(#rfur)" stroke="#7a8796" stroke-width="1.2"/>
+    <path d="M42 140 C60 146 90 146 108 140" fill="none" stroke="#e7edf2" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+    <g><ellipse cx="102" cy="149" rx="5.5" ry="2.8" fill="#8794a2"/><animateTransform attributeName="transform" type="rotate" values="8 102 146;-8 102 146;8 102 146" dur=".6s" repeatCount="indefinite"/></g>
+    <circle cx="92" cy="113" r="8.5" fill="#c9d3dd" stroke="#7a8796" stroke-width="1.1"/><circle cx="92" cy="113" r="4.6" fill="#f4bccd"/>
+    <circle cx="112" cy="123" r="2.8" fill="#12171f"/><circle cx="113" cy="122" r=".9" fill="#fff"/>
+    <circle cx="136.5" cy="137" r="2.4" fill="#f08fb0"/>
+    <g stroke="#8794a2" stroke-width=".8"><path d="M131 135 L150 129 M131 137 L152 137 M131 139 L150 145"/></g>
+    <circle cx="104" cy="121" r="3" fill="#e3266f" fill-opacity=".85"><animate attributeName="r" values="2.4;3.6;2.4" dur="1.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g><clipPath id="bcrat"><circle cx="52" cy="52" r="36"/></clipPath><circle cx="52" cy="52" r="36" fill="#fff" stroke="#0a9cc4" stroke-width="2"/><g clip-path="url(#bcrat)"><rect x="10" y="10" width="90" height="90" fill="#f4fafc"/><path d="M24 56 C22 36 40 26 54 28 C68 26 84 34 82 54 C84 70 70 78 56 76 C40 80 24 72 24 56z" fill="#e6f6fb" stroke="#0a9cc4" stroke-width="1.4"/><path d="M32 48 q6 -8 12 -2 q6 -8 12 0 q8 -6 12 2 M32 60 q8 -4 12 2 q8 -4 14 0 M54 30 q-4 22 2 46" fill="none" stroke="#0a9cc4" stroke-width="1" stroke-opacity=".6"/><ellipse cx="62" cy="62" rx="10" ry="7" fill="#e3266f" fill-opacity=".10" stroke="#e3266f" stroke-dasharray="2 2"/><g><circle cx="60" cy="62" r="5" fill="#fde3ec" stroke="#e3266f" stroke-width="1.4"/><circle cx="59" cy="61" r="1" fill="#e3266f"/><circle cx="61.5" cy="63" r="1" fill="#e3266f"/><circle cx="60" cy="64" r=".9" fill="#e3266f"/><animate attributeName="opacity" values=".7;1;.7" dur="1.6s" repeatCount="indefinite"/></g><g><circle cx="68" cy="58" r="3.6" fill="#fde3ec" stroke="#e3266f" stroke-width="1.4"/><circle cx="67" cy="57" r="1" fill="#e3266f"/><circle cx="69.5" cy="59" r="1" fill="#e3266f"/><circle cx="68" cy="60" r=".9" fill="#e3266f"/><animate attributeName="opacity" values=".7;1;.7" dur="2s" repeatCount="indefinite"/></g><g><circle cx="44" cy="50" r="3.4" fill="#fde3ec" stroke="#e3266f" stroke-width="1.4"/><circle cx="43" cy="49" r="1" fill="#e3266f"/><circle cx="45.5" cy="51" r="1" fill="#e3266f"/><circle cx="44" cy="52" r=".9" fill="#e3266f"/><animate attributeName="opacity" values=".7;1;.7" dur="2.4s" repeatCount="indefinite"/></g></g><circle cx="52" cy="52" r="36" fill="none" stroke="#0a9cc4" stroke-width="2"/><text x="52" y="100" text-anchor="middle" font-family="Geist Mono,monospace" font-size="7.5" letter-spacing="1" fill="#e3266f">CYSTS IN BRAIN</text></g>
+</svg>
           <button class="real" type="button" data-real="rat"><i></i>See it real</button>
         </div>
         <div class="meta">
@@ -633,31 +723,46 @@ img{max-width:100%}
       <!-- CRICKET -->
       <article class="ncard panel">
         <div class="scene">
-          <svg viewBox="0 0 320 200" aria-label="A cricket leaping off land into water">
-            <defs>
-              <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a9cc4" stop-opacity=".28"/><stop offset="1" stop-color="#0a9cc4" stop-opacity="0"/></linearGradient>
-            </defs>
-            <path d="M0 150 H120 q14 0 20 8 l8 12 H320 V200 H0z" fill="#e3eaf0"/>
-            <rect x="148" y="160" width="172" height="40" fill="url(#water)"/>
-            <line x1="148" y1="160" x2="320" y2="160" stroke="#0a9cc4" stroke-opacity=".6"/>
-            <path id="jump" d="M70 140 Q160 20 240 158" fill="none" stroke="#e3266f" stroke-opacity=".35" stroke-dasharray="3 5"/>
-            <g filter="url(#g1)">
-              <g>
-                <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;.7;1" calcMode="linear"><mpath href="#jump"/></animateMotion>
-                <ellipse cx="0" cy="0" rx="14" ry="6" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.4"/>
-                <circle cx="14" cy="-1" r="4" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.4"/>
-                <path d="M17 -4 q16 -14 26 -12 M17 -3 q12 -18 18 -22" stroke="#0a9cc4" stroke-width="1" fill="none"/>
-                <path d="M-6 3 l-10 -12 l-6 16 M4 5 l2 8 M10 4 l6 8" stroke="#0a9cc4" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
-                <path d="M-12 0 q-4 -2 -2 -4 q8 -6 18 0 q6 4 -2 6" stroke="#e3266f" stroke-width="1.6" fill="none"/>
-              </g>
-            </g>
-            <g fill="none" stroke="#0a9cc4">
-              <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;40" dur="3.2s" repeatCount="indefinite" keyTimes="0;1" begin="2.2s"/><animate attributeName="ry" values="1;7" dur="3.2s" repeatCount="indefinite" begin="2.2s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.2s" repeatCount="indefinite" begin="2.2s"/></ellipse>
-              <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;26" dur="3.2s" repeatCount="indefinite" begin="2.5s"/><animate attributeName="ry" values="1;4" dur="3.2s" repeatCount="indefinite" begin="2.5s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.2s" repeatCount="indefinite" begin="2.5s"/></ellipse>
-            </g>
-            <text x="16" y="28" fill="#e3266f" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">WORM INSIDE HOST</text>
-            <line x1="16" y1="34" x2="70" y2="34" stroke="#e3266f" stroke-opacity=".4"/>
-          </svg>
+          <svg data-new="1" viewBox="0 0 320 200" aria-label="A cricket leaping into water, with a close-up of the hairworm coiled inside it">
+  <defs>
+    <radialGradient id="cbg" cx="60%" cy="0%" r="100%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eaf1f6"/></radialGradient>
+    <linearGradient id="cwater" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8e3f1"/><stop offset="1" stop-color="#e3f4fa"/></linearGradient>
+    <linearGradient id="cbody" x1="0" y1="-1" x2="0" y2="1"><stop offset="0" stop-color="#b48d62"/><stop offset="1" stop-color="#7d5c3e"/></linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#cbg)"/>
+  <path d="M0 150 H120 q16 0 22 8 l8 14 V200 H0z" fill="#e3eaf0"/>
+  <g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M20 150 q2 -12 -2 -20 M24 150 q0 -10 4 -16 M28 150 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 24 150;3 24 150;-3 24 150" dur="3s" repeatCount="indefinite"/></g><g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M70 150 q2 -12 -2 -20 M74 150 q0 -10 4 -16 M78 150 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 74 150;3 74 150;-3 74 150" dur="3.4s" repeatCount="indefinite"/></g><g stroke="#8fc7a5" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M104 150 q2 -12 -2 -20 M108 150 q0 -10 4 -16 M112 150 q-1 -8 -5 -12"/><animateTransform attributeName="transform" type="rotate" values="-3 108 150;3 108 150;-3 108 150" dur="2.8s" repeatCount="indefinite"/></g>
+  <rect x="148" y="160" width="172" height="40" fill="url(#cwater)"/>
+  <path d="M148 160 H320" stroke="#0a9cc4" stroke-opacity=".6"/>
+  <g stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" fill="none">
+    <path d="M170 172 q8 -3 16 0"><animate attributeName="opacity" values=".2;1;.2" dur="2.2s" repeatCount="indefinite"/></path>
+    <path d="M220 182 q10 -3 20 0"><animate attributeName="opacity" values="1;.2;1" dur="2.6s" repeatCount="indefinite"/></path>
+    <path d="M272 170 q8 -3 16 0"><animate attributeName="opacity" values=".4;1;.4" dur="3s" repeatCount="indefinite"/></path>
+  </g>
+  <path id="jump2" d="M70 138 Q160 30 240 158" fill="none" stroke="#e3266f" stroke-opacity=".3" stroke-dasharray="3 5"/>
+  <g>
+    <animateMotion dur="3.4s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;.7;1" calcMode="linear"><mpath href="#jump2"/></animateMotion>
+    <g transform="scale(1.15)">
+      <path d="M-2 3 C-8 -4 -14 -12 -19 -14" stroke="#7a5a3c" stroke-width="4.8" stroke-linecap="round" fill="none"/>
+      <path d="M-19 -14 L-27 7" stroke="#6b4e34" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M-21 -8 l-3 -1 M-23 -2 l-3 -1 M-25 3 l-3 -1" stroke="#6b4e34" stroke-width=".8"/>
+      <ellipse cx="-8" cy="2" rx="14" ry="7" fill="url(#cbody)" stroke="#5e4430" stroke-width="1"/>
+      <path d="M-16 -3 q2 5 0 10 M-11 -4.5 q2 6 0 13 M-6 -5 q2 6 0 13 M-1 -4.5 q2 5 0 11" fill="none" stroke="#5e4430" stroke-opacity=".35" stroke-width=".8"/>
+      <path d="M-18 3 q3 -4 6 0 t6 0 t6 0 q2 3 -2 3 t-6 0 t-6 0" fill="none" stroke="#e3266f" stroke-width="1.3" stroke-dasharray="3 1.5"><animate attributeName="stroke-dashoffset" values="0;9" dur="1s" repeatCount="indefinite"/></path>
+      <path d="M-1 -5 C-10 -9 -21 -6 -24 0" fill="rgba(255,255,255,.35)" stroke="#a98a6a" stroke-width=".9"/>
+      <ellipse cx="6" cy="-1" rx="7" ry="5.6" fill="#8d6c4b" stroke="#5e4430" stroke-width=".9"/>
+      <circle cx="15" cy="-3" r="5.6" fill="#a07d58" stroke="#5e4430" stroke-width=".9"/>
+      <circle cx="17" cy="-5" r="1.8" fill="#12171f"/><circle cx="17.6" cy="-5.6" r=".6" fill="#fff"/>
+      <path d="M19 -7 Q 30 -30 54 -26 M18 -7 Q 25 -36 46 -38" fill="none" stroke="#5e4430" stroke-width=".8"/>
+      <path d="M4 4 l-3 8 M9 4 l4 8 M13 2 l6 7" stroke="#6b4e34" stroke-width="1.1" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#0a9cc4">
+    <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;40" dur="3.4s" repeatCount="indefinite" begin="2.3s"/><animate attributeName="ry" values="1;7" dur="3.4s" repeatCount="indefinite" begin="2.3s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.4s" repeatCount="indefinite" begin="2.3s"/></ellipse>
+    <ellipse cx="240" cy="162" rx="4" ry="1.5"><animate attributeName="rx" values="2;26" dur="3.4s" repeatCount="indefinite" begin="2.6s"/><animate attributeName="ry" values="1;4" dur="3.4s" repeatCount="indefinite" begin="2.6s"/><animate attributeName="stroke-opacity" values="1;0" dur="3.4s" repeatCount="indefinite" begin="2.6s"/></ellipse>
+  </g>
+  <g><clipPath id="bccri"><circle cx="52" cy="52" r="36"/></clipPath><circle cx="52" cy="52" r="36" fill="#fff" stroke="#0a9cc4" stroke-width="2"/><g clip-path="url(#bccri)"><rect x="10" y="10" width="90" height="90" fill="#f8f1e8"/><ellipse cx="52" cy="54" rx="40" ry="24" fill="#e9d6bf" stroke="#b48d62" stroke-width="1.4"/><path d="M14 54 q4 -24 0 0 M24 32 q2 22 0 44 M36 30 q2 24 0 48 M48 30 q2 24 0 48 M60 30 q2 24 0 48 M72 32 q2 22 0 44" fill="none" stroke="#b48d62" stroke-opacity=".3"/><path d="M20 50 q8 -14 16 0 t16 0 t16 0 t12 4 q-4 10 -14 6 t-16 0 t-16 0 t-14 -6 q4 -8 12 -4 t14 4 t14 0 t12 -2" fill="none" stroke="#e3266f" stroke-width="2.6" stroke-linecap="round"><animate attributeName="stroke-dasharray" values="0 400;400 0" dur="4s" repeatCount="indefinite"/></path></g><circle cx="52" cy="52" r="36" fill="none" stroke="#0a9cc4" stroke-width="2"/><text x="52" y="100" text-anchor="middle" font-family="Geist Mono,monospace" font-size="7.5" letter-spacing="1" fill="#e3266f">WORM INSIDE</text></g>
+</svg>
           <button class="real" type="button" data-real="cricket"><i></i>See it real</button>
         </div>
         <div class="meta">
@@ -673,33 +778,48 @@ img{max-width:100%}
       <!-- ANT -->
       <article class="ncard panel">
         <div class="scene">
-          <svg viewBox="0 0 320 200" aria-label="An ant climbing a plant stem as a fungal stalk grows from its head">
-            <path d="M160 200 V40" stroke="#7fbf9a" stroke-width="4"/>
-            <path d="M160 70 q40 -10 70 -40 q-40 4 -70 30 M160 110 q-40 -12 -66 -44 q38 8 66 34" fill="#e3f5ec" stroke="#17a35f" stroke-opacity=".4"/>
-            <g filter="url(#g1)">
-              <g>
-                <animateTransform attributeName="transform" type="translate" values="0 120;0 0;0 0;0 120" keyTimes="0;.5;.95;1" dur="7s" repeatCount="indefinite"/>
-                <g transform="translate(160 70)">
-                  <ellipse cx="0" cy="18" rx="5" ry="8" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.3"/>
-                  <ellipse cx="0" cy="5" rx="3.5" ry="4" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.3"/>
-                  <circle cx="0" cy="-4" r="4.5" fill="#ffffff" stroke="#0a9cc4" stroke-width="1.3"/>
-                  <path d="M-3 4 l-9 -4 M3 4 l9 -4 M-3 7 l-10 4 M3 7 l10 4 M-2 10 l-8 10 M2 10 l8 10" stroke="#0a9cc4" stroke-width="1"/>
-                  <path d="M0 -8 V-8" stroke="#e3266f" stroke-width="2" stroke-linecap="round">
-                    <animate attributeName="d" values="M0 -8 V-8;M0 -8 V-8;M0 -8 q4 -16 -2 -34;M0 -8 q4 -16 -2 -34;M0 -8 V-8" keyTimes="0;.5;.75;.95;1" dur="7s" repeatCount="indefinite"/>
-                  </path>
-                  <circle cx="-2" cy="-42" r="0" fill="#e3266f">
-                    <animate attributeName="r" values="0;0;4;4;0" keyTimes="0;.6;.75;.95;1" dur="7s" repeatCount="indefinite"/>
-                  </circle>
-                </g>
-              </g>
-            </g>
-            <g fill="#e3266f">
-              <circle cx="158" cy="28" r="1.4"><animate attributeName="cy" values="28;190" dur="4s" repeatCount="indefinite"/><animate attributeName="cx" values="158;130" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/></circle>
-              <circle cx="158" cy="28" r="1.2"><animate attributeName="cy" values="28;190" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="cx" values="158;196" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.6s" begin="1s" repeatCount="indefinite"/></circle>
-            </g>
-            <text x="16" y="28" fill="#e3266f" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.5">FUNGAL STALK</text>
-            <line x1="16" y1="34" x2="70" y2="34" stroke="#e3266f" stroke-opacity=".4"/>
-          </svg>
+          <svg data-new="1" viewBox="0 0 320 200" aria-label="An ant climbing a plant stem as a fungal stalk grows from its head, with a close-up of fungus threads between its muscles">
+  <defs>
+    <radialGradient id="abg" cx="50%" cy="0%" r="100%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ebf4ee"/></radialGradient>
+    <linearGradient id="antg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a5640"/><stop offset="1" stop-color="#3f2a1e"/></linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#abg)"/>
+  <path d="M0 186 H320 V200 H0z" fill="#e3eee6"/>
+  <path d="M190 200 C 186 150, 194 100, 190 34" stroke="#7fbf9a" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M190 120 q-40 -16 -60 -48 q40 6 60 34z" fill="#dff3e8" stroke="#7fbf9a" stroke-width="1.4"/>
+  <path d="M190 120 q-30 -20 -58 -46" stroke="#7fbf9a" stroke-width=".8" fill="none"/>
+  <path d="M192 70 q44 -10 70 -42 q-42 4 -70 30z" fill="#dff3e8" stroke="#7fbf9a" stroke-width="1.4"/>
+  <path d="M192 70 q36 -16 66 -40" stroke="#7fbf9a" stroke-width=".8" fill="none"/>
+  <path d="M190 34 q-24 -8 -34 -26 q24 2 34 18z" fill="#dff3e8" stroke="#7fbf9a" stroke-width="1.4"/>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 120;0 0;0 0;0 120" keyTimes="0;.5;.95;1" dur="7s" repeatCount="indefinite"/>
+    <g transform="translate(190 64) scale(1.25)">
+      <g stroke="#3f2a1e" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-2 0 l-7 -5 l-4 -6 M2 0 l7 -5 l4 -6 M-2 3 l-8 1 l-5 6 M2 3 l8 1 l5 6 M-2 5 l-6 6 l-2 8 M2 5 l6 6 l2 8"/>
+      </g>
+      <ellipse cx="0" cy="17" rx="6.5" ry="9" fill="url(#antg)"/>
+      <path d="M-5 14 q5 2 10 0 M-5.5 18 q5.5 2 11 0" stroke="#fff" stroke-opacity=".2" fill="none"/>
+      <circle cx="0" cy="7.4" r="2" fill="#4a3224"/>
+      <ellipse cx="0" cy="2" rx="3.6" ry="5.4" fill="url(#antg)"/>
+      <ellipse cx="0" cy="-8" rx="5.2" ry="4.8" fill="url(#antg)"/>
+      <ellipse cx="-1.6" cy="-9.4" rx="1.6" ry="1" fill="#fff" fill-opacity=".35"/>
+      <circle cx="-3.4" cy="-8.6" r=".9" fill="#111"/><circle cx="3.4" cy="-8.6" r=".9" fill="#111"/>
+      <path d="M-2 -12.4 q-2.5 -3 -.5 -5.5 M2 -12.4 q2.5 -3 .5 -5.5" stroke="#3f2a1e" stroke-width="1.1" fill="none"/>
+      <path d="M-2.5 -11.5 l-3.5 -6 l-5 -2 M2.5 -11.5 l3.5 -6 l5 -2" stroke="#3f2a1e" stroke-width=".9" fill="none"/>
+      <path d="M0 -12.5 V-12.5" stroke="#d98400" stroke-width="2.2" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="M0 -12.5 V-12.5;M0 -12.5 V-12.5;M0 -12.5 q4 -14 -2 -30;M0 -12.5 q4 -14 -2 -30;M0 -12.5 V-12.5" keyTimes="0;.5;.75;.95;1" dur="7s" repeatCount="indefinite"/>
+      </path>
+      <ellipse cx="-2" cy="-44" rx="0" ry="0" fill="#d98400" stroke="#b46c00" stroke-width=".8">
+        <animate attributeName="rx" values="0;0;3.4;3.4;0" keyTimes="0;.6;.75;.95;1" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="ry" values="0;0;5;5;0" keyTimes="0;.6;.75;.95;1" dur="7s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+  </g>
+  <g fill="#d98400">
+    <circle cx="188" cy="12" r="1.4"><animate attributeName="cy" values="12;190" dur="4s" begin="0s" repeatCount="indefinite"/><animate attributeName="cx" values="188;150" dur="4s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" begin="0s" repeatCount="indefinite"/></circle><circle cx="188" cy="12" r="1.2"><animate attributeName="cy" values="12;190" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="cx" values="188;226" dur="4.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.6s" begin="1s" repeatCount="indefinite"/></circle><circle cx="188" cy="12" r="1.1"><animate attributeName="cy" values="12;190" dur="5s" begin="2.2s" repeatCount="indefinite"/><animate attributeName="cx" values="188;170" dur="5s" begin="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="5s" begin="2.2s" repeatCount="indefinite"/></circle><circle cx="188" cy="12" r="1.3"><animate attributeName="cy" values="12;190" dur="4.2s" begin="3s" repeatCount="indefinite"/><animate attributeName="cx" values="188;240" dur="4.2s" begin="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.2s" begin="3s" repeatCount="indefinite"/></circle>
+  </g>
+  <g><clipPath id="bcant"><circle cx="52" cy="58" r="36"/></clipPath><circle cx="52" cy="58" r="36" fill="#fff" stroke="#0a9cc4" stroke-width="2"/><g clip-path="url(#bcant)"><rect x="10" y="16" width="90" height="90" fill="#fdf5f7"/><rect x="12" y="30" width="86" height="12" rx="6" fill="#fbd5e1" stroke="#ee9ab4" stroke-width="1"/><path d="M18 31 v10 M24 31 v10 M30 31 v10 M36 31 v10 M42 31 v10 M48 31 v10 M54 31 v10 M60 31 v10 M66 31 v10 M72 31 v10 M78 31 v10 M84 31 v10 M90 31 v10 M96 31 v10" stroke="#ee9ab4" stroke-opacity=".5" stroke-width=".7"/><rect x="12" y="46" width="86" height="12" rx="6" fill="#fbd5e1" stroke="#ee9ab4" stroke-width="1"/><path d="M18 47 v10 M24 47 v10 M30 47 v10 M36 47 v10 M42 47 v10 M48 47 v10 M54 47 v10 M60 47 v10 M66 47 v10 M72 47 v10 M78 47 v10 M84 47 v10 M90 47 v10 M96 47 v10" stroke="#ee9ab4" stroke-opacity=".5" stroke-width=".7"/><rect x="12" y="62" width="86" height="12" rx="6" fill="#fbd5e1" stroke="#ee9ab4" stroke-width="1"/><path d="M18 63 v10 M24 63 v10 M30 63 v10 M36 63 v10 M42 63 v10 M48 63 v10 M54 63 v10 M60 63 v10 M66 63 v10 M72 63 v10 M78 63 v10 M84 63 v10 M90 63 v10 M96 63 v10" stroke="#ee9ab4" stroke-opacity=".5" stroke-width=".7"/><rect x="12" y="78" width="86" height="12" rx="6" fill="#fbd5e1" stroke="#ee9ab4" stroke-width="1"/><path d="M18 79 v10 M24 79 v10 M30 79 v10 M36 79 v10 M42 79 v10 M48 79 v10 M54 79 v10 M60 79 v10 M66 79 v10 M72 79 v10 M78 79 v10 M84 79 v10 M90 79 v10 M96 79 v10" stroke="#ee9ab4" stroke-opacity=".5" stroke-width=".7"/><path d="M12 43 q10 -3 20 0 t20 0 t20 0 t20 0 M12 59 q10 3 20 0 t20 0 t20 0 t20 0 M12 75 q10 -3 20 0 t20 0 t20 0 t20 0 M40 30 q4 22 -2 60 M70 30 q-4 20 2 60" fill="none" stroke="#17a35f" stroke-width="1.6" stroke-linecap="round"><animate attributeName="stroke-dasharray" values="0 300;300 0" dur="5s" repeatCount="indefinite"/></path></g><circle cx="52" cy="58" r="36" fill="none" stroke="#0a9cc4" stroke-width="2"/><text x="52" y="106" text-anchor="middle" font-family="Geist Mono,monospace" font-size="7.5" letter-spacing="1" fill="#e3266f">FUNGUS IN MUSCLE</text></g>
+</svg>
           <button class="real" type="button" data-real="ant"><i></i>See it real</button>
         </div>
         <div class="meta">
@@ -1139,66 +1259,131 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function sprite(rgb,size){const c=document.createElement('canvas');c.width=c.height=size;const g=c.getContext('2d');const r=g.createRadialGradient(size/2,size/2,0,size/2,size/2,size/2);r.addColorStop(0,`rgba(${rgb},1)`);r.addColorStop(.15,`rgba(${rgb},.6)`);r.addColorStop(.45,`rgba(${rgb},.14)`);r.addColorStop(1,`rgba(${rgb},0)`);g.fillStyle=r;g.fillRect(0,0,size,size);return c}
 const CY='10,156,196',MG='227,38,111',AM='217,132,0',WH='255,255,255';
+
+/* ================= ORGANISM ART (shared by the opening swarm and the nerve network) ================= */
+const ORG=(()=>{
+  const PAL={m:[227,38,111],a:[217,132,0],c:[10,156,196],g:[23,163,95]};
+  const rgba=(k,a)=>`rgba(${PAL[k].join(',')},${a})`;
+  const cache={};
+  function mk(key,size,draw){if(cache[key])return cache[key];const cv=document.createElement('canvas');cv.width=cv.height=size;const g=cv.getContext('2d');g.translate(size/2,size/2);g.lineJoin='round';g.lineCap='round';draw(g,size/2*.86);return cache[key]=cv}
+  const dot=(g,x,y,r,f)=>{g.beginPath();g.arc(x,y,r,0,6.283);g.fillStyle=f;g.fill()};
+  // Toxoplasma: crescent with nucleus, pointed conoid end, club-shaped organelles and granules
+  function toxo(k){return mk('toxo'+k,128,(g,s)=>{
+    g.beginPath();g.moveTo(-s,s*.12);g.bezierCurveTo(-s*.62,-s*.78,s*.62,-s*.78,s,s*.12);g.bezierCurveTo(s*.45,-s*.22,-s*.45,-s*.22,-s,s*.12);g.closePath();
+    const gr=g.createLinearGradient(0,-s*.62,0,s*.12);gr.addColorStop(0,rgba(k,.40));gr.addColorStop(1,rgba(k,.12));g.fillStyle=gr;g.fill();g.lineWidth=s*.05;g.strokeStyle=rgba(k,.95);g.stroke();
+    g.beginPath();g.moveTo(-s*.8,s*.02);g.bezierCurveTo(-s*.5,-s*.55,s*.5,-s*.55,s*.8,s*.02);g.lineWidth=s*.02;g.strokeStyle=rgba(k,.35);g.stroke();
+    g.beginPath();g.ellipse(s*.04,-s*.3,s*.17,s*.12,-.05,0,6.283);g.fillStyle='rgba(255,255,255,.92)';g.fill();g.lineWidth=s*.025;g.strokeStyle=rgba(k,.85);g.stroke();
+    dot(g,s*.07,-s*.31,s*.05,rgba(k,.95));
+    g.beginPath();g.moveTo(s*.86,0);g.lineTo(s*1.02,s*.12);g.lineTo(s*.84,s*.16);g.closePath();g.fillStyle=rgba(k,.9);g.fill();
+    g.strokeStyle=rgba(k,.6);g.lineWidth=s*.03;for(const o of [-.05,.05]){g.beginPath();g.moveTo(s*.78,s*(.04+o));g.lineTo(s*.48,s*(-.12+o));g.stroke()}
+    for(const [x,y] of [[-.6,-.05],[-.45,-.22],[-.3,-.1],[.32,-.22],[-.15,-.36],[.22,-.08]])dot(g,x*s,y*s,s*.035,rgba(k,.65));
+  })}
+  // Roundworm-style egg: bumpy outer shell, inner shell, dividing embryo cells
+  function egg(k){return mk('egg'+k,128,(g,s)=>{
+    g.beginPath();const N=48;for(let i=0;i<=N;i++){const a=i/N*6.283,r=1+.05*Math.sin(a*16);const x=Math.cos(a)*s*.95*r,y=Math.sin(a)*s*.66*r;i?g.lineTo(x,y):g.moveTo(x,y)}g.closePath();
+    g.fillStyle=rgba(k,.14);g.fill();g.lineWidth=s*.035;g.strokeStyle=rgba(k,.85);g.stroke();
+    g.beginPath();g.ellipse(0,0,s*.76,s*.5,0,0,6.283);g.fillStyle='rgba(255,255,255,.8)';g.fill();g.lineWidth=s*.025;g.strokeStyle=rgba(k,.55);g.stroke();
+    for(const [x,y,r] of [[-.18,-.08,.2],[.16,-.1,.19],[-.02,.16,.18],[.3,.14,.13],[-.34,.14,.12]]){g.beginPath();g.arc(x*s,y*s,r*s,0,6.283);g.fillStyle=rgba(k,.26);g.fill();g.lineWidth=s*.02;g.strokeStyle=rgba(k,.7);g.stroke();dot(g,x*s,y*s,r*s*.28,rgba(k,.8))}
+  })}
+  // Protozoan cyst: thick wall, four nuclei, fiber
+  function cyst(k){return mk('cyst'+k,128,(g,s)=>{
+    g.beginPath();g.arc(0,0,s*.8,0,6.283);g.fillStyle=rgba(k,.10);g.fill();g.lineWidth=s*.07;g.strokeStyle=rgba(k,.75);g.stroke();
+    g.beginPath();g.arc(0,0,s*.66,0,6.283);g.lineWidth=s*.02;g.strokeStyle=rgba(k,.45);g.stroke();
+    for(const [x,y] of [[-.28,-.22],[.26,-.26],[-.24,.24],[.28,.2]]){g.beginPath();g.arc(x*s,y*s,s*.13,0,6.283);g.fillStyle='rgba(255,255,255,.92)';g.fill();g.lineWidth=s*.025;g.strokeStyle=rgba(k,.8);g.stroke();dot(g,x*s,y*s,s*.045,rgba(k,.95))}
+    g.beginPath();g.moveTo(-s*.42,s*.05);g.quadraticCurveTo(0,-s*.08,s*.42,s*.05);g.lineWidth=s*.02;g.strokeStyle=rgba(k,.5);g.stroke();
+  })}
+  // Giardia body: teardrop, sucking disc, two nuclei, median bodies
+  function giardiaBody(k){return mk('gia'+k,128,(g,s)=>{
+    g.beginPath();g.moveTo(s*.9,0);g.bezierCurveTo(s*.4,-s*.25,-s*.2,-s*.7,-s*.62,-s*.42);g.bezierCurveTo(-s*.95,-s*.2,-s*.95,s*.2,-s*.62,s*.42);g.bezierCurveTo(-s*.2,s*.7,s*.4,s*.25,s*.9,0);g.closePath();
+    const gr=g.createRadialGradient(-s*.3,0,s*.1,-s*.2,0,s*.9);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(1,rgba(k,.22));g.fillStyle=gr;g.fill();g.lineWidth=s*.045;g.strokeStyle=rgba(k,.9);g.stroke();
+    g.beginPath();g.ellipse(-s*.38,0,s*.36,s*.33,0,0,6.283);g.lineWidth=s*.02;g.strokeStyle=rgba(k,.45);g.stroke();
+    for(const y of [-.15,.15]){g.beginPath();g.ellipse(-s*.42,y*s,s*.12,s*.09,0,0,6.283);g.fillStyle='rgba(255,255,255,.95)';g.fill();g.lineWidth=s*.025;g.strokeStyle=rgba(k,.85);g.stroke();dot(g,-s*.44,y*s,s*.04,rgba(k,.95))}
+    g.strokeStyle=rgba(k,.75);g.lineWidth=s*.04;g.beginPath();g.moveTo(-s*.12,-s*.08);g.lineTo(-s*.02,s*.04);g.moveTo(-s*.12,s*.08);g.lineTo(-s*.02,-s*.04);g.stroke();
+    g.lineWidth=s*.015;g.strokeStyle=rgba(k,.45);g.beginPath();g.moveTo(-s*.3,-s*.04);g.lineTo(s*.85,-s*.01);g.moveTo(-s*.3,s*.04);g.lineTo(s*.85,s*.01);g.stroke();
+  })}
+  // Giardia's whip-like flagella, drawn live so they wiggle
+  function flagella(g,x,y,ang,sz,k,t,al){
+    g.save();g.translate(x,y);g.rotate(ang);g.strokeStyle=rgba(k,.7*al);g.lineWidth=Math.max(.7,sz*.05);
+    for(const [fx,fy,L,sp] of [[sz*.77,0,1.3,0],[-sz*.15,-sz*.4,.9,-1],[-sz*.15,sz*.4,.9,1],[sz*.25,-sz*.16,.8,-1],[sz*.25,sz*.16,.8,1]]){
+      g.beginPath();g.moveTo(fx,fy);for(let i=1;i<=10;i++){const u=i/10;g.lineTo(fx+u*sz*L,fy+Math.sin(u*7+t*.25+fx)*sz*.09*u+sp*u*sz*.3)}g.stroke()}
+    g.restore();
+  }
+  // Worm larva: tapered body, gut line, ring marks, rounded head
+  function worm(g,x,y,ang,sz,k,t,ph,al){
+    const n=22,pts=[];for(let i=0;i<=n;i++){const u=i/n;pts.push([(u-.5)*sz*2.8,Math.sin(u*7+t*.09+ph)*sz*.2*(.4+u*.6)])}
+    const L=[],R=[];for(let i=0;i<=n;i++){const a=pts[Math.max(0,i-1)],b=pts[Math.min(n,i+1)],dx=b[0]-a[0],dy=b[1]-a[1],m=Math.hypot(dx,dy)||1,nx=-dy/m,ny=dx/m;const u=i/n;const w=sz*.16*(u<.18?.3+u/.18*.7:u>.9?1-(u-.9)/.1*.25:1);L.push([pts[i][0]+nx*w,pts[i][1]+ny*w]);R.push([pts[i][0]-nx*w,pts[i][1]-ny*w])}
+    g.save();g.translate(x,y);g.rotate(ang);g.globalAlpha=al;
+    g.beginPath();L.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));for(let i=R.length-1;i>=0;i--)g.lineTo(R[i][0],R[i][1]);g.closePath();
+    g.fillStyle=rgba(k,.16);g.fill();g.lineWidth=Math.max(.8,sz*.06);g.strokeStyle=rgba(k,.9);g.stroke();
+    g.beginPath();pts.slice(3,n-1).forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.lineWidth=Math.max(.5,sz*.035);g.strokeStyle=rgba(k,.45);g.stroke();
+    g.lineWidth=Math.max(.4,sz*.02);g.strokeStyle=rgba(k,.3);for(let i=5;i<n-1;i+=2){g.beginPath();g.moveTo(L[i][0],L[i][1]);g.lineTo(R[i][0],R[i][1]);g.stroke()}
+    const h=pts[n];g.beginPath();g.arc(h[0],h[1],sz*.07,0,6.283);g.fillStyle=rgba(k,.9);g.fill();
+    g.restore();
+  }
+  return {PAL,rgba,toxo,egg,cyst,giardiaBody,flagella,worm};
+})();
+
 function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersecting));io.observe(el)}
 
-/* ================= HERO NEURAL NETWORK ================= */
+/* ================= HERO NEURAL NETWORK (neurons with dendrites) ================= */
 (()=>{
   const c=$('#net'),x=c.getContext('2d');
-  const sC=sprite(CY,64),sM=sprite(MG,64),sW=sprite(WH,32);
   let W,H,dpr,nodes=[],edges=[],sig=[],trail=[],t=0,vis=true,raf;
   const P={x:0,y:0,vx:0,vy:0},ptr={x:0,y:0,at:-1e9};
+  const TEAL=[10,156,196],PINK=[227,38,111];
+  const mix=(f,a)=>`rgba(${TEAL.map((v,i)=>Math.round(v+(PINK[i]-v)*f)).join(',')},${a})`;
+  function dendrites(){const br=[];const k=4+(Math.random()*3|0);for(let i=0;i<k;i++){const a=i/k*6.283+Math.random()*.7;const len=12+Math.random()*16;const p=new Path2D();
+      const ex=Math.cos(a)*len,ey=Math.sin(a)*len,mx=Math.cos(a+.3)*len*.55,my=Math.sin(a+.3)*len*.55;
+      p.moveTo(0,0);p.quadraticCurveTo(mx,my,ex,ey);const fa=a+(Math.random()<.5?-.7:.7),fl=len*.45;p.moveTo(mx,my);p.lineTo(mx+Math.cos(fa)*fl,my+Math.sin(fa)*fl);br.push(p)}return br}
   function build(){
     dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.max(40,Math.min(150,Math.round(W*H/8000)));
-    nodes=Array.from({length:n},()=>({bx:Math.random()*W,by:Math.random()*H,x:0,y:0,inf:0,s:.6+Math.random()*.9,ph:Math.random()*6.28}));
+    const n=Math.max(30,Math.min(110,Math.round(W*H/10000)));
+    nodes=Array.from({length:n},()=>({bx:Math.random()*W,by:Math.random()*H,x:0,y:0,inf:0,r:3.2+Math.random()*2.6,ph:Math.random()*6.28,rot:Math.random()*6.28,br:dendrites(),fl:0}));
     nodes.forEach(o=>{o.x=o.bx;o.y=o.by});
     const seen=new Set();edges=[];
-    nodes.forEach((a,i)=>{nodes.map((b,j)=>({j,d:Math.hypot(a.bx-b.bx,a.by-b.by)})).filter(o=>o.j!==i&&o.d<180).sort((p,q)=>p.d-q.d).slice(0,3).forEach(o=>{const k=Math.min(i,o.j)+'-'+Math.max(i,o.j);if(!seen.has(k)){seen.add(k);edges.push({a:i,b:o.j,bend:(Math.random()-.5)*.5})}})});
+    nodes.forEach((a,i)=>{nodes.map((b,j)=>({j,d:Math.hypot(a.bx-b.bx,a.by-b.by)})).filter(o=>o.j!==i&&o.d<190).sort((p,q)=>p.d-q.d).slice(0,3).forEach(o=>{const k=Math.min(i,o.j)+'-'+Math.max(i,o.j);if(!seen.has(k)){seen.add(k);edges.push({a:i,b:o.j,bend:(Math.random()-.5)*.5})}})});
     P.x=W*.72;P.y=H*.4;sig=[];trail=[];
   }
   function cp(e){const a=nodes[e.a],b=nodes[e.b];const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y;return{a,b,cx:mx-dy*e.bend,cy:my+dx*e.bend}}
   function q(p,k){const u=1-k;return{x:u*u*p.a.x+2*u*k*p.cx+k*k*p.b.x,y:u*u*p.a.y+2*u*k*p.cy+k*k*p.b.y}}
   function frame(){
     t++;
-    for(const o of nodes){o.x=o.bx+Math.sin(t*.008+o.ph)*5;o.y=o.by+Math.cos(t*.007+o.ph)*5}
-    // parasite target
+    for(const o of nodes){o.x=o.bx+Math.sin(t*.008+o.ph)*4;o.y=o.by+Math.cos(t*.007+o.ph)*4}
     let tx,ty;
     if(performance.now()-ptr.at<2600){tx=ptr.x;ty=ptr.y}else{tx=W*(.62+.28*Math.sin(t*.0042));ty=H*(.42+.3*Math.sin(t*.0061+1.3))}
     P.vx+=(tx-P.x)*.0035;P.vy+=(ty-P.y)*.0035;P.vx*=.9;P.vy*=.9;P.x+=P.vx;P.y+=P.vy;
-    trail.push({x:P.x,y:P.y});if(trail.length>40)trail.shift();
-    for(const o of nodes){const d=Math.hypot(o.x-P.x,o.y-P.y);if(d<120)o.inf=Math.min(1,o.inf+.07*(1-d/120));o.inf*=.9975}
-    // spawn signals
-    for(let i=0;i<3;i++){if(Math.random()<.35&&edges.length){const e=edges[Math.random()*edges.length|0];const inf=(nodes[e.a].inf+nodes[e.b].inf)/2;sig.push({e,k:0,dir:Math.random()<.5?1:-1,sp:(inf>.35?.03:.012)+Math.random()*.01,m:inf>.35})}}
-    nodes.forEach((n,ni)=>{if(n.inf>.5&&Math.random()<.04){const es=edges.filter(e=>e.a===ni||e.b===ni);if(es.length){const e=es[Math.random()*es.length|0];sig.push({e,k:0,dir:e.a===ni?1:-1,sp:.035,m:true})}}});
-    // draw
-    x.globalCompositeOperation='source-over';x.fillStyle='#f5f8fa';x.fillRect(0,0,W,H);
-    x.lineWidth=1;
-    const pc=new Path2D(),pm=new Path2D();
-    for(const e of edges){const p=cp(e),inf=(p.a.inf+p.b.inf)/2,path=inf>.3?pm:pc;path.moveTo(p.a.x,p.a.y);path.quadraticCurveTo(p.cx,p.cy,p.b.x,p.b.y)}
-    x.strokeStyle='rgba(10,156,196,.13)';x.stroke(pc);
-    x.strokeStyle='rgba(227,38,111,.38)';x.stroke(pm);
-    x.globalCompositeOperation='multiply';
-    for(const o of nodes){const r=10+o.s*10;x.globalAlpha=(1-o.inf)*.75;x.drawImage(sC,o.x-r,o.y-r,r*2,r*2);if(o.inf>.02){const rm=r*(1+o.inf*.6);x.globalAlpha=o.inf;x.drawImage(sM,o.x-rm,o.y-rm,rm*2,rm*2)}}
-    x.globalAlpha=1;
-    for(let i=sig.length-1;i>=0;i--){const s=sig[i];s.k+=s.sp;if(s.k>=1){sig.splice(i,1);continue}const p=q(cp(s.e),s.dir>0?s.k:1-s.k);const r=s.m?9:6;x.drawImage(s.m?sM:sC,p.x-r,p.y-r,r*2,r*2);x.drawImage(sW,p.x-2,p.y-2,4,4)}
-    if(sig.length>420)sig.splice(0,sig.length-420);
-    // trail
-    trail.forEach((p,i)=>{const r=3+i*.35;x.globalAlpha=i/trail.length*.35;x.drawImage(sM,p.x-r*2,p.y-r*2,r*4,r*4)});
-    x.globalAlpha=1;
-    // parasite body (crescent tachyzoite)
-    const ang=Math.atan2(P.vy,P.vx)||0;
-    x.drawImage(sM,P.x-46,P.y-46,92,92);
-    x.globalCompositeOperation='source-over';
-    x.save();x.translate(P.x,P.y);x.rotate(ang);
-    const L=17;x.beginPath();x.moveTo(-L,0);x.quadraticCurveTo(0,-15,L,0);x.quadraticCurveTo(0,-5,-L,0);x.closePath();
-    const g=x.createLinearGradient(-L,0,L,0);g.addColorStop(0,'#e3266f');g.addColorStop(1,'#ffd1e3');x.fillStyle=g;x.fill();
-    x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=.8;x.stroke();
-    x.beginPath();x.arc(2,-6,2.2,0,6.28);x.fillStyle='#fff';x.fill();
-    x.restore();
+    trail.push({x:P.x,y:P.y});if(trail.length>36)trail.shift();
+    for(const o of nodes){const d=Math.hypot(o.x-P.x,o.y-P.y);if(d<110)o.inf=Math.min(1,o.inf+.06*(1-d/110));o.inf*=.9975}
+    for(let i=0;i<2;i++){if(Math.random()<.35&&edges.length){const e=edges[Math.random()*edges.length|0];const inf=(nodes[e.a].inf+nodes[e.b].inf)/2;sig.push({e,k:0,dir:Math.random()<.5?1:-1,sp:(inf>.35?.028:.011)+Math.random()*.008,m:inf>.35})}}
+    nodes.forEach((n,ni)=>{if(n.inf>.5&&Math.random()<.035){const es=edges.filter(e=>e.a===ni||e.b===ni);if(es.length){const e=es[Math.random()*es.length|0];sig.push({e,k:0,dir:e.a===ni?1:-1,sp:.032,m:true})}}});
+    x.fillStyle='#f5f8fa';x.fillRect(0,0,W,H);
+    // axons
+    x.lineCap='round';
+    for(const e of edges){const p=cp(e),inf=(p.a.inf+p.b.inf)/2;x.beginPath();x.moveTo(p.a.x,p.a.y);x.quadraticCurveTo(p.cx,p.cy,p.b.x,p.b.y);x.lineWidth=inf>.3?1.4:1;x.strokeStyle=mix(Math.min(1,inf*1.4),inf>.3?.42:.2);x.stroke()}
+    // neurons
+    for(const o of nodes){const f=Math.min(1,o.inf*1.3);
+      x.save();x.translate(o.x,o.y);x.rotate(o.rot);
+      x.lineWidth=1.1;x.strokeStyle=mix(f,.5);for(const b of o.br)x.stroke(b);
+      x.restore();
+      const g=x.createRadialGradient(o.x-o.r*.3,o.y-o.r*.3,o.r*.2,o.x,o.y,o.r*1.4);g.addColorStop(0,'#ffffff');g.addColorStop(1,mix(f,.55));
+      x.beginPath();x.arc(o.x,o.y,o.r*1.4,0,6.283);x.fillStyle=g;x.fill();x.lineWidth=1.2;x.strokeStyle=mix(f,.9);x.stroke();
+      x.beginPath();x.arc(o.x,o.y,o.r*.45,0,6.283);x.fillStyle=mix(f,.85);x.fill();
+      if(o.fl>.02){x.beginPath();x.arc(o.x,o.y,o.r*1.4+(1-o.fl)*12,0,6.283);x.lineWidth=1.5;x.strokeStyle=mix(f,o.fl*.55);x.stroke();o.fl*=.92}
+      if(o.inf>.55){x.beginPath();x.arc(o.x+o.r*.9,o.y-o.r*.9,o.r*.75,0,6.283);x.fillStyle='rgba(227,38,111,.18)';x.fill();x.lineWidth=1;x.strokeStyle='rgba(227,38,111,.85)';x.stroke();
+        for(const [dx,dy] of [[-.25,-.1],[.2,-.2],[.05,.22]]){x.beginPath();x.arc(o.x+o.r*.9+dx*o.r,o.y-o.r*.9+dy*o.r,o.r*.13,0,6.283);x.fillStyle='rgba(227,38,111,.9)';x.fill()}}
+    }
+    // signals with short tails
+    for(let i=sig.length-1;i>=0;i--){const s=sig[i];s.k+=s.sp;if(s.k>=1){const tgt=s.dir>0?nodes[s.e.b]:nodes[s.e.a];tgt.fl=1;sig.splice(i,1);continue}
+      const p=cp(s.e);for(let j=3;j>=0;j--){const kk=Math.max(0,s.k-j*s.sp*1.5);const pt=q(p,s.dir>0?kk:1-kk);x.beginPath();x.arc(pt.x,pt.y,(s.m?3:2.4)*(1-j*.2),0,6.283);x.fillStyle=s.m?`rgba(227,38,111,${.9-j*.2})`:`rgba(10,156,196,${.9-j*.2})`;x.fill()}}
+    if(sig.length>380)sig.splice(0,sig.length-380);
+    trail.forEach((p,i)=>{x.beginPath();x.arc(p.x,p.y,1+i*.08,0,6.283);x.fillStyle=`rgba(227,38,111,${i/trail.length*.35})`;x.fill()});
+    const ang=Math.atan2(P.vy,P.vx)||0,sz=22;
+    x.beginPath();x.arc(P.x,P.y,sz*1.6,0,6.283);x.fillStyle='rgba(227,38,111,.07)';x.fill();
+    x.save();x.translate(P.x,P.y);x.rotate(ang);x.drawImage(ORG.toxo('m'),-sz,-sz,sz*2,sz*2);x.restore();
     if(!REDUCE&&vis)raf=requestAnimationFrame(frame);
   }
   build();
-  if(REDUCE){for(let i=0;i<180;i++){t++;}frame()}else{raf=requestAnimationFrame(frame)}
+  if(REDUCE){frame()}else{raf=requestAnimationFrame(frame)}
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(build,150)});
   const hero=$('.hero');
   hero.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.at=performance.now()});
@@ -1208,40 +1393,35 @@ function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersec
 /* ================= TOP: PARASITES EVERYWHERE ================= */
 (()=>{
   const c=$('#swarm'),x=c.getContext('2d');
-  const SP={m:sprite(MG,64),a:sprite(AM,64),c:sprite(CY,64)};
-  const COL={m:'227,38,111',a:'217,132,0',c:'10,156,196'};
+  const KEYS=['m','a','c','g'];
   let W,H,dpr,ps=[],t=0,vis=true,raf;const ptr={x:0,y:0,at:-1e9},L={x:0,y:0};
   function build(){
     dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.max(70,Math.min(280,Math.round(W*H/4200)));
-    ps=Array.from({length:n},()=>{const k=Math.random();return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,a:Math.random()*6.28,va:(Math.random()-.5)*.01,s:5+Math.random()*9,type:k<.35?'cres':k<.6?'worm':k<.85?'egg':'cyst',col:['m','a','c','m'][Math.random()*4|0],ph:Math.random()*6.28}});
+    const n=Math.max(50,Math.min(170,Math.round(W*H/6500)));
+    ps=Array.from({length:n},()=>{const r=Math.random();return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,a:Math.random()*6.28,va:(Math.random()-.5)*.008,s:8+Math.random()*9,
+      type:r<.28?'toxo':r<.48?'gia':r<.72?'worm':r<.88?'egg':'cyst',col:KEYS[Math.random()*4|0],ph:Math.random()*6.28}});
     L.x=W*.7;L.y=H*.45;
-  }
-  function shape(p,al){
-    const s=p.s,rgb=COL[p.col];x.save();x.translate(p.x,p.y);x.rotate(p.a);
-    x.strokeStyle=`rgba(${rgb},${al})`;x.fillStyle=`rgba(${rgb},${al*.25})`;x.lineWidth=1.2;x.lineCap='round';
-    x.beginPath();
-    if(p.type==='cres'){x.moveTo(-s,0);x.quadraticCurveTo(0,-s*.9,s,0);x.quadraticCurveTo(0,-s*.3,-s,0);x.fill();x.stroke()}
-    else if(p.type==='worm'){for(let i=0;i<=16;i++){const u=i/16,px=(u-.5)*s*2.6,py=Math.sin(u*9+t*.08+p.ph)*s*.25;i?x.lineTo(px,py):x.moveTo(px,py)}x.lineWidth=1.8;x.stroke()}
-    else if(p.type==='egg'){x.ellipse(0,0,s*.7,s*.45,0,0,6.28);x.fill();x.stroke();x.beginPath();x.arc(s*.1,0,s*.16,0,6.28);x.fillStyle=`rgba(${rgb},${al})`;x.fill()}
-    else{x.arc(0,0,s*.6,0,6.28);x.fill();x.stroke();x.beginPath();x.arc(s*.18,-s*.1,s*.2,0,6.28);x.fillStyle=`rgba(255,255,255,${al*.8})`;x.fill()}
-    x.restore();
   }
   function frame(){
     t++;
     let tx,ty;if(performance.now()-ptr.at<2600){tx=ptr.x;ty=ptr.y}else{tx=W*(.66+.24*Math.sin(t*.005));ty=H*(.45+.3*Math.sin(t*.0073+.8))}
     L.x+=(tx-L.x)*.06;L.y+=(ty-L.y)*.06;
-    x.globalCompositeOperation='source-over';x.fillStyle='#f5f8fa';x.fillRect(0,0,W,H);
+    x.fillStyle='#f5f8fa';x.fillRect(0,0,W,H);
     const R=Math.max(150,Math.min(W,H)*.32);
-    const lg=x.createRadialGradient(L.x,L.y,0,L.x,L.y,R);lg.addColorStop(0,'rgba(10,156,196,.07)');lg.addColorStop(1,'rgba(10,156,196,0)');x.fillStyle=lg;x.fillRect(0,0,W,H);
+    const lg=x.createRadialGradient(L.x,L.y,0,L.x,L.y,R);lg.addColorStop(0,'rgba(255,255,255,1)');lg.addColorStop(.85,'rgba(255,255,255,.65)');lg.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=lg;x.fillRect(0,0,W,H);
     for(const p of ps){
       p.x+=p.vx+Math.sin(t*.01+p.ph)*.12;p.y+=p.vy+Math.cos(t*.012+p.ph)*.12;p.a+=p.va;
-      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
-      const d=Math.hypot(p.x-L.x,p.y-L.y),k=Math.max(0,1-d/R),al=.1+.9*Math.pow(k,1.4);
-      if(k>.15){x.globalCompositeOperation='multiply';x.globalAlpha=k*.8;const r=p.s*3.2;x.drawImage(SP[p.col],p.x-r,p.y-r,r*2,r*2);x.globalAlpha=1;x.globalCompositeOperation='source-over'}
-      shape(p,al);
+      if(p.x<-30)p.x=W+30;if(p.x>W+30)p.x=-30;if(p.y<-30)p.y=H+30;if(p.y>H+30)p.y=-30;
+      const d=Math.hypot(p.x-L.x,p.y-L.y),k=Math.max(0,1-d/R),al=.14+.86*Math.pow(k,1.3),sz=p.s*(1+k*.45);
+      if(p.type==='worm'){ORG.worm(x,p.x,p.y,p.a,sz,p.col,t,p.ph,al);continue}
+      if(p.type==='gia')ORG.flagella(x,p.x,p.y,p.a,sz,p.col,t,al);
+      const spr=p.type==='toxo'?ORG.toxo(p.col):p.type==='egg'?ORG.egg(p.col):p.type==='cyst'?ORG.cyst(p.col):ORG.giardiaBody(p.col);
+      x.save();x.translate(p.x,p.y);x.rotate(p.a);x.globalAlpha=al;x.drawImage(spr,-sz,-sz,sz*2,sz*2);x.restore();
     }
-    x.strokeStyle='rgba(10,156,196,.35)';x.lineWidth=1;x.setLineDash([3,6]);x.beginPath();x.arc(L.x,L.y,R*.98,0,6.28);x.stroke();x.setLineDash([]);
+    x.globalAlpha=1;
+    x.strokeStyle='rgba(10,156,196,.55)';x.lineWidth=1.5;x.beginPath();x.arc(L.x,L.y,R*.98,0,6.283);x.stroke();
+    x.strokeStyle='rgba(10,156,196,.35)';x.lineWidth=1;for(let i=0;i<60;i++){const a=i/60*6.283,r1=R*.98,r2=R*(i%5?1.01:1.04);x.beginPath();x.moveTo(L.x+Math.cos(a)*r1,L.y+Math.sin(a)*r1);x.lineTo(L.x+Math.cos(a)*r2,L.y+Math.sin(a)*r2);x.stroke()}
+    x.fillStyle='rgba(10,156,196,.8)';x.font='500 10px "Geist Mono",ui-monospace,monospace';x.textAlign='center';x.fillText('× 400',L.x,L.y+R+18);
     if(!REDUCE&&vis)raf=requestAnimationFrame(frame);
   }
   build();frame();
@@ -1265,7 +1445,12 @@ function onScreen(el,cb){const io=new IntersectionObserver(e=>cb(e[0].isIntersec
 /* ================= HOW THEY MAKE YOU SICK ================= */
 (()=>{
   const moves=$$('.move'),spots=$$('.spot');
-  function pick(i){moves.forEach(m=>m.classList.toggle('on',+m.dataset.i===i));spots.forEach(s=>s.classList.toggle('on',+s.dataset.i===i))}
+  const zs=$$('.zs'),zl=document.getElementById('zline1');
+  function pick(i){moves.forEach(m=>m.classList.toggle('on',+m.dataset.i===i));spots.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));
+    zs.forEach(z=>z.style.display=+z.dataset.i===i?'':'none');
+    const zc=document.getElementById('zcap');if(zc)zc.textContent=["Worms take your nutrients first", "Giardia clings to the villi", "Your liver filters their waste", "White blood cells swarm in", "Larvae ride the bloodstream"][i]||'';
+    const sp=spots.find(s=>+s.dataset.i===i);if(sp&&zl){const c=sp.querySelector('.core');const x1=+c.getAttribute('cx')+20,y1=+c.getAttribute('cy');const a=Math.atan2(y1-215,x1-410);
+      zl.setAttribute('x1',x1);zl.setAttribute('y1',y1);zl.setAttribute('x2',410+Math.cos(a)*128);zl.setAttribute('y2',215+Math.sin(a)*128)}}
   moves.forEach(m=>{m.addEventListener('click',()=>pick(+m.dataset.i));m.addEventListener('mouseenter',()=>pick(+m.dataset.i))});
   spots.forEach(s=>{s.style.cursor='pointer';s.addEventListener('click',()=>pick(+s.dataset.i))});
   pick(0);
