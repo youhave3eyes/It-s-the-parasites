@@ -459,6 +459,32 @@ body:not(.scrolled) .bar .logo svg.wm{height:48px!important}
 .check{background:rgba(255,255,255,.9)!important}
 body::after{opacity:.03}
 .hero h1 em.s,.hero .h1 em.s,.top h1 em.s,.ask em.s,.sick-head h2 em.s{text-shadow:none}
+
+/* mustard spotlight */
+.mustard{margin-top:clamp(56px,8vw,96px)}
+.ms-head{display:grid;gap:12px;margin-bottom:26px;justify-items:start}
+.ms-head h3{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:650;line-height:.95;font-variation-settings:"wdth" 85}
+.ms-head h3 em.s{color:#c79200}
+.ms-head p{color:#3b4552;font-size:1.05rem}
+.ms-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.ms-fig{padding:14px}
+.ms-fig svg{width:100%;display:block}
+.ms-comp{padding:22px;display:grid;gap:12px}
+.ms-comp ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ms-comp li{display:grid;gap:2px;padding-left:14px;border-left:3px solid var(--k)}
+.ms-comp li b{font-size:.98rem}
+.ms-comp li .sub{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.ms-comp li span:last-child{font-size:.9rem;color:#3b4552}
+.ms-ev{margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ms-use{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:none}
+.tl li{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 18px 20px;display:grid;gap:6px;align-content:start;box-shadow:0 1px 2px rgba(18,23,31,.04),0 10px 30px rgba(18,23,31,.05)}
+.tl li::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:#e2b53a}
+.tl .when{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#a87d00}
+.tl b{font-family:var(--f-display);font-size:1.15rem;font-weight:600}
+.tl p{font-size:.9rem;color:#3b4552}
+@media (max-width:980px){.ms-grid,.ms-use{grid-template-columns:1fr}.ms-ev{grid-template-columns:1fr}.tl{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.tl{grid-template-columns:1fr}}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1086,7 +1112,110 @@ img{max-width:100%}
         <div class="ally"><b>Garlic</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Lab studies</span></div>
         <div class="ally"><b>Clove</b><div class="ev"><i class="on"></i><i></i><i></i><i></i></div><span>Traditional use</span></div>
         <div class="ally"><b>Neem</b><div class="ev"><i class="on"></i><i></i><i></i><i></i></div><span>Traditional use</span></div>
+        <div class="ally"><b>Mustard seed</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Lab &amp; animal studies · <a href="#mustard">see spotlight</a></span></div>
         <div class="ally"><b>Wormwood</b><div class="ev"><i class="on"></i><i class="on"></i><i></i><i></i></div><span>Lab studies · strong herb</span></div>
+      </div>
+    </div>
+
+    
+    <div class="mustard" id="mustard">
+      <div class="ms-head">
+        <span class="tag l" style="border-color:rgba(217,164,0,.5);color:#a87d00">Spotlight</span>
+        <h3>The mustard <em class="s">seed</em></h3>
+        <p class="prose">One of the smallest seeds in the kitchen, and one of the most talked-about across history. Here's what's inside it, what science has found, and how cultures around the world have treated it as a symbol of small things with big power.</p>
+      </div>
+      <div class="ms-grid">
+        <div class="panel ms-fig"><svg viewBox="0 0 380 300" role="img" aria-label="Diagram: inside a whole mustard seed, glucosinolates and the myrosinase enzyme are stored apart. Crushing the seed in water mixes them and releases allyl isothiocyanate, the compound behind mustard's heat.">
+  <defs>
+    <radialGradient id="seedg" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".7" stop-color="#e9b93c"/><stop offset="1" stop-color="#c08a12"/></radialGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#5b6675"/></marker>
+  </defs>
+  <!-- whole seed -->
+  <g transform="translate(88 118)">
+    <circle r="66" fill="url(#seedg)" stroke="#b07f00" stroke-width="2"/>
+    <circle r="57" fill="#fff8e4" stroke="#e2bd5a" stroke-width="1.5"/>
+    <path d="M0 -57 C 8 -20 -8 20 0 57" stroke="#e2bd5a" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+    <g transform="translate(-38 -14)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(-30 8)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(-22 -28)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(-44 26)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(-16 22)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(-28 -2)"><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/></g><g transform="translate(22 -18)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g><g transform="translate(30 6)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g><g transform="translate(16 24)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g><g transform="translate(38 -6)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g><g transform="translate(24 -34)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g>
+    <ellipse cx="-24" cy="-40" rx="14" ry="7" fill="#fff" opacity=".45"/>
+  </g>
+  <text x="88" y="206" text-anchor="middle" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.2" fill="#5b6675">WHOLE SEED</text>
+  <text x="88" y="219" text-anchor="middle" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.2" fill="#5b6675">KEPT APART</text>
+  <!-- arrow -->
+  <path d="M164 118 H206" stroke="#5b6675" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="185" y="104" text-anchor="middle" font-family="Geist,sans-serif" font-size="11" fill="#12171f">crush</text>
+  <text x="185" y="140" text-anchor="middle" font-family="Geist,sans-serif" font-size="11" fill="#0a9cc4">+ cool water</text>
+  <!-- cracked seed -->
+  <g transform="translate(292 128)">
+    <path d="M-6 -62 A62 62 0 0 0 -6 62 L4 30 L-8 6 L6 -20z" fill="url(#seedg)" stroke="#b07f00" stroke-width="2" transform="translate(-8 0) rotate(-8)"/>
+    <path d="M4 -62 A62 62 0 0 1 4 62 L14 30 L2 6 L16 -20z" fill="url(#seedg)" stroke="#b07f00" stroke-width="2" transform="translate(10 0) rotate(8)"/>
+    <ellipse rx="40" ry="50" fill="#fff8e4" opacity=".9"/>
+    <g><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/>
+<animateTransform attributeName="transform" type="translate" values="-40 20;-8 0;-8 0" keyTimes="0;.6;1" dur="3s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.62;.7" dur="3s" begin="0s" repeatCount="indefinite"/></g>
+<g transform="translate(1 0)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g>
+<g><circle r="4.5" fill="#d9a400" stroke="#b07f00"/><circle r="9" fill="#d9a400" opacity=".18"/>
+<animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;-14 -70" keyTimes="0;.6;1" dur="3s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.6;.7;1" dur="3s" begin="0s" repeatCount="indefinite"/></g><g><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/>
+<animateTransform attributeName="transform" type="translate" values="-36 -20;-4 -20;-4 -20" keyTimes="0;.6;1" dur="3s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.62;.7" dur="3s" begin="0.7s" repeatCount="indefinite"/></g>
+<g transform="translate(5 -20)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g>
+<g><circle r="4.5" fill="#d9a400" stroke="#b07f00"/><circle r="9" fill="#d9a400" opacity=".18"/>
+<animateTransform attributeName="transform" type="translate" values="-4 -20;-4 -20;2 -90" keyTimes="0;.6;1" dur="3s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.6;.7;1" dur="3s" begin="0.7s" repeatCount="indefinite"/></g><g><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/>
+<animateTransform attributeName="transform" type="translate" values="-30 34;0 22;0 22" keyTimes="0;.6;1" dur="3s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.62;.7" dur="3s" begin="1.4s" repeatCount="indefinite"/></g>
+<g transform="translate(9 22)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g>
+<g><circle r="4.5" fill="#d9a400" stroke="#b07f00"/><circle r="9" fill="#d9a400" opacity=".18"/>
+<animateTransform attributeName="transform" type="translate" values="0 22;0 22;6 -48" keyTimes="0;.6;1" dur="3s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.6;.7;1" dur="3s" begin="1.4s" repeatCount="indefinite"/></g><g><polygon points="-6,0 -3,-5.2 3,-5.2 6,0 3,5.2 -3,5.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.5"/>
+<animateTransform attributeName="transform" type="translate" values="-44 0;-10 10;-10 10" keyTimes="0;.6;1" dur="3s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.62;.7" dur="3s" begin="2.1s" repeatCount="indefinite"/></g>
+<g transform="translate(-1 10)"><path d="M0 0 m-7 0 a7 7 0 1 0 14 0 l-7 -3z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.5"/></g>
+<g><circle r="4.5" fill="#d9a400" stroke="#b07f00"/><circle r="9" fill="#d9a400" opacity=".18"/>
+<animateTransform attributeName="transform" type="translate" values="-10 10;-10 10;-4 -60" keyTimes="0;.6;1" dur="3s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.6;.7;1" dur="3s" begin="2.1s" repeatCount="indefinite"/></g>
+  </g>
+  <text x="292" y="206" text-anchor="middle" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.2" fill="#5b6675">MIXED</text>
+  <text x="292" y="219" text-anchor="middle" font-family="Geist Mono,monospace" font-size="9" letter-spacing="1.2" fill="#d9a400">HEAT RELEASED</text>
+  <!-- formula -->
+  <g font-family="Geist,sans-serif" font-size="11.5">
+    <rect x="12" y="238" width="356" height="50" rx="10" fill="#fff" stroke="#e5e9ee"/>
+    <polygon points="30,263 33,257.8 39,257.8 42,263 39,268.2 33,268.2" fill="#fff3d0" stroke="#d98400" stroke-width="1.4"/>
+    <text x="48" y="267" fill="#12171f">Sinigrin</text>
+    <text x="100" y="267" fill="#5b6675">+</text>
+    <path d="M117 263 m-6 0 a6 6 0 1 0 12 0 l-6 -2.5z" fill="#dff3fa" stroke="#0a9cc4" stroke-width="1.4"/>
+    <text x="127" y="267" fill="#12171f">Myrosinase</text>
+    <text x="194" y="267" fill="#5b6675">→</text>
+    <circle cx="214" cy="263" r="5" fill="#d9a400" stroke="#b07f00"/>
+    <text x="224" y="261" fill="#12171f" font-weight="600">Allyl isothiocyanate</text>
+    <text x="224" y="276" fill="#5b6675" font-family="Geist Mono,monospace" font-size="9">CH₂=CH–CH₂–N=C=S</text>
+  </g>
+</svg></div>
+        <div class="panel ms-comp">
+          <span class="mono" style="color:#a87d00">What's inside</span>
+          <ul><li style="--k:#d98400"><b>Glucosinolates</b><span class="sub">Sinigrin (brown &amp; black seed) · Sinalbin (yellow seed)</span><span>The plant's stored, inactive "ammo." Harmless until the seed is broken.</span></li><li style="--k:#0a9cc4"><b>Myrosinase</b><span class="sub">Enzyme</span><span>Kept in separate cells. Crush the seed with water and it converts glucosinolates into isothiocyanates in minutes.</span></li><li style="--k:#d9a400"><b>Allyl isothiocyanate</b><span class="sub">AITC · from sinigrin</span><span>The sharp heat in brown mustard and wasabi. Kills bacteria, fungi and plant-parasitic worms in lab tests.</span></li><li style="--k:#d9a400"><b>4-Hydroxybenzyl isothiocyanate</b><span class="sub">From sinalbin</span><span>The milder bite of yellow mustard. Doesn't evaporate, so it stays on the tongue rather than in the nose.</span></li><li style="--k:#17a35f"><b>Sinapic acid &amp; sinapine</b><span class="sub">Phenolic compounds</span><span>Antioxidants found mostly in the seed. Named after the mustard genus, Sinapis.</span></li><li style="--k:#17a35f"><b>Mucilage &amp; fiber</b><span class="sub">Mostly in yellow seed coat</span><span>A gel-forming fiber that adds gentle bulk to digestion.</span></li><li style="--k:#0a9cc4"><b>Minerals &amp; oils</b><span class="sub">Selenium · magnesium · omega-3 (ALA)</span><span>Nutrients that support normal body function. The seed is about one-third oil.</span></li></ul>
+        </div>
+      </div>
+      <div class="ms-ev">
+        <div class="stage-card s-yes"><div class="st-top"><span class="mono">Lab studies</span><span class="pill">Promising</span></div><p>Allyl isothiocyanate kills plant-parasitic roundworms and is used as a natural soil treatment against them. Lab-made isothiocyanate compounds have also shown activity against protozoa.</p></div>
+        <div class="stage-card s-mid"><div class="st-top"><span class="mono">Animal studies</span><span class="pill">Early</span></div><p>A black mustard seed extract suppressed malaria parasites in mice and helped prevent infection when given ahead of time.</p></div>
+        <div class="stage-card s-no"><div class="st-top"><span class="mono">In people</span><span class="pill">Not studied yet</span></div><p>No human trials have tested mustard seed against parasites. Use it as a food-level support alongside the main protocol.</p></div>
+      </div>
+      <div class="ms-use">
+        <div class="panel cb-box">
+          <div class="tagrow"><span class="tag l">How to get the most from it</span></div>
+          <ul>
+            <li><b>Wake it up with cool water.</b> Mix freshly ground seed with cool water and wait about 10 minutes. That gives the enzyme time to make the active compounds.</li>
+            <li><b>Add heat after, not before.</b> High heat destroys the enzyme, which is why cooked mustard tastes milder.</li>
+            <li><b>Use brown or black seed</b> for the most allyl isothiocyanate. Yellow seed is milder.</li>
+            <li><b>Keep it at food amounts:</b> in dressings, sauces, pickles and greens.</li>
+          </ul>
+        </div>
+        <div class="panel cb-box cb-safe">
+          <div class="tagrow"><span class="tag a">Cautions</span></div>
+          <ul>
+            <li><b>Mustard allergy is real.</b> It's a major labeled allergen in Europe and Canada.</li>
+            <li><b>Large amounts irritate</b> the mouth, stomach and skin. Mustard plasters can burn if left on too long.</li>
+            <li><b>Pregnant or breastfeeding:</b> stick to normal food amounts.</li>
+            <li><b>Mustard oil</b> sold in the U.S. is often labeled "for external use only" because of its erucic acid content.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms-tl">
+        <div class="sub-h" style="margin:clamp(40px,6vw,64px) 0 18px"><h3>One seed, many cultures</h3><span class="mono">History, not religion</span></div>
+        <ol class="tl"><li><span class="when">~4100 BCE</span><b>Northern Europe</b><p>Archaeologists found garlic mustard seeds cooked into a 6,000-year-old pot, one of the oldest known uses of spice.</p></li><li><span class="when">~3000 BCE</span><b>Sumer &amp; India</b><p>Mustard appears in early Sumerian and Sanskrit writings as a spice and in rituals.</p></li><li><span class="when">~5th century BCE onward</span><b>Buddhist tradition</b><p>In the story of Kisa Gotami, the Buddha asks a grieving mother for a mustard seed from a home that has never known death.</p></li><li><span class="when">~400 BCE</span><b>Ancient Greece</b><p>Hippocrates used mustard packs for chest congestion. Later, Dioscorides wrote up mustard plasters for aches and pains.</p></li><li><span class="when">1st century</span><b>Rome</b><p>Romans mixed ground seed with young grape juice, called mustum ardens, "burning must." That's where the word <i>mustard</i> comes from.</p></li><li><span class="when">1st century</span><b>The Bible</b><p>Jesus compares the kingdom of heaven to a mustard seed, "the least of all seeds" that grows into a tree (Matthew 13:31–32, Mark 4:30–32, Luke 13:18–19). Faith "as a grain of mustard seed" can move mountains (Matthew 17:20, Luke 17:6).</p></li><li><span class="when">7th century</span><b>The Quran</b><p>Deeds as small as "the weight of a mustard seed" are counted (Surah Luqman 31:16, Al-Anbiya 21:47).</p></li><li><span class="when">Classical era</span><b>China &amp; India</b><p>Traditional Chinese medicine uses white mustard seed (bai jie zi) for phlegm. Ayurveda treats mustard as a warming spice and oil.</p></li><li><span class="when">1600s</span><b>England</b><p>Physician Thomas Sydenham listed mustard for worms, gout and coughs. Mustard plasters were a household remedy into the 1900s.</p></li></ol>
       </div>
     </div>
 
