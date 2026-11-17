@@ -207,6 +207,15 @@ body:not(.scrolled) .bar .logo svg.wm{height:48px!important}
 .check{background:rgba(255,255,255,.9)!important}
 body::after{opacity:.03}
 .hero h1 em.s,.hero .h1 em.s,.top h1 em.s,.ask em.s,.sick-head h2 em.s{text-shadow:none}
+
+.subh{font-family:var(--f-display);font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:650;margin-top:22px;letter-spacing:-.01em}
+.bind-loop{align-items:start;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+@media screen and (max-width:760px){.bind-loop{grid-template-columns:1fr}}
+#bind .grid2{align-items:start}
+.box.fig{padding:14px}
+.box.fig svg{width:100%;display:block}
+.box ul{margin:8px 0 0;padding-left:1.1em;display:grid;gap:6px}
+@media print{.subh{break-after:avoid;margin-top:14pt}#bind .bind-loop{grid-template-columns:1fr}#bind .box.fig{max-width:62%;margin:0 auto}#bind .grid3,#bind .grid2,#bind .bind-loop>.stack{break-inside:avoid}}
 </style>
 </head>
 <body data-page="guide">
@@ -395,25 +404,94 @@ body::after{opacity:.03}
       <div>
         <span class="mono">Phase 04 · Twice a day, 2 hours apart from everything</span>
         <h2>Bind: <em class="s">carry it out</em></h2>
-        <p>When parasites and microbes die, they release waste and toxins. Binders grab that waste in your gut so it leaves in your stool instead of getting reabsorbed.</p>
+        <p>Killing parasites is only half the job. When they die, they leave waste behind, and your body has to get it out. Binders make sure that waste leaves in your stool instead of circling back through your system.</p>
       </div>
     </div>
     <p class="plain">Binders are the garbage bags. Without them, the trash spills back in.</p>
+
+    <h3 class="subh">The recycling loop</h3>
+    <div class="grid2 bind-loop">
+      <div class="box fig"><svg viewBox="0 0 520 360" role="img" aria-label="The gut-liver recycling loop: the liver sends processed waste into the gut through bile. Without a binder, much of it is reabsorbed and sent back to the liver. With a binder, it is caught and leaves in stool.">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6675"/></marker></defs>
+  <!-- liver -->
+  <path d="M60 70 q90 -40 180 -6 q22 30 -6 58 q-70 26 -150 8 q-34 -20 -24 -60z" fill="#fde8c8" stroke="#d98400" stroke-width="2"/>
+  <text x="148" y="98" text-anchor="middle" font-family="Poppins,Geist,sans-serif" font-weight="700" font-size="20" fill="#12171f">LIVER</text>
+  <text x="160" y="118" text-anchor="middle" font-family="Geist Mono,monospace" font-size="10.5" fill="#5b6675">packs waste into bile</text>
+  <!-- gallbladder -->
+  <ellipse cx="248" cy="150" rx="18" ry="12" fill="#e3f5ec" stroke="#17a35f" stroke-width="1.6"/>
+  <path d="M230 128 Q240 140 246 140" fill="none" stroke="#17a35f" stroke-width="3"/>
+  <!-- bile duct to intestine -->
+  <path id="bileP" d="M262 156 C 290 180, 300 200, 300 222" fill="none" stroke="#17a35f" stroke-width="4"/>
+  <text x="312" y="190" font-family="Geist Mono,monospace" font-size="12" font-weight="600" fill="#17a35f">BILE</text>
+  <!-- intestine -->
+  <rect x="40" y="222" width="440" height="56" rx="28" fill="#fdeef3" stroke="#ee9ab4" stroke-width="2"/>
+  <text x="70" y="256" font-family="Poppins,Geist,sans-serif" font-weight="700" font-size="17" fill="#12171f">GUT</text>
+  <!-- reabsorption loop (no binder) -->
+  <path id="loopP" d="M150 222 C 110 190, 70 170, 70 140 C 70 132, 72 128, 76 128" fill="none" stroke="#e3266f" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+  <text x="132" y="178" font-family="Geist Mono,monospace" font-size="11.5" font-weight="600" fill="#e3266f">REABSORBED</text>
+  <text x="132" y="193" font-family="Geist Mono,monospace" font-size="11.5" font-weight="600" fill="#e3266f">GOES AROUND AGAIN</text>
+  <!-- binder catch -->
+  <g transform="translate(360 250)"><rect x="-26" y="-14" width="11" height="11" rx="2" fill="#2b2f36" transform="rotate(12 -21 -9)"/><rect x="-8" y="-4" width="11" height="11" rx="2" fill="#2b2f36" transform="rotate(-20 -3 1)"/><rect x="12" y="-16" width="11" height="11" rx="2" fill="#2b2f36" transform="rotate(30 17 -11)"/><rect x="28" y="0" width="11" height="11" rx="2" fill="#2b2f36" transform="rotate(8 33 5)"/><rect x="-14" y="6" width="11" height="11" rx="2" fill="#2b2f36" transform="rotate(40 -9 11)"/></g>
+  <text x="380" y="212" text-anchor="middle" font-family="Geist Mono,monospace" font-size="11.5" font-weight="600" fill="#12171f">BINDER CATCHES IT</text>
+  <path d="M440 278 V320" stroke="#5b6675" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="440" y="342" text-anchor="middle" font-family="Poppins,Geist,sans-serif" font-weight="700" font-size="15" fill="#12171f">OUT IN STOOL</text>
+  <!-- moving waste dots -->
+  <path id="flowA" d="M262 156 C 290 180, 300 200, 300 238 L 150 238 C 110 190, 70 170, 70 140 C 70 132, 72 128, 76 128" fill="none"/>
+  <path id="flowB" d="M262 156 C 290 180, 300 200, 300 238 L 372 250 L 440 300" fill="none"/>
+  <circle r="5" fill="#e3266f"><animateMotion dur="4.5s" begin="-0s" repeatCount="indefinite"><mpath href="#flowA"/></animateMotion></circle><circle r="5" fill="#e3266f"><animateMotion dur="4.5s" begin="-1.5s" repeatCount="indefinite"><mpath href="#flowA"/></animateMotion></circle><circle r="5" fill="#e3266f"><animateMotion dur="4.5s" begin="-3s" repeatCount="indefinite"><mpath href="#flowA"/></animateMotion></circle>
+  <circle r="5" fill="#d98400"><animateMotion dur="3.6s" begin="-0.6s" repeatCount="indefinite"><mpath href="#flowB"/></animateMotion></circle><circle r="5" fill="#d98400"><animateMotion dur="3.6s" begin="-1.8s" repeatCount="indefinite"><mpath href="#flowB"/></animateMotion></circle><circle r="5" fill="#d98400"><animateMotion dur="3.6s" begin="-3s" repeatCount="indefinite"><mpath href="#flowB"/></animateMotion></circle>
+</svg></div>
+      <div class="stack">
+        <div class="box"><span class="ev">The science</span><p style="margin-top:8px">Your liver filters waste from your blood, packages it into bile, and sends the bile into your gut. But the gut is built to recycle: about 95% of bile acids get reabsorbed and sent back to the liver. This is called <b>enterohepatic circulation</b>, and some waste rides along with it. That means toxins can loop between gut, blood and liver over and over instead of leaving.</p></div>
+        <div class="box"><span class="ev y">Why binders work</span><p style="margin-top:8px">A binder sitting in your gut grabs that waste before it can be reabsorbed, so it leaves in your stool. Hospitals use the same idea: repeated doses of activated charcoal are given for some poisonings to break this gut–liver loop.</p></div>
+        <div class="warn"><b>Good to know</b><p>Binders work in your gut, not your bloodstream. They catch what your liver sends out and what's released in the gut. That's why drainage (Phase 01) has to stay open the whole time.</p></div>
+      </div>
+    </div>
+
+    <h3 class="subh">Why die-off makes you feel worse</h3>
+    <div class="grid3">
+      <div class="box"><span class="mono" style="color:#e3266f">1 · Release</span><h3 style="margin-top:6px">They break apart</h3><p>Dying parasites and the microbes around them release waste, cell debris and proteins your body sees as foreign.</p></div>
+      <div class="box"><span class="mono" style="color:#d98400">2 · React</span><h3 style="margin-top:6px">Your immune system fires</h3><p>Your body reacts to that debris with inflammation. Doctors even have a name for one version: the <b>Mazzotti reaction</b>, an itchy, feverish flare when river-blindness worms die fast during treatment.</p></div>
+      <div class="box"><span class="mono" style="color:#17a35f">3 · Remove</span><h3 style="margin-top:6px">It has to leave</h3><p>Your liver processes the waste and sends it to the gut. Binders and daily bowel movements carry it out so it doesn't keep cycling and stack up.</p></div>
+    </div>
+    <div class="box"><h3>Common die-off signs</h3><p>Headache, tiredness, brain fog, bloating, achy joints, a rash or itchy skin, low mood or feeling flu-ish, usually in the first few days of a round. These are signs to slow the kill herbs, raise binders and water, and make sure you're going to the bathroom, not signs to push harder.</p></div>
+
+    <h3 class="subh">How binders grab waste</h3>
+    <div class="grid3">
+      <div class="box"><span class="ev y">Surface</span><h3 style="margin-top:8px">Sticky surface</h3><p>Activated charcoal is full of tiny pores. One gram has over 500 square meters of surface, more than a tennis court, for waste to stick to.</p></div>
+      <div class="box"><span class="ev y">Charge</span><h3 style="margin-top:8px">Magnet-like charge</h3><p>Clays like bentonite carry a negative charge that pulls in positively charged toxins and metals. Zeolite traps them inside a cage-shaped crystal.</p></div>
+      <div class="box"><span class="ev y">Fiber</span><h3 style="margin-top:8px">Sponge &amp; sweep</h3><p>Psyllium and pectin form a gel that soaks up bile acids and sweeps the gut. Chlorella's tough cell walls bind some compounds as they pass through.</p></div>
+    </div>
+
+    <h3 class="subh">The binders, compared</h3>
     <div class="tbl">
       <table>
-        <thead><tr><th>Binder</th><th>Best for</th><th>How to take</th><th>Watch out</th><th>Where to buy</th></tr></thead>
+        <thead><tr><th>Binder</th><th>Best for</th><th>Evidence</th><th>How to take</th><th>Watch out</th><th>Where to buy</th></tr></thead>
         <tbody>
-          <tr><td>Activated charcoal</td><td>Wide range of toxins and gas. Hospitals use it for poisoning</td><td>With a big glass of water, follow label</td><td>Constipating. Blocks medications and birth control if taken too close. Turns stool black</td><td><a href="https://www.iherb.com/search?kw=activated%20charcoal" target="_blank" rel="noopener">iHerb</a></td></tr>
-          <tr><td>Bentonite clay<small>Food grade</small></td><td>Binds toxins and heavy metals in the gut</td><td>Stirred into water, follow label</td><td>Must say food or internal grade. Constipating</td><td><a href="https://www.iherb.com/search?kw=bentonite%20clay%20food%20grade" target="_blank" rel="noopener">iHerb</a></td></tr>
-          <tr><td>Zeolite<small>Clinoptilolite</small></td><td>Binds metals and ammonia</td><td>Powder in water, follow label</td><td>Buy purified, tested products</td><td><a href="https://www.iherb.com/search?kw=zeolite" target="_blank" rel="noopener">iHerb</a></td></tr>
-          <tr><td>Chlorella</td><td>Gentle everyday binder, also a food</td><td>Tablets with water</td><td>Start low. Can cause gas. Iodine sensitivity</td><td><a href="https://www.iherb.com/search?kw=chlorella" target="_blank" rel="noopener">iHerb</a></td></tr>
-          <tr><td>Psyllium husk</td><td>Fiber that sweeps and binds. Helps the other binders move</td><td>In a full glass of water, drink right away</td><td>Too little water causes blockage</td><td><a href="https://www.iherb.com/search?kw=psyllium%20husk" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Activated charcoal</td><td>Broad range of toxins, gas and bloating</td><td>Strong. The hospital standard for many poisonings</td><td>With 2 big glasses of water, follow label</td><td>Constipating. Blocks medications and birth control if taken too close. Turns stool black. Not for long, nonstop use</td><td><a href="https://www.iherb.com/search?kw=activated%20charcoal" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Bentonite clay<small>Food grade</small></td><td>Mold toxins, metals, gut irritation</td><td>Moderate. Clay is added to livestock feed to block aflatoxin, and a human trial in Ghana lowered aflatoxin levels</td><td>Stirred into water, follow label</td><td>Must say food or internal grade. Constipating</td><td><a href="https://www.iherb.com/search?kw=bentonite%20clay%20food%20grade" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Zeolite<small>Clinoptilolite</small></td><td>Metals and ammonia</td><td>Early. Mostly animal and lab studies</td><td>Powder in water, follow label</td><td>Buy purified, third-party tested products</td><td><a href="https://www.iherb.com/search?kw=zeolite" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Chlorella</td><td>Gentle everyday binding, also a food</td><td>Early. Small human studies</td><td>Tablets with water</td><td>Start low. Can cause gas. Iodine sensitivity</td><td><a href="https://www.iherb.com/search?kw=chlorella" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Psyllium husk</td><td>Bile acids, keeping things moving, helping other binders exit</td><td>Strong. Binds bile acids, with an FDA heart-health claim for lowering cholesterol</td><td>In a full glass of water, drink right away</td><td>Too little water can cause a blockage</td><td><a href="https://www.iherb.com/search?kw=psyllium%20husk" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Apple or citrus pectin</td><td>Gentle fiber binding</td><td>Early to moderate</td><td>Powder in water or from whole apples</td><td>Gas at first</td><td><a href="https://www.iherb.com/search?kw=pectin%20fiber" target="_blank" rel="noopener">iHerb</a></td></tr>
+          <tr><td>Cholestyramine<small>Prescription</small></td><td>Bile acids and certain toxin exposures</td><td>Strong. A prescription binder doctors use</td><td>Only through a doctor</td><td>Blocks many medications and vitamins. Constipating</td><td>Ask your doctor</td></tr>
         </tbody>
       </table>
     </div>
+
+    <h3 class="subh">Timing &amp; stacking</h3>
     <div class="grid2">
-      <div class="box"><h3>Simple binder stack</h3><p>Charcoal or clay in the mid-morning slot, chlorella or psyllium in the afternoon. Rotating binders spreads out what they grab and keeps you from getting backed up.</p></div>
-      <div class="warn"><b>The 2-hour rule</b><p>Binders don't pick and choose. Taken too close, they soak up your herbs, vitamins and medications, including birth control. Keep 2 hours on both sides.</p></div>
+      <div class="box"><h3>Simple binder stack</h3><ul>
+        <li><b>Mid-morning:</b> charcoal or clay, with 2 glasses of water.</li>
+        <li><b>Mid-afternoon:</b> chlorella or psyllium, with 2 glasses of water.</li>
+        <li><b>Rotate.</b> Different binders grab different things, and rotating keeps you from getting backed up.</li>
+        <li><b>Start in prep week</b> with one gentle binder, so your gut is used to it before the kill phase starts.</li>
+      </ul></div>
+      <div class="warn"><b>The 2-hour rule</b><p>Binders don't pick and choose. Taken too close, they soak up your herbs, vitamins, minerals and medications, including birth control. Keep 2 hours on both sides, and take minerals and multivitamins at a different time of day.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="box"><span class="ev y">Need more binder support</span><p style="margin-top:8px">Headaches, brain fog, rashes or flu-ish die-off while you're still going to the bathroom daily. Add your second binder slot or lower the kill herbs for a few days.</p></div>
+      <div class="warn stop"><b>Back off binders if</b><p>You haven't had a bowel movement in 2 days, your stools are hard, or you feel blocked or dizzy. A binder that can't leave just sits there holding the waste. Stop the binders, raise water, fiber and magnesium, and restart once you're regular again. Check with a doctor first if you've had a bowel blockage, take daily medications, or are pregnant.</p></div>
     </div>
   </div>
 </section>
